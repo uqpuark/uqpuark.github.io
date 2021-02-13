@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>머신러닝 on 데이터 사이언스 블로그</title>
+    <link>https://uqpuark.github.io/tags/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/</link>
+    <description>Recent content in 머신러닝 on 데이터 사이언스 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>uqpuark@gmail.com (upquark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (upquark)</webMaster>
+    <lastBuildDate>Sat, 13 Feb 2021 23:12:17 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[ESL] CH4 inear Methods for Classficiation</title>
+      <link>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</link>
+      <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</guid>
+      <description>목표 : 3/1 까지 업로드</description>
+    </item>
+    
+  </channel>
+</rss>

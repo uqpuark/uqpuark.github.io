@@ -6,7 +6,26 @@
     <description>Recent content in Categories on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
-    <webMaster>uqpuark@gmail.com (박재현)</webMaster><atom:link href="https://uqpuark.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>uqpuark@gmail.com (upquark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (upquark)</webMaster>
+    <lastBuildDate>Sat, 13 Feb 2021 23:12:17 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ESL</title>
+      <link>https://uqpuark.github.io/categories/esl/</link>
+      <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/categories/esl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NOTICE</title>
+      <link>https://uqpuark.github.io/categories/notice/</link>
+      <pubDate>Sat, 13 Feb 2021 23:02:34 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/categories/notice/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

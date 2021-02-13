@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear on 데이터 사이언스 블로그</title>
+    <link>https://uqpuark.github.io/tags/linear/</link>
+    <description>Recent content in Linear on 데이터 사이언스 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
+    <webMaster>uqpuark@gmail.com (박재현)</webMaster>
+    <lastBuildDate>Sat, 13 Feb 2021 23:11:36 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/linear/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[ESL] CH3 Linear Methods for Regression</title>
+      <link>https://uqpuark.github.io/esl/esl-ch3-regression/</link>
+      <pubDate>Sat, 13 Feb 2021 23:11:36 +0900</pubDate>
+      <author>uqpuark@gmail.com (박재현)</author>
+      <guid>https://uqpuark.github.io/esl/esl-ch3-regression/</guid>
+      <description>목표 : 2/20 까지 업로드</description>
+    </item>
+    
+  </channel>
+</rss>

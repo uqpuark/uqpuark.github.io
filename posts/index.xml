@@ -6,18 +6,20 @@
     <description>Recent content in Posts on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
-    <webMaster>uqpuark@gmail.com (박재현)</webMaster>
-    <lastBuildDate>Sat, 13 Feb 2021 13:45:03 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>uqpuark@gmail.com (upquark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (upquark)</webMaster>
+    <lastBuildDate>Sat, 13 Feb 2021 23:02:34 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>안녕하세요</title>
-      <link>https://uqpuark.github.io/posts/test/</link>
-      <pubDate>Sat, 13 Feb 2021 13:45:03 +0900</pubDate>
-      <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://uqpuark.github.io/posts/test/</guid>
-      <description>안녕하세요
-데이터사이언스에 필요한 수학과 통계학에 대해 정리해놓을 블로그입니다.
-많은 도움이 되었으면 좋겠습니다.</description>
+      <title>[공지] 블로그 소개</title>
+      <link>https://uqpuark.github.io/posts/notice-introduce/</link>
+      <pubDate>Sat, 13 Feb 2021 23:02:34 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/posts/notice-introduce/</guid>
+      <description>안녕하세요.
+데이터 사이언스에 필요한 수학과 통계학을 정리해보려고 합니다.
+원서나 책을 보면 쉽게 쉽게 넘어가는 부분을 하나하나 이유를 알고 넘어가기 위한 블로그 입니다.
+얼마나 열심히 할지는 모르겠지만 해보겠습니다.
+단순 라이브러리를 사용하는 개발자, 데이터 엔지니어가 아닌 데이터 사이언티스트를 꿈꾸는 분들에게 도움이 되었으면 좋겠습니다.</description>
     </item>
     
   </channel>

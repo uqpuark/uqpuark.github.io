@@ -6,7 +6,116 @@
     <description>Recent content in Tags on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
-    <webMaster>uqpuark@gmail.com (박재현)</webMaster><atom:link href="https://uqpuark.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>uqpuark@gmail.com (upquark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (upquark)</webMaster>
+    <lastBuildDate>Sat, 13 Feb 2021 23:12:17 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ESL</title>
+      <link>https://uqpuark.github.io/tags/esl/</link>
+      <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/esl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ML</title>
+      <link>https://uqpuark.github.io/tags/ml/</link>
+      <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>머신러닝</title>
+      <link>https://uqpuark.github.io/tags/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/</link>
+      <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>통계학</title>
+      <link>https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84%ED%95%99/</link>
+      <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84%ED%95%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>회귀분석</title>
+      <link>https://uqpuark.github.io/tags/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D/</link>
+      <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gauss Markov</title>
+      <link>https://uqpuark.github.io/tags/gauss-markov/</link>
+      <pubDate>Sat, 13 Feb 2021 23:11:36 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/gauss-markov/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lasso</title>
+      <link>https://uqpuark.github.io/tags/lasso/</link>
+      <pubDate>Sat, 13 Feb 2021 23:11:36 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/lasso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PCA</title>
+      <link>https://uqpuark.github.io/tags/pca/</link>
+      <pubDate>Sat, 13 Feb 2021 23:11:36 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/pca/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regression</title>
+      <link>https://uqpuark.github.io/tags/regression/</link>
+      <pubDate>Sat, 13 Feb 2021 23:11:36 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ridge</title>
+      <link>https://uqpuark.github.io/tags/ridge/</link>
+      <pubDate>Sat, 13 Feb 2021 23:11:36 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/ridge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Least Square</title>
+      <link>https://uqpuark.github.io/tags/least-square/</link>
+      <pubDate>Sat, 13 Feb 2021 23:10:30 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/least-square/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NOTICE</title>
+      <link>https://uqpuark.github.io/tags/notice/</link>
+      <pubDate>Sat, 13 Feb 2021 23:02:34 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/tags/notice/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
