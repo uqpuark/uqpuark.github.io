@@ -6,7 +6,53 @@
     <description>Recent content in Tags on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>your-email (your-name)</managingEditor>
-    <webMaster>your-email (your-name)</webMaster><atom:link href="https://upquark.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
+    <webMaster>uqpuark@gmail.com (박재현)</webMaster>
+    <lastBuildDate>Sat, 13 Feb 2021 20:58:16 +0900</lastBuildDate><atom:link href="https://upquark.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ESL</title>
+      <link>https://upquark.github.io/tags/esl/</link>
+      <pubDate>Sat, 13 Feb 2021 20:58:16 +0900</pubDate>
+      <author>uqpuark@gmail.com (박재현)</author>
+      <guid>https://upquark.github.io/tags/esl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://upquark.github.io/tags/machine-learning/</link>
+      <pubDate>Sat, 13 Feb 2021 20:58:16 +0900</pubDate>
+      <author>uqpuark@gmail.com (박재현)</author>
+      <guid>https://upquark.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ML</title>
+      <link>https://upquark.github.io/tags/ml/</link>
+      <pubDate>Sat, 13 Feb 2021 20:58:16 +0900</pubDate>
+      <author>uqpuark@gmail.com (박재현)</author>
+      <guid>https://upquark.github.io/tags/ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>통계학</title>
+      <link>https://upquark.github.io/tags/%ED%86%B5%EA%B3%84%ED%95%99/</link>
+      <pubDate>Sat, 13 Feb 2021 20:58:16 +0900</pubDate>
+      <author>uqpuark@gmail.com (박재현)</author>
+      <guid>https://upquark.github.io/tags/%ED%86%B5%EA%B3%84%ED%95%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>공지사항</title>
+      <link>https://upquark.github.io/tags/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/</link>
+      <pubDate>Sat, 13 Feb 2021 13:45:03 +0900</pubDate>
+      <author>uqpuark@gmail.com (박재현)</author>
+      <guid>https://upquark.github.io/tags/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
