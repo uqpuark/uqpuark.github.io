@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>데이터 사이언스 블로그</title>
-    <link>https://upquark.github.io/</link>
-    <description>Recent content on 데이터 사이언스 블로그</description>
+    <title>Posts on 데이터 사이언스 블로그</title>
+    <link>https://upquark.github.io/posts/</link>
+    <description>Recent content in Posts on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <managingEditor>your-email (your-name)</managingEditor>
     <webMaster>your-email (your-name)</webMaster>
-    <lastBuildDate>Sat, 13 Feb 2021 13:45:03 +0900</lastBuildDate><atom:link href="https://upquark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Feb 2021 13:45:03 +0900</lastBuildDate><atom:link href="https://upquark.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
       <link>https://upquark.github.io/posts/test/</link>
