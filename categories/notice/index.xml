@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notice on 데이터 사이언스 블로그</title>
-    <link>https://upquark.github.io/categories/notice/</link>
+    <link>https://uqpuark.github.io/categories/notice/</link>
     <description>Recent content in Notice on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
     <webMaster>uqpuark@gmail.com (박재현)</webMaster>
-    <lastBuildDate>Sat, 13 Feb 2021 13:45:03 +0900</lastBuildDate><atom:link href="https://upquark.github.io/categories/notice/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Feb 2021 13:45:03 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/notice/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>안녕하세요</title>
-      <link>https://upquark.github.io/posts/test/</link>
+      <link>https://uqpuark.github.io/posts/test/</link>
       <pubDate>Sat, 13 Feb 2021 13:45:03 +0900</pubDate>
       <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://upquark.github.io/posts/test/</guid>
+      <guid>https://uqpuark.github.io/posts/test/</guid>
       <description>안녕하세요
 데이터사이언스에 필요한 수학과 통계학에 대해 정리해놓을 블로그입니다.
 많은 도움이 되었으면 좋겠습니다.</description>

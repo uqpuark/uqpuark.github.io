@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on 데이터 사이언스 블로그</title>
-    <link>https://upquark.github.io/tags/machine-learning/</link>
+    <link>https://uqpuark.github.io/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
     <webMaster>uqpuark@gmail.com (박재현)</webMaster>
-    <lastBuildDate>Sat, 13 Feb 2021 20:58:16 +0900</lastBuildDate><atom:link href="https://upquark.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Feb 2021 20:58:16 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[ESL] CH2 Overveiw of Supervised Learning</title>
-      <link>https://upquark.github.io/esl/esl01/</link>
+      <link>https://uqpuark.github.io/esl/esl01/</link>
       <pubDate>Sat, 13 Feb 2021 20:58:16 +0900</pubDate>
       <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://upquark.github.io/esl/esl01/</guid>
+      <guid>https://uqpuark.github.io/esl/esl01/</guid>
       <description>내용추가</description>
     </item>
     
