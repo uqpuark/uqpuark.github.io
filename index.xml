@@ -7,57 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
-    <webMaster>uqpuark@gmail.com (박재현)</webMaster>
-    <lastBuildDate>Sat, 13 Feb 2021 22:20:11 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Esl04</title>
-      <link>https://uqpuark.github.io/esl/esl04/</link>
-      <pubDate>Sat, 13 Feb 2021 22:20:11 +0900</pubDate>
-      <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://uqpuark.github.io/esl/esl04/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[NOTICE] 안녕하세요</title>
-      <link>https://uqpuark.github.io/notice/test/</link>
-      <pubDate>Sat, 13 Feb 2021 21:31:25 +0900</pubDate>
-      <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://uqpuark.github.io/notice/test/</guid>
-      <description>안녕하세요.
-데이터 사이언스를 위한 수학과 통계학을 정리해놓을 예정입니다.
-대부분의 책이 생략해 놓은 부분을 하나하나 짚어가보려고 합니다.
-도움이 되었으면 좋겠습니다.</description>
-    </item>
-    
-    <item>
-      <title>[ESL] CH3 Linear Methods for Regression</title>
-      <link>https://uqpuark.github.io/esl/esl03/</link>
-      <pubDate>Sat, 13 Feb 2021 21:31:17 +0900</pubDate>
-      <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://uqpuark.github.io/esl/esl03/</guid>
-      <description>내용 추가</description>
-    </item>
-    
-    <item>
-      <title>[ESL] CH2 Overview of Supervised Learning</title>
-      <link>https://uqpuark.github.io/esl/esl02/</link>
-      <pubDate>Sat, 13 Feb 2021 21:31:13 +0900</pubDate>
-      <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://uqpuark.github.io/esl/esl02/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[ESL] Introduce</title>
-      <link>https://uqpuark.github.io/esl/esl01/</link>
-      <pubDate>Sat, 13 Feb 2021 21:31:08 +0900</pubDate>
-      <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://uqpuark.github.io/esl/esl01/</guid>
-      <description>The Elements of Statistical Learning을 정리하는 카테고리입니다.
-최소 CH10까지 정리하는게 목표지만 어디까지 할지는 모르겠네요
-ISLR은 잘 정리한 분이 계서서 참고했습니다. https://godongyoung.github.io/category/ML.html</description>
-    </item>
-    
+    <webMaster>uqpuark@gmail.com (박재현)</webMaster><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
