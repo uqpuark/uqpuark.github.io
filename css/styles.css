@@ -188,7 +188,7 @@ img {
   margin: -4px 0px 0px 0px;
   line-height: 1.2em;
   padding: 0px;
-  height: 20px;
+  height: 10px;
 }
 
 .post .post-meta time {
@@ -555,20 +555,21 @@ img {
 .right{
   float: right;
 }
-img {
+img { 
   max-width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
-img[src$='#center'] {
+img[src$='#center50'] {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 img[src$='#leftw'] {
   float: left;
   width: 50%;
+
 }
 img[src$='#rightw'] {
   float: right;
