@@ -113,6 +113,14 @@ img {
 }
 
 /* Summary */
+.summary-sep2 {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 0px auto;
+  width: 120px;
+}
 .summary-sep {
   border: 0;
   height: 0;
@@ -166,14 +174,23 @@ img {
 .post .post-meta a,
 .post .post-meta a:visited {
   display: block;
-  color: #4a4a4a;
+  color: #4a4a4a; 
   line-height: 2.1em;
 }
+
 .post .post-meta h1 {
   color: #6699ff;
-  margin: -4px 0px 40px 0px;
+  margin: -4px 0px 20px 0px;
   line-height: 1.2em;
 }
+.post .post-meta h2 {
+  color: #6699ff;
+  margin: -4px 0px 0px 0px;
+  line-height: 1.2em;
+  padding: 0px;
+  height: 20px;
+}
+
 .post .post-meta time {
   margin-bottom: 0px;
 }
@@ -524,3 +541,36 @@ img {
 }
 
 .tab { white-space: pre; }
+
+/* image 하나 올린때는 {{< figure src="/images/위치/파일.jpg" >}} 쓰고
+ 나란히 하고 싶을 때는  ![](/images/위치/파일.jpg#left)*/
+.center {
+  display: block;
+  margin: auto;
+}
+
+.left {
+  float: left;
+}
+.right{
+  float: right;
+}
+img {
+  max-width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+img[src$='#center'] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+img[src$='#leftw'] {
+  float: left;
+  width: 50%;
+}
+img[src$='#rightw'] {
+  float: right;
+  width: 50%;
+}
