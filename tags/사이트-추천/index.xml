@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>사이트 추천 on 데이터 사이언스 블로그</title>
+    <link>https://uqpuark.github.io/tags/%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%B6%94%EC%B2%9C/</link>
+    <description>Recent content in 사이트 추천 on 데이터 사이언스 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>uqpuark@gmail.com (upquark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (upquark)</webMaster>
+    <lastBuildDate>Mon, 15 Feb 2021 10:33:53 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%B6%94%EC%B2%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>데이터 사이언스 관련 사이트 추천</title>
+      <link>https://uqpuark.github.io/posts/recommand-sites/</link>
+      <pubDate>Mon, 15 Feb 2021 10:33:53 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/posts/recommand-sites/</guid>
+      <description>데이터 사이언스  Pabii(파비블로그) : 머신러닝, 데이터 사이언스에 대한 인식을 바꿔주는 블로그.</description>
+    </item>
+    
+  </channel>
+</rss>

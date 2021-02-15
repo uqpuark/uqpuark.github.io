@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (upquark)</managingEditor>
     <webMaster>uqpuark@gmail.com (upquark)</webMaster>
-    <lastBuildDate>Sat, 13 Feb 2021 23:02:34 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/notice/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Feb 2021 10:33:53 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/notice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>데이터 사이언스 관련 사이트 추천</title>
+      <link>https://uqpuark.github.io/posts/recommand-sites/</link>
+      <pubDate>Mon, 15 Feb 2021 10:33:53 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/posts/recommand-sites/</guid>
+      <description>데이터 사이언스  Pabii(파비블로그) : 머신러닝, 데이터 사이언스에 대한 인식을 바꿔주는 블로그.</description>
+    </item>
+    
     <item>
       <title>[공지] 블로그 소개</title>
       <link>https://uqpuark.github.io/posts/notice-introduce/</link>
@@ -16,10 +25,8 @@
       <author>uqpuark@gmail.com (upquark)</author>
       <guid>https://uqpuark.github.io/posts/notice-introduce/</guid>
       <description>안녕하세요.
-데이터 사이언스에 필요한 수학과 통계학을 정리해보려고 합니다.
-원서나 책을 보면 쉽게 쉽게 넘어가는 부분을 하나하나 이유를 알고 넘어가기 위한 블로그 입니다.
-얼마나 열심히 할지는 모르겠지만 해보겠습니다.
-단순 라이브러리를 사용하는 개발자, 데이터 엔지니어가 아닌 데이터 사이언티스트를 꿈꾸는 분들에게 도움이 되었으면 좋겠습니다.</description>
+현재 산업공학과 4학년에 재학중인 학생입니다.
+데이터 사이언스에 필요한 수학과 통계학을 정리해보려고 합니다.</description>
     </item>
     
   </channel>

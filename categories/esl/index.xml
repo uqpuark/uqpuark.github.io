@@ -37,14 +37,12 @@
     </item>
     
     <item>
-      <title>[ESL] 소개 </title>
+      <title>[ESL] CH1 Introduce </title>
       <link>https://uqpuark.github.io/esl/esl-ch01-introduce/</link>
       <pubDate>Sat, 13 Feb 2021 23:09:00 +0900</pubDate>
       <author>uqpuark@gmail.com (upquark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch01-introduce/</guid>
-      <description>The Elements of Statistical Learning을 정리하는 카테고리입니다.
-최소 CH10까지 정리하는게 목표지만 어디까지 할지는 모르겠네요.
-ISLR은 잘 정리한 분이 계셔서 참고했습니다. https://godongyoung.github.io/category/ML.html/</description>
+      <description>The Elements of Statistical Learning을 정리하는 카테고리입니다.</description>
     </item>
     
   </channel>

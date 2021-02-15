@@ -3,14 +3,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[ESL] 소개   | 데이터 사이언스 블로그</title>
-  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] 소개 '을 한 번 살펴보세요.">
-  <meta property="og:title" content="[ESL] 소개 ">
+  <title>[ESL] CH1 Introduce   | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] CH1 Introduce '을 한 번 살펴보세요.">
+  <meta property="og:title" content="[ESL] CH1 Introduce ">
   
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2021-02-13">
   
-  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] 소개 '을 한 번 살펴보세요.">
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] CH1 Introduce '을 한 번 살펴보세요.">
   <meta property="og:url" content="https://uqpuark.github.io/esl/esl-ch01-introduce/">
   <meta property="og:site_name" content="데이터 사이언스 블로그">
   
@@ -33,12 +33,12 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
   
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-XXXXXXXX-X');
+    gtag('config', 'UA-189694109-1');
   </script>
   
   
@@ -75,25 +75,105 @@
   </div>
   <div class="container">    
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
 <div class="post">
   <div class="post-title">
     <a href="https://uqpuark.github.io/esl/esl-ch01-introduce/">
       <div class="post-meta">
         <time>2021년 02월 13일 23시 09분</time>
-        <h1>[ESL] 소개 </h1>
+        <h1>[ESL] CH1 Introduce </h1>
       </div>
     </a>
   </div>
   <section class="post-content">
     <p>The Elements of Statistical Learning을 정리하는 카테고리입니다.</p>
-<p>최소 CH10까지 정리하는게 목표지만 어디까지 할지는 모르겠네요.</p>
-<p>ISLR은 잘 정리한 분이 계셔서 참고했습니다. <a href="https://godongyoung.github.io/category/ML.html/">https://godongyoung.github.io/category/ML.html/</a></p>
+<h2 id="개요">개요</h2>
+<p>ESL은 대학원 교재에서 많이 쓰이는 계산통계학 중심의 입니다.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>책에 수식이 많은데, 쉽게 쉽게 넘어가는 부분이 많아서 학부따리가 그냥 보기는 힘들더라고요.<br>
+그래서 학부생 레벨에서 이해가 안되거나, 쉽게 받아들여지지않는 부분(튕긴다고 표현)을 중점으로 정리를 하려고 합니다.<br>
+실력이 없어서 틀린 내용이 있을 수 있으니 많은 지적 바랍니다.</p>
+<h2 id="용어">용어</h2>
+<p>사람들 마다 행렬 표현이 미묘하게 달라서 정리가 안되면 되게 헷갈리는 부분이 많아 질 겁니다.(제가 그랬습니다.) ESL에 있는 표현을 기준으로 제시하고, 수식이 나올 때 마다 표현식을 한 번 쓰고 가겠습니다.</p>
+<h3 id="벡터는-열벡터column-vector"><strong>벡터는 열벡터(column vector)</strong></h3>
+<p>\( x_i = \begin{pmatrix} x_{11} \ x_{21} \ \vdots \ x_{n1} \end{pmatrix} \)<br>
+\( x_i^T = \begin{pmatrix} x_{11} &amp; x_{21} &amp; \vdots &amp; x_{n1} \end{pmatrix} \)</p>
+<blockquote>
+<p>벡터는 종 벡터가 원칙인데, 공간 낭비가 되니깐 행 벡터로 표현(transpose 표현)</p>
+</blockquote>
+<h3 id="generic-aspects-of-a-variable일반적인-형태"><strong>Generic aspects of a variable(일반적인 형태)</strong></h3>
+<blockquote>
+<p>식을 나타낼때 일반적으로 쓸거라는 소리인 것 같다</p>
+</blockquote>
+<ul>
+<li>vector로서 표현<br>
+\( X\) : input variable, \( X\)의 component(성분)은 \( X_j\)로 접근(can be accessed라고 하는데 잘 모르겠다)<br>
+\( Y \) : output variable, Quantitative outputs(정량적)<br>
+\( G \) : output variable, Qualitative outputs(범주형)</li>
+</ul>
+<h3 id="overserved-value관측값"><strong>Overserved value(관측값)</strong></h3>
+<p>\( x_i \) : \( p \)-vector \( i \)th observed value of \( X \)</p>
+<blockquote>
+<p>\( x_i \)가 상황에 따라 스칼라일 때도 있고, 벡터일 때도 있다. 알아서 잘 판단하자.<br>
+N개의 성분을 갖는 경우를 제외하고, 벡터는 bold체로 쓰지 않는다.(\( \bold{x}_j \))</p>
+</blockquote>
+<h4 id="-p-vector-vs-n-vector-비교httpsstatsstackexchangecomquestions224374help-understanding-p-vector-language-2">* <a href="https://stats.stackexchange.com/questions/224374/help-understanding-p-vector-language">p-vector vs N-vector 비교</a> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h4>
+<ol>
+<li>p-vector of inputs \( x_i \) for the \( i \)th observation</li>
+<li>N-vector \( \bold{x}_j \) consisting of all the observations on variable \( X_j \) (bold체로 쓰는 경우, 모든 관측치 N개의 각각 j번째에 있는 성분들로 구성되어있음)</li>
+</ol>
+<p>\( \bold{X} = \begin{pmatrix} x_{11} &amp; x_{12} \cdots &amp; x_{1p}\ x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p}\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots\ x_{N1} &amp; x_{N2} &amp; \cdots &amp; x_{Np}  \end{pmatrix} \)</p>
+<p>\( x_i = \begin{pmatrix} x_{i1} \ x_{i2} \ \vdots \ x_{ip} \end{pmatrix} \)          
+\( x_i^T = \begin{pmatrix} x_{i1} &amp;&amp; x_{i2} &amp;&amp; \cdots &amp;&amp; x_{ip} \end{pmatrix} \)<br>
+\( \bold{x}_j = \begin{pmatrix} x_{1j} \ x_{2j} \ \vdots \ x_{nj} \end{pmatrix} \)</p>
+<h3 id="matrices행렬"><strong>Matrices(행렬)</strong></h3>
+<p>\( \bold{X} :  N \times p  \), a set of \( N \) input p-vectors \( x_i, i=1,&hellip;,N \) (p-vecotrs N개로 이루어진 집합)</p>
+<p>\( \bold{X} = \begin{bmatrix} X_1 &amp; X_2 &amp; \cdots &amp; X_p \end{bmatrix} \)<br>
+\( \bold{X}^T = \begin{bmatrix} X_1^T \ X_2^T \ \vdots \ X_p^T \end{bmatrix} \)</p>
+<blockquote>
+<p>N은 데이터(response, 종속변수)의 개수, P는 차원(feature, 독립변수)의 개수라고 생각하는게 편할듯?<br>
+\( X^T = \left( X_1\ X_2\ \cdots\ X_p\ \right) \) : 다음 장 초반에 이러한 수식이 나오는데, 이건 행렬이 아니고 벡터라고 하네요. X의 j번째 성분이 \( X_j \)인 것.(벡터라고 생각하면 행렬이 되는 것이고, 스칼라고 생각하면 벡터가 되는 거라고 생각하기로 했습니다.)</p>
+</blockquote>
+<blockquote>
+<p>\( \bold{X} = \begin{bmatrix} \vert   &amp; \vert &amp; \vert &amp; \vert \ X_1 &amp; X_2 &amp; \cdots &amp; X_p \ \vert &amp; \vert &amp; \vert &amp; \vert \end{bmatrix} \) : 저는 이런 형태로 행렬 표현하는게 익숙합니다.</p>
+</blockquote>
+<h2 id="ps">P.S.</h2>
+<p>이거 정리안하고 했다가 CH3에서 헷갈려서 시간 날렸다. 선형대수 뒷부분에 있는 내용(quadratic form, gram-schmit, SVD)을 대충 날렸더니 개념이 들어오다가 튕긴다.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://blog.pabii.co.kr/study-textbook-recommendation/">https://blog.pabii.co.kr/study-textbook-recommendation/</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://stats.stackexchange.com/questions/224374/help-understanding-p-vector-language">https://stats.stackexchange.com/questions/224374/help-understanding-p-vector-language</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
   
     
     <div class="post-toc">
-      <span class="title">차례는 제가 보려고 만들어 놓은 것입니다. 처음부터 읽어주세요</span>
-      <nav id="TableOfContents"></nav>
+      <span class="title">차례</span>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#용어">용어</a>
+      <ul>
+        <li><a href="#벡터는-열벡터column-vector"><strong>벡터는 열벡터(column vector)</strong></a></li>
+        <li><a href="#generic-aspects-of-a-variable일반적인-형태"><strong>Generic aspects of a variable(일반적인 형태)</strong></a></li>
+        <li><a href="#overserved-value관측값"><strong>Overserved value(관측값)</strong></a></li>
+        <li><a href="#matrices행렬"><strong>Matrices(행렬)</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#ps">P.S.</a></li>
+  </ul>
+</nav>
     </div>
     <div style='padding:15px;'>
     </div>
