@@ -18,5 +18,14 @@
       <description>목표 : 3/1 까지 업로드</description>
     </item>
     
+    <item>
+      <title>[ESL] CH1 Introduce </title>
+      <link>https://uqpuark.github.io/esl/esl-ch01-introduce/</link>
+      <pubDate>Sat, 13 Feb 2021 23:09:00 +0900</pubDate>
+      <author>uqpuark@gmail.com (upquark)</author>
+      <guid>https://uqpuark.github.io/esl/esl-ch01-introduce/</guid>
+      <description>The Elements of Statistical Learning을 정리하는 카테고리입니다.</description>
+    </item>
+    
   </channel>
 </rss>

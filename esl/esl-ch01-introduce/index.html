@@ -14,12 +14,12 @@
   <meta property="og:url" content="https://uqpuark.github.io/esl/esl-ch01-introduce/">
   <meta property="og:site_name" content="데이터 사이언스 블로그">
   
-  <meta property="og:image" content="https://uqpuark.github.io/images/esl/bookcover.jpg">
+  <meta property="og:image" content="https://uqpuark.github.io/images/esl/ch1.jpg">
   
   
   <meta property="og:tags" content="ESL">
   
-  <meta property="og:tags" content="ML">
+  <meta property="og:tags" content="머신러닝">
   
   <meta property="og:tags" content="통계학">
   
@@ -66,15 +66,6 @@
     </div>
     <div id="menu" class="menu hidden">
       <ul>
-        <script>
-window.store = {
-    
-    
-}
-</script>
-
-<script src="/js/lunr.min.js"></script>
-<script src="/js/search.js"></script>
         <li><form id="search"
     action='' method="get">
     <label hidden for="search-input">Search site</label>
@@ -111,13 +102,34 @@ window.store = {
     </a>
   </div>
   <section class="post-content">
-    <p><img src="/images/esl/bookcover.jpg#center50" alt=""></p>
+    <figure><a href="https://web.stanford.edu/~hastie/ElemStatLearn/">
+    <img src="/images/esl/ch1.jpg"/> </a>
+</figure>
+
 <p><strong>The Elements of Statistical Learning을 정리하는 카테고리입니다.</strong></p>
-<h2 id="개요">개요</h2>
+<h2 id="시작">시작</h2>
 <p>ESL은 대학원 교재에서 많이 쓰이는 계산통계학 중심의 교재입니다.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <p>책에 수식이 많은데, 쉽게 쉽게 넘어가는 부분이 많아서 학부따리가 그냥 보기는 힘들더라고요.<br>
 그래서 학부생 레벨에서 이해가 안되거나, 쉽게 받아들여지지않는 부분(튕긴다고 표현)을 중점으로 정리를 하려고 합니다.<br>
 실력이 없어서 틀린 내용이 있을 수 있으니 많은 지적 바랍니다.</p>
+<h3 id="목차">목차</h3>
+<p>목차를 보면 딥러닝은 있지도 않고, 뉴럴 네트워크도 한 챕터 밖에 없다. 내가 아는 사람의 말을 빌리자면 &ldquo;주제가 old-fashioned 하다&quot;고 평했다. 딥러닝이 최신의 머신러닝이라고 한다면 로지스틱 리그레션, svm, knn은 고전적인 머신러닝이라고 할 수 있을 것이다. 이 책에서는 고전적인 머신러닝 기법들을 다루고 있다.</p>
+<h3 id="parametric-vs-non-parametric비모수">Parametric vs Non-parametric(비모수)</h3>
+<p>그러면 왜 딥러닝 안 배우고, 이런 거 배우나요? 라는 질문에 답을 해야 한다.<br>
+결론적으로는 딥러닝은 Non-parametric 모델이라 결과에 대해서만 이야기 할 수 있다. 결과값이 80%였는데, 딥러닝을 쓰니 90%로 올랐다 같은 이야기만 가능한 것이다. 다시 아는 사람의 말을 빌리자면 &ldquo;고전적인 머신러닝에서는 모델이 왜 좋은지, 결과값이 어떻게 이렇게 나왔는지 수학적으로 설명할 수 있지만, 딥러닝은 설명을 못한다. 하지만 딥러닝 모델에 쓰이는 방법론은 수학적 직관이 굉장히 필요하다.&ldquo;고 한다.</p>
+<p>따라서 우리는 과정을 설명하기 위하여 Non-parametric 모델이 아닌 Parametric 모델을 사용해야 한다.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 왜 과정을 설명해야하냐고 물어본다면? 설명을 못하기 때문에 결정을 내리기에 근거가 부족하고, 실제로 라이브러리만 갖다가 사용했따가는 좋은 결과도 보장하지 못한다. (결과가 좋지 않다는 것은 다양한 의미를 포함한다 : 코스트가 높다, 성능이 좋지 않다, 느리다 등)</p>
+<ul>
+<li>
+<p><strong>Parametric 모델</strong>은 모형(공식)을 가정하고 접근한다(model-based approach). 가정이 올바르다면, 계산 과정도 공식에 나타나고, 추정의 대상도 전체에서 우리가 가정한 parameters(모수)로 단순화 된다. 우리가 가정한 모형이 틀리다면 수정을 해줄 수도 있다. Gauss-Markov theory를 만족하는 경우 Least Square Estimator(최소 제곱 추정량)이 BLUE(Best Linear Unbiased Estimators)라는 사실은 parametric 모델의 강점을 나타내주고 있다.</p>
+</li>
+<li>
+<p><strong>Non-parametric 모델</strong>은 가정이 없다. 모형에 대한 가정이 없어 가능한 피팅(fit)이 유연하여 parametric 모델 보다 실제 값에 더 적합할 가능성이 높다. 하지만 parameters(모수) 추정의 문제로 단순화 되지 않아 일반적으로 더 많은 데이터가 필요하다.</p>
+</li>
+</ul>
+<blockquote>
+<p>물론 똑똑한 사람은 Non-parametric 모델을 설명 할 수 있지 않을까?
+(확실히 알고있는 내용 아님) 듣기로는 non-parametric을 highly-parametric(정확한 용어 모름)이라고도 부른다고 한다. non-parametric이 parameters가 없다는 의미가 아니라 고정 되어있지 않다는 의미라고 생각하면, parameters가 매우 많은 것(우리가 쉽게 알기 힘든)도 같은 맥락이지 않을까?<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+</blockquote>
 <h2 id="용어">용어</h2>
 <p>사람들 마다 행렬 표현이 미묘하게 달라서 정리가 안되면 되게 헷갈리는 부분이 많아 질 겁니다.(제가 그랬습니다.) ESL에 있는 표현을 기준으로 제시하고, 수식이 나올 때 마다 표현식을 한 번 쓰고 가겠습니다.</p>
 <h3 id="벡터는-열벡터column-vector"><strong>벡터는 열벡터(column vector)</strong></h3>
@@ -162,9 +174,20 @@ N개의 성분을 갖는 경우를 제외하고, 벡터는 bold체로 쓰지 않
 <blockquote>
 <p>\( \bold{X} = \begin{bmatrix} \vert   &amp; \vert &amp; \vert &amp; \vert \\\ X_1 &amp; X_2 &amp; \cdots &amp; X_p \\\ \vert &amp; \vert &amp; \vert &amp; \vert \end{bmatrix} \) : 저는 이런 형태로 행렬 표현하는게 익숙합니다.</p>
 </blockquote>
-<h2 id="ps">P.S.</h2>
-<p>이거 정리안하고 했다가 CH3에서 헷갈려서 시간 날렸다. 선형대수 뒷부분에 있는 내용(quadratic form, gram-schmit, SVD)을 대충 날렸더니 개념이 들어오다가 튕긴다. 반성하자<br>
-+ 열 벡터가 왜 안되지 : \\가 아니라 \\\\을 입력해줘야함</p>
+<h2 id="끝">끝</h2>
+<p>ch1이 아니라 한 ch1.5인것 같네요. 잘 모르면 ISLR도 같이 봐서 ISLR 내용도 같이 나올 겁니다. 이 페이지에서는 밑에 3개 개념 생각해보고, 고민해보면 만족스러울 것 같네요</p>
+<ol>
+<li>왜 딥러닝 말고 이런 애들 공부하는지</li>
+<li>Parametric, Non-parametric의 개념</li>
+<li>행렬 표현 익숙해지기</li>
+</ol>
+<h3 id="참조">참조</h3>
+<ul>
+<li><a href="https://blog.pabii.co.kr/deep-learning-most-inferior-model/">딥러닝이 제일 열등한 모델인데 몰랐어? - pabii</a></li>
+<li><a href="https://blog.pabii.co.kr/ai-maniac-engineers-dellusion/">AI 마니악들의 착각 - pabii</a></li>
+<li><a href="https://godongyoung.github.io/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/2018/01/12/ISL-An_Overview_of_Statistical_Learning_ch2.html">[ISL] 2장 - An Overview of Statistical Learning - GO&rsquo;s blog</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nonparametric_statistics">Nonparametric statistics - Wikipedia</a></li>
+</ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -172,7 +195,10 @@ N개의 성분을 갖는 경우를 제외하고, 벡터는 bold체로 쓰지 않
 <p><a href="https://blog.pabii.co.kr/study-textbook-recommendation/">https://blog.pabii.co.kr/study-textbook-recommendation/</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p><a href="https://stats.stackexchange.com/questions/224374/help-understanding-p-vector-language">https://stats.stackexchange.com/questions/224374/help-understanding-p-vector-language</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>사용해야 한다 보다는 사용하면 좋다, parametric으로 변환시키려는 시도를 해야한다 정도 <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>The term non-parametric is not meant to imply that such models completely lack parameters but that the number and nature of the parameters are flexible and not fixed in advance.(<a href="https://en.wikipedia.org/wiki/Nonparametric_statistics">https://en.wikipedia.org/wiki/Nonparametric_statistics</a>) <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -183,7 +209,12 @@ N개의 성분을 갖는 경우를 제외하고, 벡터는 bold체로 쓰지 않
       <span class="title">Contents</span>
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#개요">개요</a></li>
+    <li><a href="#시작">시작</a>
+      <ul>
+        <li><a href="#목차">목차</a></li>
+        <li><a href="#parametric-vs-non-parametric비모수">Parametric vs Non-parametric(비모수)</a></li>
+      </ul>
+    </li>
     <li><a href="#용어">용어</a>
       <ul>
         <li><a href="#벡터는-열벡터column-vector"><strong>벡터는 열벡터(column vector)</strong></a></li>
@@ -192,7 +223,11 @@ N개의 성분을 갖는 경우를 제외하고, 벡터는 bold체로 쓰지 않
         <li><a href="#matrices행렬"><strong>Matrices(행렬)</strong></a></li>
       </ul>
     </li>
-    <li><a href="#ps">P.S.</a></li>
+    <li><a href="#끝">끝</a>
+      <ul>
+        <li><a href="#참조">참조</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -228,7 +263,7 @@ N개의 성분을 갖는 경우를 제외하고, 벡터는 bold체로 쓰지 않
         
         <a href="https://uqpuark.github.iotags/esl">#ESL</a>
         
-        <a href="https://uqpuark.github.iotags/ml">#ML</a>
+        <a href="https://uqpuark.github.iotags/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D">#머신러닝</a>
         
         <a href="https://uqpuark.github.iotags/%ED%86%B5%EA%B3%84%ED%95%99">#통계학</a>
         
@@ -277,7 +312,15 @@ N개의 성분을 갖는 경우를 제외하고, 벡터는 bold체로 쓰지 않
   </div>
   COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
   ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
 
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
 </footer>
 </body>
 </html>
