@@ -256,6 +256,7 @@ img {
 .post .post-content blockquote {
   border-left: #717171 solid 4px;
   padding-left: 10px;
+  font-family: 'Noto Sans KR';
 }
 .post .post-content dt {
   font-weight: bold;

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dsstudies on 데이터 사이언스 블로그</title>
+    <link>https://uqpuark.github.io/dsstudy/</link>
+    <description>Recent content in Dsstudies on 데이터 사이언스 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
+    <lastBuildDate>Thu, 18 Feb 2021 15:30:22 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/dsstudy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[DS] 3회차 - 데이터 그룹핑</title>
+      <link>https://uqpuark.github.io/dsstudy/3_data_grouping/</link>
+      <pubDate>Thu, 18 Feb 2021 15:30:22 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/dsstudy/3_data_grouping/</guid>
+      <description>Section 1. K-Nearest Neighbor Section 2. K-Means Section 3.</description>
+    </item>
+    
+  </channel>
+</rss>

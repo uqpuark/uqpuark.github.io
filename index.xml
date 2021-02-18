@@ -6,14 +6,32 @@
     <description>Recent content on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>uqpuark@gmail.com (upquark)</managingEditor>
-    <webMaster>uqpuark@gmail.com (upquark)</webMaster>
-    <lastBuildDate>Mon, 15 Feb 2021 10:33:53 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
+    <lastBuildDate>Thu, 18 Feb 2021 15:30:22 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[DS] 3회차 - 데이터 그룹핑</title>
+      <link>https://uqpuark.github.io/dsstudy/3_data_grouping/</link>
+      <pubDate>Thu, 18 Feb 2021 15:30:22 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/dsstudy/3_data_grouping/</guid>
+      <description>Section 1. K-Nearest Neighbor Section 2. K-Means Section 3.</description>
+    </item>
+    
+    <item>
+      <title>Hat_matrix</title>
+      <link>https://uqpuark.github.io/math/hat_matrix/</link>
+      <pubDate>Wed, 17 Feb 2021 20:40:47 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/math/hat_matrix/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>데이터 사이언스 관련 사이트 추천</title>
       <link>https://uqpuark.github.io/posts/recommand-sites/</link>
       <pubDate>Mon, 15 Feb 2021 10:33:53 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/posts/recommand-sites/</guid>
       <description>데이터 사이언스  Pabii(파비) : 머신러닝, 데이터 사이언스에 대한 인식이 바뀌고, 대하는 태도가 달라진다.</description>
     </item>
@@ -22,7 +40,7 @@
       <title>[ESL] CH4 inear Methods for Classficiation</title>
       <link>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</link>
       <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</guid>
       <description>목표 : 3/1 까지 업로드</description>
     </item>
@@ -31,16 +49,17 @@
       <title>[ESL] CH3 Linear Methods for Regression</title>
       <link>https://uqpuark.github.io/esl/esl-ch3-regression/</link>
       <pubDate>Sat, 13 Feb 2021 23:11:36 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch3-regression/</guid>
-      <description>목표 : 2/20 까지 업로드</description>
+      <description>목표 : 2/20 까지 업로드
+미분 미분 말고 HAt matrix를 이용해서 보이는 방법도 있따.</description>
     </item>
     
     <item>
       <title>[ESL] CH2 Overview of Supervised Learning</title>
       <link>https://uqpuark.github.io/esl/esl-ch02-overview/</link>
       <pubDate>Sat, 13 Feb 2021 23:10:30 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch02-overview/</guid>
       <description>시작 CH2에서는 Least Squares와 Nearest Neighbors을 이용하여 앞으로 공부할 내용을 쭉 훑어본다.</description>
     </item>
@@ -49,7 +68,7 @@
       <title>[ESL] CH1 Introduce </title>
       <link>https://uqpuark.github.io/esl/esl-ch01-introduce/</link>
       <pubDate>Sat, 13 Feb 2021 23:09:00 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch01-introduce/</guid>
       <description>The Elements of Statistical Learning을 정리하는 카테고리입니다.</description>
     </item>
@@ -58,7 +77,7 @@
       <title>[공지] 블로그 소개</title>
       <link>https://uqpuark.github.io/posts/notice-introduce/</link>
       <pubDate>Sat, 13 Feb 2021 23:02:34 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/posts/notice-introduce/</guid>
       <description>안녕하세요.
 현재 산업공학과 4학년에 재학중인 학생입니다.

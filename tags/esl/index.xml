@@ -6,14 +6,14 @@
     <description>Recent content in ESL on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>uqpuark@gmail.com (upquark)</managingEditor>
-    <webMaster>uqpuark@gmail.com (upquark)</webMaster>
+    <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
     <lastBuildDate>Sat, 13 Feb 2021 23:12:17 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/esl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[ESL] CH4 inear Methods for Classficiation</title>
       <link>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</link>
       <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</guid>
       <description>목표 : 3/1 까지 업로드</description>
     </item>
@@ -22,16 +22,17 @@
       <title>[ESL] CH3 Linear Methods for Regression</title>
       <link>https://uqpuark.github.io/esl/esl-ch3-regression/</link>
       <pubDate>Sat, 13 Feb 2021 23:11:36 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch3-regression/</guid>
-      <description>목표 : 2/20 까지 업로드</description>
+      <description>목표 : 2/20 까지 업로드
+미분 미분 말고 HAt matrix를 이용해서 보이는 방법도 있따.</description>
     </item>
     
     <item>
       <title>[ESL] CH2 Overview of Supervised Learning</title>
       <link>https://uqpuark.github.io/esl/esl-ch02-overview/</link>
       <pubDate>Sat, 13 Feb 2021 23:10:30 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch02-overview/</guid>
       <description>시작 CH2에서는 Least Squares와 Nearest Neighbors을 이용하여 앞으로 공부할 내용을 쭉 훑어본다.</description>
     </item>
@@ -40,7 +41,7 @@
       <title>[ESL] CH1 Introduce </title>
       <link>https://uqpuark.github.io/esl/esl-ch01-introduce/</link>
       <pubDate>Sat, 13 Feb 2021 23:09:00 +0900</pubDate>
-      <author>uqpuark@gmail.com (upquark)</author>
+      <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch01-introduce/</guid>
       <description>The Elements of Statistical Learning을 정리하는 카테고리입니다.</description>
     </item>
