@@ -219,7 +219,7 @@ $$ \hat{\beta}=\left( \bold{X}^T\bold{X} \right)^{-1}\bold{X}^T\bold{y} $$</p>
 </blockquote>
 <h3 id="scenario">Scenario</h3>
 <p>Scenario 1: 각각의 클래스(파랑, 주황)는 각각 노말 분포로 생성되었고, 서로 평균이 다르고 상관관계가 없다.<br>
-Scenario 2: 각각의 클래스(파랑, 주황)는 하나당 10개의 분포(분산이 작음)의 혼합이고, 10개의 분포는 서로 평균이 다르고, 정규분포를 따른다. (<a href="https://stats.stackexchange.com/questions/81197/can-someone-please-explain-to-me-what-the-particular-scenarios-mean">참고</a>)</p>
+Scenario 2: 각각의 클래스(파랑, 주황)는 하나당 10개의 분포(분산이 작음)의 혼합이고, 10개의 분포는 서로 평균이 다르고, 정규분포를 따른다. (<a href="https://stats.stackexchange.com/questions/81197/can-someone-please-explain-to-me-what-the-particular-scenarios-mean">시각적으로 이해를 돕기 위한 링크</a>)</p>
 <p>least square는 시나리오1의 상황에 적절한 방법이고, k-nn은 시나리오2에 적절한 분류 방법이라고 한다. least square는 직선으로 decision boundary가 형성되므로 low variance, high bias를 갖는다. 반면, knn은 high variance, low bias를 갖는다. (p17에서 \( N(( 1, 0)^T , {\bold{I} \over 5}) \)으로 데이터를 생성하는데, 그냥 예시를 들기위해 I/5로 나눈 것이다.)</p>
 <ul>
 <li>Neural network models consist of sums of nonlinearly transformed linear models.(p18) : 뉴럴 네트워크는 선형 모형의 결합이다. 이러한 사실을 알고 있어야 한다.</li>
