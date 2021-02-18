@@ -8,16 +8,7 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Thu, 18 Feb 2021 15:30:22 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[DS] 3회차 - 데이터 그룹핑</title>
-      <link>https://uqpuark.github.io/dsstudy/3_data_grouping/</link>
-      <pubDate>Thu, 18 Feb 2021 15:30:22 +0900</pubDate>
-      <author>uqpuark@gmail.com (uqpuark)</author>
-      <guid>https://uqpuark.github.io/dsstudy/3_data_grouping/</guid>
-      <description>Section 1. K-Nearest Neighbor Section 2. K-Means Section 3.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 17 Feb 2021 20:40:47 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hat_matrix</title>
       <link>https://uqpuark.github.io/math/hat_matrix/</link>
