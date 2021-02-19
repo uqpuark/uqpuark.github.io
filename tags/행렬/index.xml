@@ -8,9 +8,18 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Wed, 17 Feb 2021 20:40:47 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%ED%96%89%EB%A0%AC/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Feb 2021 21:04:38 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%ED%96%89%EB%A0%AC/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hat Matrix</title>
+      <title>[행렬]Quadratic form</title>
+      <link>https://uqpuark.github.io/math/quadratic_form/</link>
+      <pubDate>Fri, 19 Feb 2021 21:04:38 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/math/quadratic_form/</guid>
+      <description>Derivative of a Quadratic Form  Let \( \vec{a} = (a_1,a_2,\cdots,a_n)^T, \vec{\mu} = ( \mu_1, \mu_2, \cdots , \mu_n)^T \)  \( \begin{aligned} &amp;amp;{ \partial \vec{a}^T\vec{\mu} \over \partial \vec{\mu} } = { \partial \vec{\mu}^T\vec{a} \over \partial \vec{\mu} } = { \partial \over \partial \vec{\mu} }\sum_{i=1}^aa_iu_i \\\ &amp;amp;= [ { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_1 } \cdots { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_n } ] \\\ &amp;amp;= [ a_1, a_2, \cdots, a_n ] \\\ &amp;amp;= a^T \end{aligned} \)</description>
+    </item>
+    
+    <item>
+      <title>[행렬]Hat Matrix</title>
       <link>https://uqpuark.github.io/math/hat_matrix/</link>
       <pubDate>Wed, 17 Feb 2021 20:40:47 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>

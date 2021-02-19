@@ -3,15 +3,15 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[행렬]Hat Matrix  | 데이터 사이언스 블로그</title>
-  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Hat Matrix'을 한 번 살펴보세요.">
-  <meta property="og:title" content="[행렬]Hat Matrix">
+  <title>[행렬]Quadratic form  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Quadratic form'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[행렬]Quadratic form">
   
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2021-02-17">
+  <meta property="article:published_time" content="2021-02-19">
   
-  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Hat Matrix'을 한 번 살펴보세요.">
-  <meta property="og:url" content="https://uqpuark.github.io/math/hat_matrix/">
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Quadratic form'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://uqpuark.github.io/math/quadratic_form/">
   <meta property="og:site_name" content="데이터 사이언스 블로그">
   
   <meta property="og:image" content="https://uqpuark.github.io/images/thumbnail.png">
@@ -20,7 +20,7 @@
   <meta property="og:tags" content="행렬">
   
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://uqpuark.github.io/math/hat_matrix/">
+  <link rel="canonical" href="https://uqpuark.github.io/math/quadratic_form/">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
@@ -90,76 +90,28 @@
 
 <div class="post">
   <div class="post-title">
-    <a href="https://uqpuark.github.io/math/hat_matrix/">
+    <a href="https://uqpuark.github.io/math/quadratic_form/">
       <div class="post-meta">
-        <time>2021년 02월 17일 20시 40분</time>
-        <h1>[행렬]Hat Matrix</h1>
+        <time>2021년 02월 19일 21시 04분</time>
+        <h1>[행렬]Quadratic form</h1>
       </div>
     </a>
   </div>
   <section class="post-content">
-    <h2 id="hat-matrix">Hat Matrix</h2>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/Ys-HX9CAOT8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-<ul>
-<li>
-<p>The Hat Matrix
-$$ H=X(X^TX)^{-1}X^T $$</p>
-<ul>
-<li>Fitted model<br>
-$$ \begin{aligned} &amp;\hat{y}=X\hat{\beta} \\\ &amp;=X(X^TX)^-1X^T\vec{y} \\\ &amp;=H\vec{y} \end{aligned} $$</li>
-<li>Residuals
-$$ \begin{aligned} &amp;\vec{e}=\vec{y}-\hat{y} \\\ &amp;=\vec{y}-H\vec{y} \\\ &amp;=(I-H)\vec{y}  \end{aligned} $$</li>
-</ul>
-</li>
-<li>
-<p>Perpendicular Projection Matrix(PPM)</p>
-<ul>
-<li>M is a PPM onto \( C(X) \), column space of X, if and only if</li>
-</ul>
+    <h2 id="derivative-of-a-quadratic-form">Derivative of a Quadratic Form</h2>
 <ol>
-<li>\( \vec{V} \in C(X) \Rightarrow M\vec{V}=\vec{V} \)(projection)</li>
-<li>\( \vec{W} \in C(X)^\bot \Rightarrow M\vec{W}=\vec{0} \)(perpendicular)</li>
+<li>Let \( \vec{a} = (a_1,a_2,\cdots,a_n)^T, \vec{\mu} = ( \mu_1, \mu_2, \cdots , \mu_n)^T \)</li>
 </ol>
-</li>
-<li>
-<p>H is a ppm onto \( C(X)^ \)</p>
-<ol>
-<li>Let \( \vec{V} \in C(X)\), then \( \vec{V}=X\vec{a} for \vec{a} \in \mathbb{R}^K+1 \)<br>
-\( H\vec{V}= X(X^TX)^-1X^TX\vec{a}=X\vec{a}=\vec{V} \)</li>
-<li>Let \( \vec{W} \in C(X)^\bot \), then \( X^T\vec{W}=\vec{0} for \)<br>
-\( H\vec{W}= X(X^TX)^-1X^T\vec{W}=\vec{0} \)</li>
+<p>\( \begin{aligned} &amp;{ \partial \vec{a}^T\vec{\mu} \over \partial \vec{\mu} } = { \partial \vec{\mu}^T\vec{a} \over \partial \vec{\mu} } = { \partial \over \partial \vec{\mu} }\sum_{i=1}^aa_iu_i \\\ &amp;= [ { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_1 } \cdots { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_n } ] \\\ &amp;= [ a_1, a_2, \cdots, a_n ] \\\ &amp;= a^T  \end{aligned} \)</p>
+<ol start="2">
+<li>Let A be a nXn matrix \( a_{ij} \)<br>
+\( \begin{aligned} &amp;{ \partial \vec{\mu}^TA\vec{\mu} \over \partial \vec{\mu} } = { \partial \over \partial \vec{\mu} }[\sum_{i=1}^au_ia_{i1} \cdots \sum_{i=1}^au_ia_{in}]\begin{bmatrix} \mu_1 \\\ &amp;\vdots \\\ \mu_n \end{bmatrix} \\\ &amp;= { \partial \over \partial \vec{\mu} }\sum_{i=1}^na_{ij}\mu_i\mu_j \\\ &amp;= \begin{bmatrix} 2a_{11}\mu_1+\sum_{j=2}^na_{ij}\mu{j}+\sum_{i=2}^na_{i1}\mu{i} \\\ \vdots \\\ 2a_{kk}\mu_k+\sum_{j=1}^na_{kj}\mu{j}+\sum_{j=1}^na_{ik}\mu{i} \\\ 2a_{nn}\mu_n+\sum_{j=1}^{n-1}a_{nj}\mu{j}+\sum_{j=1}^{n-1}a_{in}\mu{i} \end{bmatrix}^T \\\ &amp;=sum_{j=1}^{n}a_{ij}\mu{j}+\sum_{i=1}^{n}a_{i1}\mu{i} \cdots \sum_{j=1}^{n}a_{nj}\mu{j}+\sum_{i=1}^{n}a_{in}\mu{i} \\\ &amp;= [\sum_{j=1}^na_{ij}\mu{j}+ \cdots \sum_{j=1}^na_{nj}\mu{j}] + [ \sum_{i=1}^na_{i1}\mu{i}+ \cdots \sum_{i=1}^{n}a_{in}\mu{i}] \\\ &amp;=\vec{\mu^T}A^T+\vec{\mu^T}A = \vec{\mu^T}(A+A^T) \end{aligned} \)</li>
 </ol>
-</li>
-<li>
-<p>(I-H) is a PPM onto \( C(X)^\bot \)</p>
-<ol>
-<li>Let \( \vec{V} \in C(X)^\bot \), then \( H\vec{v}=\vec{0} \)<br>
-\( (I-H)\vec{V}= \vec{V}-H\vec{V}=\vec{V} \)</li>
-<li>Let \( \vec{W} \in C(X) \), then \( H\vec{W}=\vec{W} for \)<br>
-\( (I-H)\vec{W}= \vec{W}-H\vec{W}=\vec{0} \)</li>
-</ol>
-</li>
-<li>
-<p>Geometric Illustration (동영상 참조)<br>
-The response vector \( \vec{y} \) is decomposed into 2 orthogonal components.
-$$ \begin{aligned} &amp;\vec{y}=\hat{y}+\vec{e} \\\ &amp; \hat{y}=X\hat{\beta} \in C(X) \quad (Estimation Space) \\\ &amp; \vec{e}=\vec{y}-\hat{y} \in C(X)^\bot (Error Space) \end{aligned} $$</p>
-</li>
-<li>
-<p>Properties of H
-(H1) \( ( H=H^T \) ), (( HH^T=H \) idempotent<br>
-(H2) \( (I-H)=(I-H)^T \), \( (I-H)(I-H)=(I-H) \)<br>
-(H3) \( C(H)=C(X) \), <a href="">perpendicular projection matrix</a><br>
-(H4) \( C(I-H)=C(X)^\bot \)<br>
-(H5) \( HX=X \)<br>
-(H6) \( (I-H)X=0 \)<br>
-(H7) \( Rank(H) = tr(H) = p+1 \)<br>
-(H8) \( Rank(I-H) = tr(I-H) = n-(p+1) \)<br>
-(H9) \( (I-H)H=0 \)</p>
-</li>
+<p>If A symmetric, \( 2\vec{\mu}^TA \)</p>
+<ul>
+<li>EXAMPLE<br>
+\( \begin{aligned}
+&amp;{ \partial \over \partial \vec{\mu} }(\vec{X}-\vec{\mu})^T\Sigma^{-1}(\vec{X}-\vec{\mu}) \\\ &amp;= { \partial \over \partial \vec{\mu} }[ \vec{X}^T\Sigma^{-1}\vec{X}-\vec{X}^T\Sigma^{-1}\vec{\mu}-\vec{\mu}^T\Sigma^{-1}\vec{X}+\vec{\mu}^T\Sigma^{-1}\vec{\mu} ] \\\ &amp;= { \partial \over \partial \vec{\mu} }[ \vec{X}^T\Sigma^{-1}\vec{X}-2\vec{X}^T\Sigma^{-1}\vec{\mu}+\vec{\mu}^T\Sigma^{-1}\vec{\mu} ] \\\ &amp;= 0 -2\vec{X}^T\Sigma^{-1}+2\vec{\mu}^T\Sigma^{-1} \\\ &amp;= -2(\vec{X}^T-\vec{\mu}^T)\Sigma^{-1} \end{aligned} \)</li>
 </ul>
 
   
@@ -168,7 +120,7 @@ $$ \begin{aligned} &amp;\vec{y}=\hat{y}+\vec{e} \\\ &amp; \hat{y}=X\hat{\beta} \
       <span class="title">Contents</span>
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#hat-matrix">Hat Matrix</a></li>
+    <li><a href="#derivative-of-a-quadratic-form">Derivative of a Quadratic Form</a></li>
   </ul>
 </nav>
     </div>
@@ -182,7 +134,7 @@ $$ \begin{aligned} &amp;\vec{y}=\hat{y}+\vec{e} \\\ &amp; \hat{y}=X\hat{\beta} \
       <a href="mailto:uqpuark@gmail.com">uqpuark</a>
       
       님이
-      <span class="highlight">2021년 02월 17일 20시 40분</span> 
+      <span class="highlight">2021년 02월 19일 21시 04분</span> 
       에 작성한 글입니다.
     </div>
     <div style="padding-left: 16px">
@@ -213,17 +165,11 @@ $$ \begin{aligned} &amp;\vec{y}=\hat{y}+\vec{e} \\\ &amp; \hat{y}=X\hat{\beta} \
     <ul>
       
       <li>
-        <a href="https://uqpuark.github.io/posts/recommand-sites/" rel="prev">
-          <span>데이터 사이언스 관련 사이트 추천</span>
+        <a href="https://uqpuark.github.io/math/hat_matrix/" rel="prev">
+          <span>[행렬]Hat Matrix</span>
         </a>
       </li>
       
-      
-      <li>
-        <a href="https://uqpuark.github.io/math/quadratic_form/" rel="next">
-          <span>[행렬]Quadratic form</span>
-        </a>
-      </li>
       
     </ul>
   </div>
