@@ -27,12 +27,12 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
   
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-XXXXXXXX-X');
+    gtag('config', 'UA-189694109-1');
   </script>
   
   
@@ -50,7 +50,7 @@
   <div class="navbar">    
     <div class="logo">
       <a href="/">
-        <img src="/images/logo.png" height="34px" />
+        <img src="/images/logo.png" height="35px" />
       </a>
     </div>
     <div class="burger">
@@ -60,39 +60,44 @@
     </div>
     <div id="menu" class="menu hidden">
       <ul>
-        <li><a href="/">데이터 사이언스 블로그</a></li>
+        <li><form id="search"
+    action='' method="get">
+    <label hidden for="search-input">Search site</label>
+    <input type="text" id="search-input" name="query"
+    placeholder="search or jump to...">
+    <input type="submit" value="search">
+</form>
+
+</li>
         <li><a href="/categories">카테고리</a></li>
         <li><a href="/tags">태그</a></li>
-        <li><a href="https://github.com">Github</a></li>       
+
+
       </ul>
       <input class="search" id="search-input" type="search" placeholder="검색어" value="">
     </div>
   </div>
   <div class="container">    
+
+
 <div class="container">
   
   <div class="post">
   <div class="post-title">
-    <a href="https://uqpuark.github.io/notice/test/" title="[NOTICE] 안녕하세요">
+    <img src="/images/post-title-icon.png" width="13px" height="auto" />
+    <a href="https://uqpuark.github.io/posts/notice-introduce/" title="[공지] 블로그 소개">
       <div class="post-meta">
-        <time>2021년 02월 13일 21시 31분</time>
-        <h1>[NOTICE] 안녕하세요</h1>
+        <time>2021년 02월 13일 23시 02분</time>
+        <h2>[공지] 블로그 소개</h2>
       </div>
     </a>
   </div>
-  
-  <div>
-    안녕하세요.
-데이터 사이언스를 위한 수학과 통계학을 정리해놓을 예정입니다.
-대부분의 책이 생략해 놓은 부분을 하나하나 짚어가보려고 합니다.
-도움이 되었으면 좋겠습니다.
-    
-  </div>
 </div>
 
-  <hr class="summary-sep" />
+  <hr class="summary-sep2" />
   
 </div>
+
 <div class="paging">
   
   <span class="page">
@@ -108,10 +113,20 @@
   </a>
 </div>
 <footer class="footer">
+  <div class="share">
+      <a href="https://github.com" title="Github" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+  </div>
   COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
   ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
+
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
 </footer>
 </body>
 </html>
-
-

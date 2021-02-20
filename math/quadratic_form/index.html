@@ -98,21 +98,106 @@
     </a>
   </div>
   <section class="post-content">
-    <h2 id="derivative-of-a-quadratic-form">Derivative of a Quadratic Form</h2>
+    <p>출처 : statisticsmatt(<a href="https://www.youtube.com/channel/UCd9bK021bEguMvXSGc1Ce1Q">https://www.youtube.com/channel/UCd9bK021bEguMvXSGc1Ce1Q</a>)</p>
+<h2 id="derivative-of-a-quadratic-form">Derivative of a Quadratic Form</h2>
+<p>(<a href="https://www.youtube.com/watch?v=Dq3urNV7Yl8&amp;list=LL&amp;index=1">https://www.youtube.com/watch?v=Dq3urNV7Yl8&amp;list=LL&amp;index=1</a>)<br>
+혼자 한번 따라 써보면 이해된다.</p>
 <ol>
-<li>Let \( \vec{a} = (a_1,a_2,\cdots,a_n)^T, \vec{\mu} = ( \mu_1, \mu_2, \cdots , \mu_n)^T \)</li>
+<li>
+<p>Let \( \vec{a} = (a_1,a_2,\cdots,a_n)^T, \vec{\mu} = ( \mu_1, \mu_2, \cdots , \mu_n)^T \)<br>
+\( \begin{aligned} { \partial \vec{a}^T\vec{\mu} \over \partial \vec{\mu} } &amp;= { \partial \vec{\mu}^T\vec{a} \over \partial \vec{\mu} } = { \partial \over \partial \vec{\mu} }\sum_{i=1}^aa_iu_i \\\ &amp;= [ { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_1 } \cdots { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_n } ] \\\ &amp;= [ a_1, a_2, \cdots, a_n ] \\\ &amp;= a^T  \end{aligned} \)</p>
+</li>
+<li>
+<p>Let A be a nXn matrix \( a_{ij} \)<br>
+\( \begin{aligned} { \partial \vec{\mu}^T A\vec{\mu} \over \partial \vec{\mu} } &amp;= { \partial \over \partial \vec{\mu} }[\sum_{i=1}^au_ia_{i1} \cdots \sum_{i=1}^au_ia_{in}]\begin{bmatrix} \mu_1 \\\ \vdots \\\ \mu_n \end{bmatrix} \\\ &amp;= { \partial \over \partial \vec{\mu} }\sum_{j=1}^n\sum_{i=1}^na_{ij}\mu_i \mu_j \\\ &amp;= \begin{bmatrix} 2a_{11}\mu_1+\sum_{j=2}^na_{1j}\mu_j+\sum_{i=2}^na_{i1}\mu_i \\\ \vdots \\\ 2a_{kk}\mu_k+\sum_{j=1}^na_{kj}\mu_j+\sum_{j=1}^na_{ik}\mu_i \\\ 2a_{nn}\mu_n+\sum_{j=1}^{n-1}a_{nj}\mu_j+\sum_{j=1}^{n-1}a_{in}\mu_i \end{bmatrix}^T \\\ &amp;=\begin{bmatrix} \sum_{j=1}^{n}a_{ij}\mu_j+\sum_{i=1}^{n}a_{i1}\mu_i \cdots \sum_{j=1}^{n}a_{nj}\mu_j+\sum_{i=1}^{n}a_{in}\mu_i \end{bmatrix} \\\ &amp;= \begin{bmatrix} \sum_{j=1}^na_{1j}\mu_j+ \cdots \sum_{j=1}^na_{nj}\mu_j \end{bmatrix} + \begin{bmatrix} \sum_{i=1}^na_{i1}\mu_i+ \cdots \sum_{i=1}^{n}a_{in}\mu_i \end{bmatrix} \\\ &amp;=\vec{\mu}^TA^T+\vec{\mu}^T A = \vec{\mu}^T (A+A^T) \end{aligned} \)<br>
+If A symmetric, \( 2\vec{\mu}^TA \)</p>
+</li>
 </ol>
-<p>\( \begin{aligned} &amp;{ \partial \vec{a}^T\vec{\mu} \over \partial \vec{\mu} } = { \partial \vec{\mu}^T\vec{a} \over \partial \vec{\mu} } = { \partial \over \partial \vec{\mu} }\sum_{i=1}^aa_iu_i \\\ &amp;= [ { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_1 } \cdots { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_n } ] \\\ &amp;= [ a_1, a_2, \cdots, a_n ] \\\ &amp;= a^T  \end{aligned} \)</p>
-<ol start="2">
-<li>Let A be a nXn matrix \( a_{ij} \)<br>
-\( \begin{aligned} &amp;{ \partial \vec{\mu}^TA\vec{\mu} \over \partial \vec{\mu} } = { \partial \over \partial \vec{\mu} }[\sum_{i=1}^au_ia_{i1} \cdots \sum_{i=1}^au_ia_{in}]\begin{bmatrix} \mu_1 \\\ &amp;\vdots \\\ \mu_n \end{bmatrix} \\\ &amp;= { \partial \over \partial \vec{\mu} }\sum_{i=1}^na_{ij}\mu_i\mu_j \\\ &amp;= \begin{bmatrix} 2a_{11}\mu_1+\sum_{j=2}^na_{ij}\mu{j}+\sum_{i=2}^na_{i1}\mu{i} \\\ \vdots \\\ 2a_{kk}\mu_k+\sum_{j=1}^na_{kj}\mu{j}+\sum_{j=1}^na_{ik}\mu{i} \\\ 2a_{nn}\mu_n+\sum_{j=1}^{n-1}a_{nj}\mu{j}+\sum_{j=1}^{n-1}a_{in}\mu{i} \end{bmatrix}^T \\\ &amp;=sum_{j=1}^{n}a_{ij}\mu{j}+\sum_{i=1}^{n}a_{i1}\mu{i} \cdots \sum_{j=1}^{n}a_{nj}\mu{j}+\sum_{i=1}^{n}a_{in}\mu{i} \\\ &amp;= [\sum_{j=1}^na_{ij}\mu{j}+ \cdots \sum_{j=1}^na_{nj}\mu{j}] + [ \sum_{i=1}^na_{i1}\mu{i}+ \cdots \sum_{i=1}^{n}a_{in}\mu{i}] \\\ &amp;=\vec{\mu^T}A^T+\vec{\mu^T}A = \vec{\mu^T}(A+A^T) \end{aligned} \)</li>
-</ol>
-<p>If A symmetric, \( 2\vec{\mu}^TA \)</p>
 <ul>
-<li>EXAMPLE<br>
+<li>Example<br>
 \( \begin{aligned}
-&amp;{ \partial \over \partial \vec{\mu} }(\vec{X}-\vec{\mu})^T\Sigma^{-1}(\vec{X}-\vec{\mu}) \\\ &amp;= { \partial \over \partial \vec{\mu} }[ \vec{X}^T\Sigma^{-1}\vec{X}-\vec{X}^T\Sigma^{-1}\vec{\mu}-\vec{\mu}^T\Sigma^{-1}\vec{X}+\vec{\mu}^T\Sigma^{-1}\vec{\mu} ] \\\ &amp;= { \partial \over \partial \vec{\mu} }[ \vec{X}^T\Sigma^{-1}\vec{X}-2\vec{X}^T\Sigma^{-1}\vec{\mu}+\vec{\mu}^T\Sigma^{-1}\vec{\mu} ] \\\ &amp;= 0 -2\vec{X}^T\Sigma^{-1}+2\vec{\mu}^T\Sigma^{-1} \\\ &amp;= -2(\vec{X}^T-\vec{\mu}^T)\Sigma^{-1} \end{aligned} \)</li>
+&amp;{ \partial \over \partial \vec{\mu} }(\vec{X}-\vec{\mu})^T\Sigma^{-1}(\vec{X}-\vec{\mu}) \\\ = &amp;{ \partial \over \partial \vec{\mu} }[ \vec{X}^T\Sigma^{-1}\vec{X}-\vec{X}^T\Sigma^{-1}\vec{\mu}-\vec{\mu}^T\Sigma^{-1}\vec{X}+\vec{\mu}^T\Sigma^{-1}\vec{\mu} ] \\\ =&amp;{ \partial \over \partial \vec{\mu} }[ \vec{X}^T\Sigma^{-1}\vec{X}-2\vec{X}^T\Sigma^{-1}\vec{\mu}+\vec{\mu}^T\Sigma^{-1}\vec{\mu} ] \\\ =&amp; \ 0 -2\vec{X}^T\Sigma^{-1}+2\vec{\mu}^T\Sigma^{-1} \\\ =&amp; -2(\vec{X}^T-\vec{\mu}^T)\Sigma^{-1} \end{aligned} \)</li>
 </ul>
+<h2 id="mean-variance-and-covariance-of-quadratic-forms">Mean, Variance, and Covariance of Quadratic Forms</h2>
+<p>(<a href="https://www.youtube.com/watch?v=Z0jBgMDkfUg">https://www.youtube.com/watch?v=Z0jBgMDkfUg</a>)</p>
+<p>Assume \( E(X)=\mu, Var(X)=\Sigma. \\\ Let A and B be nxn symmetric matrices. \)</p>
+<p>① \( E(X^TAX) = tr( A\Sigma ) + \mu^TA\mu   \)</p>
+<p><em>proof</em><br>
+\( \begin{aligned} \Sigma&amp;=E[(X-\mu)(X-\mu)^T] \\\ &amp;= E[XX^T-X\mu^T-\mu X^T+\mu\mu^T] \\\ &amp;= E[XX^T]-\mu\mu^T \\\ &amp;\Longrightarrow E[XX^T]=\Sigma+\mu\mu^T \end{aligned} \)</p>
+<p>\( \begin{aligned} E(X^TAX)&amp;=tr(E(X^TAX))=E[tr(X^TAX)]=E[tr(AXX^T)] \\\ &amp;=tr(AE(XX^T))=tr(A(\Sigma+\mu\mu^T))=tr(A\Sigma)+tr(A\mu\mu^T) \\\ &amp;=tr(A\Sigma)+tr(\mu^T A\mu) \end{aligned} \)</p>
+<blockquote>
+<p>tr(AB)=tr(BA), tr(A+B)=tr(A)+tr(B)
+quadratic form이 1x1 행렬이 되기때문에 tr을 붙여줘도 되고, E와 위치를 바꿔도 됨
+1번째 줄에서 2번째 줄로 넘어가는 데 튕기면 직접 대입하면 확인 가능(<a href="https://www.youtube.com/watch?v=P1F8Yxs9lWU">참고</a>)</p>
+</blockquote>
+<p>* Will use &quot;<a href="https://www.youtube.com/watch?v=NfjuNpmS8vA">the Kronecker Product</a>&quot;.</p>
+<p>② \( Cov(X^TAX, X^TBX) \\\ = tr[(A \otimes B)E(XX^T \otimes XX^T)] - [tr(A\Sigma+\mu^TA\mu)][tr(B\Sigma)+\mu^T B\mu] \)</p>
+<p><em>proof</em><br>
+\( \begin{aligned} E(X^TAXX^TBX)&amp;=E[tr(X^TAXX^TBX)]=E[tr((X^TAX) \otimes (X^TBX))] \\\ &amp; =E[tr((X^T \otimes X^T)(A \otimes B)(X \otimes X))]=E[tr((A \otimes B)(X \otimes X)(X^T \otimes X^T))] \\\ &amp; =E[tr((A \otimes B)(XX^T \otimes XX^T))]=tr((A \otimes B)E(XX^T \otimes XX^T))  \\\ Cov(X^TAX, X^TBX) &amp;= E(X^AXX^BX) - E(X^TAX)E(X^TBX) \end{aligned} \)</p>
+<p>③ \( Var(X^TAX) = tr((A \otimes A)E(XX^T \otimes XX^T)) - [tr(A\Sigma)+\mu^TA\mu]^2  \)</p>
+<p><em>proof</em><br>
+\( Var(X^TAX)=Cov(X^TAX, X^TAX) \)<br>
+The result follows from ②</p>
+<ul>
+<li>Example<br>
+Let \( X = \vec{X} \sim MVN_K(0, I) \qquad \)  where \( X=[X_1, \cdots , X_K]^T \)<br>
+Find \(E(X^TIX), Var(X^TIX) \)</li>
+</ul>
+<ol>
+<li>\( X_i^2 \sim \chi_0^2(1) \)</li>
+<li>\( \sum_{i=1}^K ~ \chi_0^2(K),\qquad where\ X^TX=\sum_{i=1}^KX+i^2 \)</li>
+<li>\( Y=\sum_{i=1}^KX_i^2,\quad E(y)=K,\quad Var(Y)=2K \)</li>
+<li>\( E(X_i^2X_j^2)= \begin{array} 3, &amp; \text{if } i=j \\\ 1, &amp; \text{for } i \ne j \\\ \end{array} \)</li>
+</ol>
+<p><strong>&ldquo;moments of a Normal Distribution&rdquo;</strong><br>
+<strong>&ldquo;1st 4 moments of a standard Normal Distribution&rdquo;</strong></p>
+<p>\( E(X^TIX)=tr(II)+\hat{0}^TI\hat{0}=K \)</p>
+<p>\( \begin{aligned} Var(X^TIX) &amp;=tr((I \otimes I)E(X^X \otimes XX^T)) - [tr(II)+\vec{0}^TI\vec{0}]^2 \\\ &amp;=tr(E(XX^T \otimes XX^T) - K^2 ) \\\ &amp;= trE \begin{bmatrix} X_1X_1(XX^T) &amp; X_1X_2(XX^T) &amp; \cdots &amp; X_1X_K(XX^T) \\\ X_2X_1(XX^T) &amp; X_2X_2(XX^T) &amp; \cdots &amp; X_2X_K(XX^T) \\\ \vdots &amp; \ddots &amp; \cdots &amp; \vdots \\\ X_KX_1(XX^T) &amp; X_KX_2(XX^T) &amp; \cdots &amp; X_KX_K(XX^T) \end{bmatrix} - K^2 \\\ &amp;= \sum_{i=1}^K\sum_{j=1}^KE[X_i^2X_j^2] \\\ &amp;=3K + 1(K^2-K)-K^2 \\\ &amp;=2K \end{aligned} \)</p>
+<h2 id="distribution-of-quadratic-form">Distribution of Quadratic Form</h2>
+<h3 id="part-1">Part 1</h3>
+<p>(<a href="https://www.youtube.com/watch?v=2J8pVynRZ8A">https://www.youtube.com/watch?v=2J8pVynRZ8A</a>)</p>
+<p>Backgorund</p>
+<ol>
+<li><a href="https://www.youtube.com/watch?v=1JRs-2YsodQ">&ldquo;Idempotent Matrices&rdquo;</a></li>
+</ol>
+<p>Theorem 1<br>
+Let \( X \sim MVN_k(0, I) \) and \( A \) be a \((K \times K)\) Symmetric idempotent matrix with \( rank(A)=r \), then \( X^TAX \sim \chi_0^2(r) \)</p>
+<p><em>proof</em><br>
+A 는 symmetric(대칭)이고,  idempotent(멱등)이다. 따라서 decompose(분해) \( A=PDP^T \quad where P\)는 (KxK) orthogonal(직교)이고, \( D=diag(I_r, \vec{0}) \).<br>
+Theorem 3 in &ldquo;Idempotent Matries&quot;에 의해 Let \( Z=P^TX, then Z \sim N-K(0, I) since E(Z)=P^TE(X)-0 and Var(Z)=P^TVar(X)P=P^TIP=I. \)</p>
+<blockquote>
+<p>using the first r components of Z, \( \sum_{j=1}^rZ_j^2 \sim \chi_0^2(r) \)</p>
+</blockquote>
+<p>\( X^TAX = X^TPDP^TX=Z^TDZ=\sum_{j=1}^rZ_j^2 \sim \chi_0^2(r) \)</p>
+<p>Theorem 2<br>
+Let \( X \sim MVN_K(0, \Sigma), \) where \( Sigma \) is positive definite(&gt;).   Let \( A \) be a \( (K \tiems K) \) symmetric matrix. If \( A\Sigma \) is idempotent and \( rank(A\Sigma)=r, then X^TAX \sim \chi_0^2(r). \)</p>
+<p><em>proof</em><br>
+Use theorem 1.(<a href="https://www.youtube.com/watch?v=2J8pVynRZ8A">동영상을 참고하자</a>)</p>
+<h3 id="part-2">Part 2</h3>
+<p>(<a href="https://www.youtube.com/watch?v=Ea-ZzCh4y2I">https://www.youtube.com/watch?v=Ea-ZzCh4y2I</a>)<br>
+Background</p>
+<ol>
+<li><a href="https://www.youtube.com/watch?v=1JRs-2YsodQ">&ldquo;Idempotent Matrices&rdquo;</a></li>
+<li><a href="https://www.youtube.com/watch?v=xfffOSYr5Zk">&ldquo;The Spectral Decompositon(Eigen decompostion&rdquo;</a></li>
+<li><a href="https://www.youtube.com/watch?v=2J8pVynRZ8A">&ldquo;Distribution of Quadratic Forms(part1)&quot;</a></li>
+</ol>
+<p>Theorem 3<br>
+Let A be a (nxn) matrix. If \( A^i=A^{i+1} \) for some i&gt;0 then A is idempotent.</p>
+<p><em>proof</em><br>
+Let \( \lambda_K\ K=1, \cdots, n \) be the eigenvalues(고유값) of A.  Then \( \lambda_K^i \) are the eigenvalues of \( A^i \).<br>
+\( \begin{aligned} &amp; \lambda_K^i v=A^i v=A^{i+1} v \Rightarrow \lambda_K^i =\lambda_K^{i+1} \quad K=1, \cdots, n. \\\ &amp; \lambda_K={0 \text{ or } 1} \quad \forall K \Rightarrow \text{A is idempotent by &ldquo;Idemtptoent Matrices&rdquo;} \end{aligned} \)</p>
+<p>Theorem 4<br>
+Let \( X \sim MVN_K(0, \Sigma) \text{ where } \Sigma \text{ is positive semi-definite.(&gt;=)} \)
+Let A be a (KxK) symmetric matrix. \( \text{ If } \Sigma A\Sigma A\Sigma = \Sigma A \Sigma \text{ and } tr(A\Sigma)=r, \text{ then } X^TAX \sim \chi_0^2(r) \)</p>
+<p><em>proof</em><br>
+use &ldquo;The Spectral Decomposition&rdquo;, &ldquo;part1&rdquo; Thm 2.<br>
+\( \Sigma=P \Lambda P^T \quad \text{where P is orthogonal and } \Lambda=diag(D, \vec{0} ) \quad \text{ where } D=diag(\lambda_1, \cdots, \lambda_K) \text{ where } l=rank(A). \)</p>
+<blockquote>
+<p>\( A,\ P,\ \Lambda (K \times K), \ D (l \times l)\text{ with } \ l&lt;K,\text{ D is non=signular} \)</p>
+</blockquote>
+<p>이후 동영상 참고</p>
+<h3 id="part-3">Part 3</h3>
+<p>(<a href="https://www.youtube.com/watch?v=l_ppo3OtFmw">https://www.youtube.com/watch?v=l_ppo3OtFmw</a>)</p>
 
   
     
@@ -121,6 +206,14 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#derivative-of-a-quadratic-form">Derivative of a Quadratic Form</a></li>
+    <li><a href="#mean-variance-and-covariance-of-quadratic-forms">Mean, Variance, and Covariance of Quadratic Forms</a></li>
+    <li><a href="#distribution-of-quadratic-form">Distribution of Quadratic Form</a>
+      <ul>
+        <li><a href="#part-1">Part 1</a></li>
+        <li><a href="#part-2">Part 2</a></li>
+        <li><a href="#part-3">Part 3</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -170,6 +263,12 @@
         </a>
       </li>
       
+      
+      <li>
+        <a href="https://uqpuark.github.io/math/idempotent/" rel="next">
+          <span>[행렬]Idempotent Matrices</span>
+        </a>
+      </li>
       
     </ul>
   </div>

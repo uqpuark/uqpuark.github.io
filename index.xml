@@ -8,14 +8,25 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Fri, 19 Feb 2021 21:04:38 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Feb 2021 16:57:08 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[행렬]Idempotent Matrices</title>
+      <link>https://uqpuark.github.io/math/idempotent/</link>
+      <pubDate>Sat, 20 Feb 2021 16:57:08 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/math/idempotent/</guid>
+      <description>Definition
+\( A^2 = A \text{where A is a square matrix}\)</description>
+    </item>
+    
     <item>
       <title>[행렬]Quadratic form</title>
       <link>https://uqpuark.github.io/math/quadratic_form/</link>
       <pubDate>Fri, 19 Feb 2021 21:04:38 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/math/quadratic_form/</guid>
-      <description>Derivative of a Quadratic Form  Let \( \vec{a} = (a_1,a_2,\cdots,a_n)^T, \vec{\mu} = ( \mu_1, \mu_2, \cdots , \mu_n)^T \)  \( \begin{aligned} &amp;amp;{ \partial \vec{a}^T\vec{\mu} \over \partial \vec{\mu} } = { \partial \vec{\mu}^T\vec{a} \over \partial \vec{\mu} } = { \partial \over \partial \vec{\mu} }\sum_{i=1}^aa_iu_i \\\ &amp;amp;= [ { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_1 } \cdots { \partial \sum_{i=1}^aa_iu_i \over \partial \vec{\mu}_n } ] \\\ &amp;amp;= [ a_1, a_2, \cdots, a_n ] \\\ &amp;amp;= a^T \end{aligned} \)</description>
+      <description>출처 : statisticsmatt(https://www.youtube.com/channel/UCd9bK021bEguMvXSGc1Ce1Q)
+Derivative of a Quadratic Form (https://www.</description>
     </item>
     
     <item>

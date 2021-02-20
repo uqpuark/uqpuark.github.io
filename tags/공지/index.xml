@@ -6,19 +6,18 @@
     <description>Recent content in 공지 on 데이터 사이언스 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>uqpuark@gmail.com (박재현)</managingEditor>
-    <webMaster>uqpuark@gmail.com (박재현)</webMaster>
-    <lastBuildDate>Sat, 13 Feb 2021 21:31:25 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%EA%B3%B5%EC%A7%80/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
+    <lastBuildDate>Sat, 13 Feb 2021 23:02:34 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%EA%B3%B5%EC%A7%80/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[NOTICE] 안녕하세요</title>
-      <link>https://uqpuark.github.io/notice/test/</link>
-      <pubDate>Sat, 13 Feb 2021 21:31:25 +0900</pubDate>
-      <author>uqpuark@gmail.com (박재현)</author>
-      <guid>https://uqpuark.github.io/notice/test/</guid>
+      <title>[공지] 블로그 소개</title>
+      <link>https://uqpuark.github.io/posts/notice-introduce/</link>
+      <pubDate>Sat, 13 Feb 2021 23:02:34 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/posts/notice-introduce/</guid>
       <description>안녕하세요.
-데이터 사이언스를 위한 수학과 통계학을 정리해놓을 예정입니다.
-대부분의 책이 생략해 놓은 부분을 하나하나 짚어가보려고 합니다.
-도움이 되었으면 좋겠습니다.</description>
+현재 산업공학과 4학년에 재학중인 학생입니다.
+데이터 사이언스에 필요한 수학과 통계학을 정리해보려고 합니다.</description>
     </item>
     
   </channel>
