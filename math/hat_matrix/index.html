@@ -3,14 +3,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[행렬]Hat Matrix  | 데이터 사이언스 블로그</title>
-  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Hat Matrix'을 한 번 살펴보세요.">
-  <meta property="og:title" content="[행렬]Hat Matrix">
+  <title>[행렬] Hat(Projection) Matrix  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬] Hat(Projection) Matrix'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[행렬] Hat(Projection) Matrix">
   
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2021-02-17">
   
-  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Hat Matrix'을 한 번 살펴보세요.">
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬] Hat(Projection) Matrix'을 한 번 살펴보세요.">
   <meta property="og:url" content="https://uqpuark.github.io/math/hat_matrix/">
   <meta property="og:site_name" content="데이터 사이언스 블로그">
   
@@ -93,7 +93,7 @@
     <a href="https://uqpuark.github.io/math/hat_matrix/">
       <div class="post-meta">
         <time>2021년 02월 17일 20시 40분</time>
-        <h1>[행렬]Hat Matrix</h1>
+        <h1>[행렬] Hat(Projection) Matrix</h1>
       </div>
     </a>
   </div>
@@ -104,53 +104,37 @@
   <iframe src="https://www.youtube.com/embed/Ys-HX9CAOT8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
+<h3 id="definition">Definition</h3>
+<p>\( H=X(X^TX)^{-1}X^T \)<br>
++ Fitted model<br>
+\( \begin{aligned} \hat{y}&amp;=X\hat{\beta} \\\ &amp;=X(X^TX)^-1X^T\vec{y} \\\ &amp;=H\vec{y} \end{aligned} \)
++ Residuals
+\( \begin{aligned} \vec{e}&amp;=\vec{y}-\hat{y} \\\ &amp;=\vec{y}-H\vec{y} \\\ &amp;=(I-H)\vec{y}  \end{aligned} \)</p>
+<h3 id="perpendicular-projection-matrixppm">Perpendicular Projection Matrix(PPM)</h3>
 <ul>
-<li>
-<p>The Hat Matrix
-$$ H=X(X^TX)^{-1}X^T $$</p>
-<ul>
-<li>Fitted model<br>
-$$ \begin{aligned} &amp;\hat{y}=X\hat{\beta} \\\ &amp;=X(X^TX)^-1X^T\vec{y} \\\ &amp;=H\vec{y} \end{aligned} $$</li>
-<li>Residuals
-$$ \begin{aligned} &amp;\vec{e}=\vec{y}-\hat{y} \\\ &amp;=\vec{y}-H\vec{y} \\\ &amp;=(I-H)\vec{y}  \end{aligned} $$</li>
+<li>M is a PPM onto \( C(X) \), column space of X, if and only if<br>
+1) \( \vec{V} \in C(X) \Rightarrow M\vec{V}=\vec{V} \)(projection)<br>
+2) \( \vec{W} \in C(X)^\bot \Rightarrow M\vec{W}=\vec{0} \)(perpendicular)</li>
 </ul>
-</li>
-<li>
-<p>Perpendicular Projection Matrix(PPM)</p>
-<ul>
-<li>M is a PPM onto \( C(X) \), column space of X, if and only if</li>
-</ul>
+<h3 id="h-is-a-ppm-onto--cx-">H is a ppm onto \( C(X)^ \)</h3>
 <ol>
-<li>\( \vec{V} \in C(X) \Rightarrow M\vec{V}=\vec{V} \)(projection)</li>
-<li>\( \vec{W} \in C(X)^\bot \Rightarrow M\vec{W}=\vec{0} \)(perpendicular)</li>
-</ol>
-</li>
-<li>
-<p>H is a ppm onto \( C(X)^ \)</p>
-<ol>
-<li>Let \( \vec{V} \in C(X)\), then \( \vec{V}=X\vec{a} for \vec{a} \in \mathbb{R}^K+1 \)<br>
+<li>Let \( \vec{V} \in C(X), \text{ then } \vec{V}=X\vec{a} \text{ for } \vec{a} \in \mathbb{R}^K+1 \) <br>
 \( H\vec{V}= X(X^TX)^-1X^TX\vec{a}=X\vec{a}=\vec{V} \)</li>
-<li>Let \( \vec{W} \in C(X)^\bot \), then \( X^T\vec{W}=\vec{0} for \)<br>
+<li>Let \( \vec{W} \in C(X)^\bot, \text{ then } X^T\vec{W}=\vec{0} \text{ for } \)<br>
 \( H\vec{W}= X(X^TX)^-1X^T\vec{W}=\vec{0} \)</li>
 </ol>
-</li>
-<li>
-<p>(I-H) is a PPM onto \( C(X)^\bot \)</p>
+<h3 id="i-h-is-a-ppm-onto--cxbot-">(I-H) is a PPM onto \( C(X)^\bot \)</h3>
 <ol>
-<li>Let \( \vec{V} \in C(X)^\bot \), then \( H\vec{v}=\vec{0} \)<br>
+<li>Let \( \vec{V} \in C(X)^\bot , \text{ then } H\vec{v}=\vec{0} \)<br>
 \( (I-H)\vec{V}= \vec{V}-H\vec{V}=\vec{V} \)</li>
-<li>Let \( \vec{W} \in C(X) \), then \( H\vec{W}=\vec{W} for \)<br>
+<li>Let \( \vec{W} \in C(X) \), then \( H\vec{W}=\vec{W} \text{ for } \) <br>
 \( (I-H)\vec{W}= \vec{W}-H\vec{W}=\vec{0} \)</li>
 </ol>
-</li>
-<li>
-<p>Geometric Illustration (동영상 참조)<br>
-The response vector \( \vec{y} \) is decomposed into 2 orthogonal components.
+<h3 id="geometric-illustration-동영상-참조">Geometric Illustration (동영상 참조)</h3>
+<p>The response vector \( \vec{y} \) is decomposed into 2 orthogonal components.
 $$ \begin{aligned} &amp;\vec{y}=\hat{y}+\vec{e} \\\ &amp; \hat{y}=X\hat{\beta} \in C(X) \quad (Estimation Space) \\\ &amp; \vec{e}=\vec{y}-\hat{y} \in C(X)^\bot (Error Space) \end{aligned} $$</p>
-</li>
-<li>
-<p>Properties of H
-(H1) \( ( H=H^T \) ), (( HH^T=H \) idempotent<br>
+<h3 id="properties-of-h">Properties of H</h3>
+<p>(H1) \( ( H=H^T, HH^T=H \) is idempotent<br>
 (H2) \( (I-H)=(I-H)^T \), \( (I-H)(I-H)=(I-H) \)<br>
 (H3) \( C(H)=C(X) \), <a href="">perpendicular projection matrix</a><br>
 (H4) \( C(I-H)=C(X)^\bot \)<br>
@@ -159,8 +143,6 @@ $$ \begin{aligned} &amp;\vec{y}=\hat{y}+\vec{e} \\\ &amp; \hat{y}=X\hat{\beta} \
 (H7) \( Rank(H) = tr(H) = p+1 \)<br>
 (H8) \( Rank(I-H) = tr(I-H) = n-(p+1) \)<br>
 (H9) \( (I-H)H=0 \)</p>
-</li>
-</ul>
 
   
     
@@ -168,7 +150,16 @@ $$ \begin{aligned} &amp;\vec{y}=\hat{y}+\vec{e} \\\ &amp; \hat{y}=X\hat{\beta} \
       <span class="title">Contents</span>
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#hat-matrix">Hat Matrix</a></li>
+    <li><a href="#hat-matrix">Hat Matrix</a>
+      <ul>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#perpendicular-projection-matrixppm">Perpendicular Projection Matrix(PPM)</a></li>
+        <li><a href="#h-is-a-ppm-onto--cx-">H is a ppm onto \( C(X)^ \)</a></li>
+        <li><a href="#i-h-is-a-ppm-onto--cxbot-">(I-H) is a PPM onto \( C(X)^\bot \)</a></li>
+        <li><a href="#geometric-illustration-동영상-참조">Geometric Illustration (동영상 참조)</a></li>
+        <li><a href="#properties-of-h">Properties of H</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -220,8 +211,8 @@ $$ \begin{aligned} &amp;\vec{y}=\hat{y}+\vec{e} \\\ &amp; \hat{y}=X\hat{\beta} \
       
       
       <li>
-        <a href="https://uqpuark.github.io/math/quadratic_form/" rel="next">
-          <span>[행렬]Quadratic form</span>
+        <a href="https://uqpuark.github.io/dsstudy/4_pattern_recognition/" rel="next">
+          <span>[DS] 4회차 pattern recognition</span>
         </a>
       </li>
       

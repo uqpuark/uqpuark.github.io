@@ -3,14 +3,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[행렬]Quadratic form  | 데이터 사이언스 블로그</title>
-  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Quadratic form'을 한 번 살펴보세요.">
-  <meta property="og:title" content="[행렬]Quadratic form">
+  <title>[행렬] Quadratic form  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬] Quadratic form'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[행렬] Quadratic form">
   
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2021-02-19">
   
-  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Quadratic form'을 한 번 살펴보세요.">
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬] Quadratic form'을 한 번 살펴보세요.">
   <meta property="og:url" content="https://uqpuark.github.io/math/quadratic_form/">
   <meta property="og:site_name" content="데이터 사이언스 블로그">
   
@@ -93,7 +93,7 @@
     <a href="https://uqpuark.github.io/math/quadratic_form/">
       <div class="post-meta">
         <time>2021년 02월 19일 21시 04분</time>
-        <h1>[행렬]Quadratic form</h1>
+        <h1>[행렬] Quadratic form</h1>
       </div>
     </a>
   </div>
@@ -120,9 +120,9 @@ If A symmetric, \( 2\vec{\mu}^TA \)</p>
 </ul>
 <h2 id="mean-variance-and-covariance-of-quadratic-forms">Mean, Variance, and Covariance of Quadratic Forms</h2>
 <p>(<a href="https://www.youtube.com/watch?v=Z0jBgMDkfUg">https://www.youtube.com/watch?v=Z0jBgMDkfUg</a>)</p>
-<p>Assume \( E(X)=\mu, Var(X)=\Sigma. \\\ Let A and B be nxn symmetric matrices. \)</p>
-<p>① \( E(X^TAX) = tr( A\Sigma ) + \mu^TA\mu   \)</p>
-<p><em>proof</em><br>
+<p>Assume \( E(X)=\mu, Var(X)=\Sigma. \\\ \text{Let A and B be nxn symmetric matrices.} \)</p>
+<h3 id="1--extax--tr-asigma---mutamu---">1. \( E(X^TAX) = tr( A\Sigma ) + \mu^TA\mu   \)</h3>
+<p><em>proof</em>  <br>
 \( \begin{aligned} \Sigma&amp;=E[(X-\mu)(X-\mu)^T] \\\ &amp;= E[XX^T-X\mu^T-\mu X^T+\mu\mu^T] \\\ &amp;= E[XX^T]-\mu\mu^T \\\ &amp;\Longrightarrow E[XX^T]=\Sigma+\mu\mu^T \end{aligned} \)</p>
 <p>\( \begin{aligned} E(X^TAX)&amp;=tr(E(X^TAX))=E[tr(X^TAX)]=E[tr(AXX^T)] \\\ &amp;=tr(AE(XX^T))=tr(A(\Sigma+\mu\mu^T))=tr(A\Sigma)+tr(A\mu\mu^T) \\\ &amp;=tr(A\Sigma)+tr(\mu^T A\mu) \end{aligned} \)</p>
 <blockquote>
@@ -131,11 +131,11 @@ quadratic form이 1x1 행렬이 되기때문에 tr을 붙여줘도 되고, E와 
 1번째 줄에서 2번째 줄로 넘어가는 데 튕기면 직접 대입하면 확인 가능(<a href="https://www.youtube.com/watch?v=P1F8Yxs9lWU">참고</a>)</p>
 </blockquote>
 <p>* Will use &quot;<a href="https://www.youtube.com/watch?v=NfjuNpmS8vA">the Kronecker Product</a>&quot;.</p>
-<p>② \( Cov(X^TAX, X^TBX) \\\ = tr[(A \otimes B)E(XX^T \otimes XX^T)] - [tr(A\Sigma+\mu^TA\mu)][tr(B\Sigma)+\mu^T B\mu] \)</p>
-<p><em>proof</em><br>
+<h3 id="2--covxtax-xtbx---tra-otimes-bexxt-otimes-xxt---trasigmamutamutrbsigmamut-bmu-">2. \( Cov(X^TAX, X^TBX) \\\ = tr[(A \otimes B)E(XX^T \otimes XX^T)] - [tr(A\Sigma+\mu^TA\mu)][tr(B\Sigma)+\mu^T B\mu] \)</h3>
+<p><em>proof</em> <br>
 \( \begin{aligned} E(X^TAXX^TBX)&amp;=E[tr(X^TAXX^TBX)]=E[tr((X^TAX) \otimes (X^TBX))] \\\ &amp; =E[tr((X^T \otimes X^T)(A \otimes B)(X \otimes X))]=E[tr((A \otimes B)(X \otimes X)(X^T \otimes X^T))] \\\ &amp; =E[tr((A \otimes B)(XX^T \otimes XX^T))]=tr((A \otimes B)E(XX^T \otimes XX^T))  \\\ Cov(X^TAX, X^TBX) &amp;= E(X^AXX^BX) - E(X^TAX)E(X^TBX) \end{aligned} \)</p>
-<p>③ \( Var(X^TAX) = tr((A \otimes A)E(XX^T \otimes XX^T)) - [tr(A\Sigma)+\mu^TA\mu]^2  \)</p>
-<p><em>proof</em><br>
+<h3 id="3--varxtax--tra-otimes-aexxt-otimes-xxt---trasigmamutamu2--">3. \( Var(X^TAX) = tr((A \otimes A)E(XX^T \otimes XX^T)) - [tr(A\Sigma)+\mu^TA\mu]^2  \)</h3>
+<p><em>proof</em> <br>
 \( Var(X^TAX)=Cov(X^TAX, X^TAX) \)<br>
 The result follows from ②</p>
 <ul>
@@ -160,8 +160,8 @@ Find \(E(X^TIX), Var(X^TIX) \)</li>
 <ol>
 <li><a href="https://www.youtube.com/watch?v=1JRs-2YsodQ">&ldquo;Idempotent Matrices&rdquo;</a></li>
 </ol>
-<p>Theorem 1<br>
-Let \( X \sim MVN_k(0, I) \) and \( A \) be a \((K \times K)\) Symmetric idempotent matrix with \( rank(A)=r \), then \( X^TAX \sim \chi_0^2(r) \)</p>
+<h4 id="theorem-1">Theorem 1</h4>
+<p>Let \( X \sim MVN_k(0, I) \) and \( A \) be a \((K \times K)\) Symmetric idempotent matrix with \( rank(A)=r \), then \( X^TAX \sim \chi_0^2(r) \)</p>
 <p><em>proof</em><br>
 A 는 symmetric(대칭)이고,  idempotent(멱등)이다. 따라서 decompose(분해) \( A=PDP^T \quad where P\)는 (KxK) orthogonal(직교)이고, \( D=diag(I_r, \vec{0}) \).<br>
 Theorem 3 in &ldquo;Idempotent Matries&quot;에 의해 Let \( Z=P^TX, then Z \sim N-K(0, I) since E(Z)=P^TE(X)-0 and Var(Z)=P^TVar(X)P=P^TIP=I. \)</p>
@@ -169,8 +169,8 @@ Theorem 3 in &ldquo;Idempotent Matries&quot;에 의해 Let \( Z=P^TX, then Z \si
 <p>using the first r components of Z, \( \sum_{j=1}^rZ_j^2 \sim \chi_0^2(r) \)</p>
 </blockquote>
 <p>\( X^TAX = X^TPDP^TX=Z^TDZ=\sum_{j=1}^rZ_j^2 \sim \chi_0^2(r) \)</p>
-<p>Theorem 2<br>
-Let \( X \sim MVN_K(0, \Sigma), \) where \( Sigma \) is positive definite(&gt;).   Let \( A \) be a \( (K \tiems K) \) symmetric matrix. If \( A\Sigma \) is idempotent and \( rank(A\Sigma)=r, then X^TAX \sim \chi_0^2(r). \)</p>
+<h4 id="theorem-2">Theorem 2</h4>
+<p>Let \( X \sim MVN_K(0, \Sigma), \) where \( Sigma \) is positive definite(&gt;).   Let \( A \) be a \( (K \tiems K) \) symmetric matrix. If \( A\Sigma \) is idempotent and \( rank(A\Sigma)=r, then X^TAX \sim \chi_0^2(r). \)</p>
 <p><em>proof</em><br>
 Use theorem 1.(<a href="https://www.youtube.com/watch?v=2J8pVynRZ8A">동영상을 참고하자</a>)</p>
 <h3 id="part-2">Part 2</h3>
@@ -181,13 +181,13 @@ Background</p>
 <li><a href="https://www.youtube.com/watch?v=xfffOSYr5Zk">&ldquo;The Spectral Decompositon(Eigen decompostion&rdquo;</a></li>
 <li><a href="https://www.youtube.com/watch?v=2J8pVynRZ8A">&ldquo;Distribution of Quadratic Forms(part1)&quot;</a></li>
 </ol>
-<p>Theorem 3<br>
-Let A be a (nxn) matrix. If \( A^i=A^{i+1} \) for some i&gt;0 then A is idempotent.</p>
+<h4 id="theorem-3">Theorem 3</h4>
+<p>Let A be a (nxn) matrix. If \( A^i=A^{i+1} \) for some i&gt;0 then A is idempotent.</p>
 <p><em>proof</em><br>
 Let \( \lambda_K\ K=1, \cdots, n \) be the eigenvalues(고유값) of A.  Then \( \lambda_K^i \) are the eigenvalues of \( A^i \).<br>
 \( \begin{aligned} &amp; \lambda_K^i v=A^i v=A^{i+1} v \Rightarrow \lambda_K^i =\lambda_K^{i+1} \quad K=1, \cdots, n. \\\ &amp; \lambda_K={0 \text{ or } 1} \quad \forall K \Rightarrow \text{A is idempotent by &ldquo;Idemtptoent Matrices&rdquo;} \end{aligned} \)</p>
-<p>Theorem 4<br>
-Let \( X \sim MVN_K(0, \Sigma) \text{ where } \Sigma \text{ is positive semi-definite.(&gt;=)} \)
+<h4 id="theorem-4">Theorem 4</h4>
+<p>Let \( X \sim MVN_K(0, \Sigma) \text{ where } \Sigma \text{ is positive semi-definite.(&gt;=)} \)
 Let A be a (KxK) symmetric matrix. \( \text{ If } \Sigma A\Sigma A\Sigma = \Sigma A \Sigma \text{ and } tr(A\Sigma)=r, \text{ then } X^TAX \sim \chi_0^2(r) \)</p>
 <p><em>proof</em><br>
 use &ldquo;The Spectral Decomposition&rdquo;, &ldquo;part1&rdquo; Thm 2.<br>
@@ -206,7 +206,13 @@ use &ldquo;The Spectral Decomposition&rdquo;, &ldquo;part1&rdquo; Thm 2.<br>
       <nav id="TableOfContents">
   <ul>
     <li><a href="#derivative-of-a-quadratic-form">Derivative of a Quadratic Form</a></li>
-    <li><a href="#mean-variance-and-covariance-of-quadratic-forms">Mean, Variance, and Covariance of Quadratic Forms</a></li>
+    <li><a href="#mean-variance-and-covariance-of-quadratic-forms">Mean, Variance, and Covariance of Quadratic Forms</a>
+      <ul>
+        <li><a href="#1--extax--tr-asigma---mutamu---">1. \( E(X^TAX) = tr( A\Sigma ) + \mu^TA\mu   \)</a></li>
+        <li><a href="#2--covxtax-xtbx---tra-otimes-bexxt-otimes-xxt---trasigmamutamutrbsigmamut-bmu-">2. \( Cov(X^TAX, X^TBX) \\\ = tr[(A \otimes B)E(XX^T \otimes XX^T)] - [tr(A\Sigma+\mu^TA\mu)][tr(B\Sigma)+\mu^T B\mu] \)</a></li>
+        <li><a href="#3--varxtax--tra-otimes-aexxt-otimes-xxt---trasigmamutamu2--">3. \( Var(X^TAX) = tr((A \otimes A)E(XX^T \otimes XX^T)) - [tr(A\Sigma)+\mu^TA\mu]^2  \)</a></li>
+      </ul>
+    </li>
     <li><a href="#distribution-of-quadratic-form">Distribution of Quadratic Form</a>
       <ul>
         <li><a href="#part-1">Part 1</a></li>
@@ -258,15 +264,15 @@ use &ldquo;The Spectral Decomposition&rdquo;, &ldquo;part1&rdquo; Thm 2.<br>
     <ul>
       
       <li>
-        <a href="https://uqpuark.github.io/math/hat_matrix/" rel="prev">
-          <span>[행렬]Hat Matrix</span>
+        <a href="https://uqpuark.github.io/dsstudy/3_data_grouping/" rel="prev">
+          <span>[DS] 3회차 - 데이터 그룹핑</span>
         </a>
       </li>
       
       
       <li>
         <a href="https://uqpuark.github.io/math/idempotent/" rel="next">
-          <span>[행렬]Idempotent Matrices</span>
+          <span>[행렬] Idempotent Matrices</span>
         </a>
       </li>
       

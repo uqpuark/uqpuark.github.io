@@ -3,14 +3,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[행렬]Idempotent Matrices  | 데이터 사이언스 블로그</title>
-  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Idempotent Matrices'을 한 번 살펴보세요.">
-  <meta property="og:title" content="[행렬]Idempotent Matrices">
+  <title>[행렬] Idempotent Matrices  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬] Idempotent Matrices'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[행렬] Idempotent Matrices">
   
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2021-02-20">
   
-  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬]Idempotent Matrices'을 한 번 살펴보세요.">
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[행렬] Idempotent Matrices'을 한 번 살펴보세요.">
   <meta property="og:url" content="https://uqpuark.github.io/math/idempotent/">
   <meta property="og:site_name" content="데이터 사이언스 블로그">
   
@@ -93,7 +93,7 @@
     <a href="https://uqpuark.github.io/math/idempotent/">
       <div class="post-meta">
         <time>2021년 02월 20일 16시 57분</time>
-        <h1>[행렬]Idempotent Matrices</h1>
+        <h1>[행렬] Idempotent Matrices</h1>
       </div>
     </a>
   </div>
@@ -103,61 +103,71 @@
   <iframe src="https://www.youtube.com/embed/1JRs-2YsodQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<p>Definition<br>
+<p><strong>Definition</strong><br>
 \( A^2 = A \text{where A is a square matrix}\)</p>
-<p>Theorem 1<br>
-The only non-singular idempotent matrix is I.</p>
-<p><em>proof</em><br>
+<h3 id="theorem-1">Theorem 1</h3>
+<p>The only non-singular idempotent matrix is I.</p>
+<p><code>proof</code><br>
 \( A=A^{-1}AA=A^{-1}A^2=A^{-1}A=I \)</p>
 <blockquote>
 <p>All other idempotent matrices are singular!</p>
 </blockquote>
-<p>Theorem 2<br>
-If A is idempotent, then I-A is idemptoent</p>
-<p><em>proof</em><br>
+<h3 id="theorem-2">Theorem 2</h3>
+<p>If A is idempotent, then I-A is idemptoent</p>
+<p><code>proof</code><br>
 \( (I-A)^2 = I-2A+A^2=(I-A) \)</p>
-<p>Theorem 3<br>
-Let A be square and symmetric.<br>
+<h3 id="theorem-3">Theorem 3</h3>
+<p>Let A be square and symmetric.<br>
 A is idempotent iff the eigenvalues of A are 0 or 1.</p>
-<p><em>proof</em><br>
+<p><code>proof</code><br>
 Let \( A = P\Lambda P^T \) be the eigen decompostiion of A. P is orthogonal and \( \Lambda \) is diagonal. \( A^2 = (P\Lambda P^T)^2 = P\Lambda p^TP\Lambda P^T = P\Lambda^2 P^T. \)</p>
 <p>\( &ldquo;\Rightarrow&rdquo; A^2=P\Lambda^2 P^T=P\Lambda P^T=A \Rightarrow \Lambda^2=\Lambda \Rightarrow \text{diagonal entries are 0 or 1} \\\ &ldquo;\Leftarrow&rdquo; \Lambda^2=\Lambda \Rightarrow A=P\Lambda P^T=P\Lambda^2 P^T=A^2 \)</p>
-<p>Theorem 4<br>
-Let A, B be idempotent matrices. If AB=BA, then AB is idempotent.</p>
-<p><em>proof</em><br>
+<h3 id="theorem-4">Theorem 4</h3>
+<p>Let A, B be idempotent matrices. If AB=BA, then AB is idempotent.</p>
+<p><code>proof</code><br>
 \( (AB)^2 = ABAB = A^2B^2 = AB \)</p>
-<p>Theorem 5<br>
-If A and (-A) are idempotent, the A=[0].</p>
-<p><em>proof</em><br>
+<h3 id="theorem-5">Theorem 5</h3>
+<p>If A and (-A) are idempotent, the A=[0].</p>
+<p><code>proof</code><br>
 \( A=A^2=(-1)^2A^2=(-A)^2=-A \Rightarrow A=[0] \)</p>
-<p>Theorem 6<br>
-Let A, B be idempotent matrices. A+B is idempotent iff AB=BA=0.</p>
-<p><em>proof</em><br>
-\( (A+B)^2 = A^2+B^2+AB+BA=(A+B)+AB+BA. \\\<br>
-(A+B) \text{ is idempotent iff } AB+BA=0 \\\<br>
-AB+-BA \Rightarrow AABB=-ABAB \Rightarrow -AB=(AB)^2=(-AB)^2. \\\<br>
-BABA=-BBAA \Rightarrow -BA=(BA)^2=(-BA)^2/ \\\<br>
-\text{ Thus, -AB and -BA are idempotent. }
-\)</p>
+<h3 id="theorem-6">Theorem 6</h3>
+<p>Let A, B be idempotent matrices. A+B is idempotent iff AB=BA=0.</p>
+<p><code>proof</code><br>
+\( (A+B)^2 = A^2+B^2+AB+BA=(A+B)+AB+BA. \\\ (A+B) \text{ is idempotent iff } AB+BA=0 \\\ AB+-BA \Rightarrow AABB=-ABAB \Rightarrow -AB=(AB)^2=(-AB)^2. \\\ BABA=-BBAA \Rightarrow -BA=(BA)^2=(-BA)^2 \\\ \text{ Thus, -AB and -BA are idempotent. } \)</p>
 <blockquote>
 <p>\( (BA)^2=(-AB)^2=-AB=BA \text{. Since (AB), (BA), (-AB), (-BA) are idempotent. By Thm 5, AB=BA=0}  \)</p>
 </blockquote>
-<p>Theorem 7<br>
-Let A be and idempotent nxn matrix, then rank(A)=tr(A)</p>
-<p><em>proof</em></p>
-<p>Theorem 8<br>
-Let A be an nxn symmetric idempotent matrix, then,</p>
+<h3 id="theorem-7">Theorem 7</h3>
+<p>Let A be and idempotent nxn matrix, then rank(A)=tr(A)</p>
+<p><code>proof</code></p>
+<h3 id="theorem-8">Theorem 8</h3>
+<p>Let A be an nxn symmetric idempotent matrix, then,</p>
 <ol>
 <li>\( 0 \leq a_{ii} \leq 1 \quad \forall i=1, \cdots, n \)</li>
 <li>\( \text{if } a_{ii}=0 \text{ or } a_{ii}=1, \text{ then } a_{ij}=a_{ji}=0 \quad \forall i \ne j \)</li>
 </ol>
-<p><em>proof</em></p>
+<p><code>proof</code></p>
 
   
     
     <div class="post-toc">
       <span class="title">Contents</span>
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#theorem-1">Theorem 1</a></li>
+        <li><a href="#theorem-2">Theorem 2</a></li>
+        <li><a href="#theorem-3">Theorem 3</a></li>
+        <li><a href="#theorem-4">Theorem 4</a></li>
+        <li><a href="#theorem-5">Theorem 5</a></li>
+        <li><a href="#theorem-6">Theorem 6</a></li>
+        <li><a href="#theorem-7">Theorem 7</a></li>
+        <li><a href="#theorem-8">Theorem 8</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
     <div style='padding:15px;'>
     </div>
@@ -201,7 +211,7 @@ Let A be an nxn symmetric idempotent matrix, then,</p>
       
       <li>
         <a href="https://uqpuark.github.io/math/quadratic_form/" rel="prev">
-          <span>[행렬]Quadratic form</span>
+          <span>[행렬] Quadratic form</span>
         </a>
       </li>
       

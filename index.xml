@@ -10,7 +10,7 @@
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
     <lastBuildDate>Sat, 20 Feb 2021 16:57:08 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[행렬]Idempotent Matrices</title>
+      <title>[행렬] Idempotent Matrices</title>
       <link>https://uqpuark.github.io/math/idempotent/</link>
       <pubDate>Sat, 20 Feb 2021 16:57:08 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>
@@ -20,7 +20,7 @@
     </item>
     
     <item>
-      <title>[행렬]Quadratic form</title>
+      <title>[행렬] Quadratic form</title>
       <link>https://uqpuark.github.io/math/quadratic_form/</link>
       <pubDate>Fri, 19 Feb 2021 21:04:38 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>
@@ -30,12 +30,30 @@ Derivative of a Quadratic Form (https://www.</description>
     </item>
     
     <item>
-      <title>[행렬]Hat Matrix</title>
+      <title>[DS] 3회차 - 데이터 그룹핑</title>
+      <link>https://uqpuark.github.io/dsstudy/3_data_grouping/</link>
+      <pubDate>Thu, 18 Feb 2021 15:30:22 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/dsstudy/3_data_grouping/</guid>
+      <description>Section 1. K-Nearest Neighbor Section 2. K-Means Section 3.</description>
+    </item>
+    
+    <item>
+      <title>[DS] 4회차 pattern recognition</title>
+      <link>https://uqpuark.github.io/dsstudy/4_pattern_recognition/</link>
+      <pubDate>Wed, 17 Feb 2021 20:41:31 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/dsstudy/4_pattern_recognition/</guid>
+      <description>* 본 내용은 pabii의 데이터 사이언스 강의를 정리한 것임.</description>
+    </item>
+    
+    <item>
+      <title>[행렬] Hat(Projection) Matrix</title>
       <link>https://uqpuark.github.io/math/hat_matrix/</link>
       <pubDate>Wed, 17 Feb 2021 20:40:47 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/math/hat_matrix/</guid>
-      <description>Hat Matrix     The Hat Matrix $$ H=X(X^TX)^{-1}X^T $$</description>
+      <description>Hat Matrix   Definition \( H=X(X^TX)^{-1}X^T \)</description>
     </item>
     
     <item>
