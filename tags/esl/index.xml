@@ -10,12 +10,12 @@
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
     <lastBuildDate>Sat, 13 Feb 2021 23:12:17 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/esl/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[ESL] CH4 inear Methods for Classficiation</title>
+      <title>[ESL] CH4 Linear Methods for Classficiation</title>
       <link>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</link>
       <pubDate>Sat, 13 Feb 2021 23:12:17 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</guid>
-      <description>목표 : 3/1 까지 업로드</description>
+      <description>시작 4.1 Introduction predictor G(x)는 discrete set \( \mathcal{G} \) 값을 가지니까 input space를 나눌 수 있다.</description>
     </item>
     
     <item>

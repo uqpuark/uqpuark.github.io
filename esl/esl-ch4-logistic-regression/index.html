@@ -3,14 +3,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[ESL] CH4 inear Methods for Classficiation  | 데이터 사이언스 블로그</title>
-  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] CH4 inear Methods for Classficiation'을 한 번 살펴보세요.">
-  <meta property="og:title" content="[ESL] CH4 inear Methods for Classficiation">
+  <title>[ESL] CH4 Linear Methods for Classficiation  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] CH4 Linear Methods for Classficiation'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[ESL] CH4 Linear Methods for Classficiation">
   
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2021-02-13">
   
-  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] CH4 inear Methods for Classficiation'을 한 번 살펴보세요.">
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] CH4 Linear Methods for Classficiation'을 한 번 살펴보세요.">
   <meta property="og:url" content="https://uqpuark.github.io/esl/esl-ch4-logistic-regression/">
   <meta property="og:site_name" content="데이터 사이언스 블로그">
   
@@ -86,24 +86,245 @@
   <div class="container">    
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
 
 <div class="post">
   <div class="post-title">
     <a href="https://uqpuark.github.io/esl/esl-ch4-logistic-regression/">
       <div class="post-meta">
         <time>2021년 02월 13일 23시 12분</time>
-        <h1>[ESL] CH4 inear Methods for Classficiation</h1>
+        <h1>[ESL] CH4 Linear Methods for Classficiation</h1>
       </div>
     </a>
   </div>
   <section class="post-content">
-    <p>목표 : 3/1 까지 업로드</p>
+    <h1 id="시작">시작</h1>
+<h2 id="41-introduction">4.1 Introduction</h2>
+<p>predictor G(x)는 discrete set \( \mathcal{G} \) 값을 가지니까 input space를 나눌 수 있다. 그런데 decision boundaries가 linear라서 챕터 제목이 저렇다. K개의 클래스가 있다고 할 때, a라는 class에 대해 추정된 선형 모델은
+\( \hat{f_a}(x) = \hat{\beta_{a0}}+\hat{\beta_a}^T x \)이다. 클래스 a와 b를 나누는 decision boundary는 \( \hat{f_a}(x)=\hat{f_b}(x) \)가 성립하는 점들의 집합이라고 하면 이해가 될 것이다.(둘 중에 하나가 크면 큰 값에 해당하는 클래스로 분류가 되버리니까, 경계에 있는 데이터는 분류가 되지 않아야겠지) 즉, \( \lbrace x:(\hat{\beta_{a0}}-\hat{\beta_{b0}})+(\hat{\beta_a}-\hat{\beta_b})^T x=0 \rbrace  \), an affine set or hyperplane.</p>
+<blockquote>
+<p>그럼 경계에 있는 데이터는 어떻게 분류가 되나요?(모르겠습니다, 그냥 빼버리면 되지 않나요?)</p>
+</blockquote>
+<blockquote>
+<p>아핀 공간은 원점을 안지나는 decision boundary, 초평면은 원점 지나는 걸로 단순하게 생각해도 되나요?(모르겠습니다)</p>
+</blockquote>
+<blockquote>
+<p>2개로 나눠지는 경우로 생각하면 편하게 이해 됨<br>
+K개로 나눠지는 경우는 a클래스 b클래스 이렇게 나눈다기 보다는 a클래스 vs. 나머지 클래스 이렇게 K번 해서 K개 decision boundary 찾아서 분류 하면 된다. One-vs-all 라고 부른다.</p>
+</blockquote>
+<p>이러한 regression 접근 방법은 각 클래스에 대한 <em>discriminant function</em>(판별함수)를 찾은 다음에 함수값이 가장 큰 클래스로 분류한다. 다른 방법으로는 posterior Pr(G=k|X=x)를 계산하는 방법도 있다. 판별함수나 포스테리어가 x에 대해 선형이면, decision boundary도 선형일 것이다.(왜? 선형이 안될 수도 있는데 선형이 되게 바꿔주면 되는거라는 의미인듯)<br>
+decision boundary가 선형이 되도록 하기위해서 판별함수나 포스테리어에 변환을 해줘서 선형이 되도록 해준다. 예를 들어, 2개의 클래스에서 인기있는 posterior 모델은
+$$ Pr(G=1|X=x)= {exp(\beta_0+\beta^Tx) \over 1+exp(\beta_0+\beta^Tx)} \\\ Pr(G=2|X=x)= {1 \over 1+exp(\beta_0+\beta^Tx)} $$
+<em>logit</em> transformation: log[p/(1-p)]를 해줘서 이렇게 바꾼다.
+$$\log {Pr(G=1|X=x) \over Pr(G=2|X=x)}=\beta_0+\beta^Tx $$
+decision boundary는 <em>log-odds</em>가 0이되는 점들의 집합이고, \( \lbrace x|\beta_0+\beta^Tx=0 \rbrace \) 정의되는 초평면이다. linear logits가 나타나는 방법이 LDA와 logistic regression이다.(선형함수가 데이터에 피팅하는 방식에서 차이가 있다)<br>
+더 직접적인 방법으로 decision boundary를 hyperplane으로 찾는 방법 2가지가 있다. <em>perceptron</em> 모델과 <em>optimally separating hyperplane</em>이다. 여기서는 separable case를 다루고, ch12에서는 nonseparable case를 다룬다.</p>
+<blockquote>
+<p>logit이랑 log-odds랑 같은 거, logit의 역함수가 로지스틱 함수(sigmoid)<br>
+logit L의 역함수는 로지스틱</p>
+<ul>
+<li>\( odds = {p \over 1-p} \quad {\text{성공확률} \over \text{실패확률}} \) (토토에서 배당률을 계산할 때 쓰는 오즈가 이거다.)<br>
+\( L(logit) = \log{p \over 1-p} \quad \underset{\text{역함수}}{\rightarrow} \quad p={1 \over 1+e^{-L}} \) (로지스틱)</li>
+</ul>
+</blockquote>
+<p>이 챕터 내내 linear decision boundaries를 찾는 것에 집중하는데, generalization(일반화)를 위한 내용도 있다. 제곱항, interact항을 추가할 수 있다. linear decision boundary가 quadractic으로 확장된다.</p>
+<h2 id="42-linear-regression-of-an-indicator-matrix">4.2 Linear Regression of an Indicator Matrix</h2>
+<ul>
+<li>Indicator Matrix : 해당 클래스가 1이면 나머지는 0로 이뤄진 행렬, 지시행렬이라고 부르는 것 같다.</li>
+</ul>
+<p>각각의 response categories가 indicator variable로 코딩이 된다. \( \mathcal{G} \)가 K개의 클래스를 가지면 G=K인 \(Y_k \)만 1, 나머지는 0의 값이고, vector \( Y = (Y_1, \cdots, Y_K) \)로 표현된다. N개의 트레이닝 데이터가 있으면 NxK indicator response matrix \( \bold{Y} \)가 만들어 진다. linear regression으로 피팅하면
+$$
+\hat{\bold{Y}}=\bold{X}(\bold{X}^T \bold{X})^{-1}\bold{X}^T\bold{Y}
+$$
+coefficient matrix는 \( \hat{\Beta}=(\bold{X}^T \bold{X})^{-1}\bold{X}^T\bold{Y} \)</p>
+<p>새로운 관측치를 위의 추정량을 이용해서 classification을 한다.</p>
+<ol>
+<li>fitted output 계산 : \( \hat{f}(x)^T=(1, x^T)\hat{\Beta},\ a\ K\ vector; \)</li>
+<li>가장 큰 값을 찾아서 분류하기 : \( \hat{G}(x)=argmax_{k \in \mathcal{G}} \hat{f_k}(x) \)</li>
+</ol>
+<h4 id="이렇게-분류해도-되나요-근거가-있나요">이렇게 분류해도 되나요? 근거가 있나요?</h4>
+<ol>
+<li>regression을 conditional expectation의 estimate로 바라보는 관점<br>
+\( r.v.\ Y_k,\ E(Y_k|X=x)=Pr(G=k|X=x) \), 조건부 기댓값들이 구하고자 하는 목표가 되는데, 조건부 기대값(리그레션 돌려서 나온)의 추정값들이 얼마나 좋은지? 가 문제가 된다. 아니면 posterior의 합리적인 estimate(추정치)인지? 중요한지? 생각해 봐야 한다. <br>
+다행히도? intercept가 있으면 \( \sum_{k \in \mathcal{G}} \hat{f_k}(x)=1 \)을 확인하는건 간단하게 알 수 있다 (column of 1&rsquo;s in X). 합은 1이되지만 \( \hat{f_k}(x) \)은 음수, 1보다 클 수도 있다(확률의 공리에 맞지 않음). 이러한 사실이 이 방법이 효과가 없다는 이야기는 아니고, 사실 많은 경우에서 선형 방법과 비슷한 결과가 나온다. input 데이터의 basis expansion h(X) 위의 선형 회귀분석을 허용하면, 이 방법은 확률의 일관된 추정치를 초래할 수 있다. 트레이닝 데이터의 크기가 커질 수록 basis function 위의 선형 회귀가 조건부 기대값에 근접한다. (그냥 번역함, 잘 이해는 안됨, ch5에서 설명한다고 함)</li>
+</ol>
+<blockquote>
+<p>\( \sum_{k \in {1,\cdots,K}} \hat{f_k}(X)=\hat{Y} \cdot 1_K = H \cdot 1_N = 1_N \)<br>
+하나의 관측치에 대해서는 \( \sum_{k \in {1,\cdots,K}} \hat{f_k}(x) = 1 \)</p>
+</blockquote>
+<ol start="2">
+<li>각 클래스의 <em>targets</em> \( t_k \)를 구축하는 관점이다(\( t_k \)는 <em>k</em>번째 column of the KxK identity matrix). 예측 문제는 관측치에 대한 적절한 타겟을 설정하고 다시 만들어내는 것이다. \( y_i \)는 \( g_i=k \)면 \( y_i=t_k \)값을 갖는다.(모델이 별로면 \(t_k\)값을 계속 update한다고 생각하면 되나?) 그러고 least squares로 모델링을 하면
+$$
+\underset{\Beta}{min} \sum_{i=1}^N \parallel y_i-[(1,x_i^T)\Beta]^T \parallel^2
+$$
+새 관측치는 fitted vector \( \hat{f}(x) \)를 계산해서 가장 가까운 타겟으로 분류한다.(기준은 fitted vector와 target의 sum of squared Eucliean distance로)
+$$
+\hat{G}(x)=\underset{k}{argmin} \parallel \hat{f_k}(x)-t_k \parallel^2
+$$<br>
+이전의 접근법과 정확하게 같다. (why?, 이전 페이지에 있는 MLR)</li>
+</ol>
+<ul>
+<li>
+<p><em>sum-of-squared-norm</em> 기준은 <em>multiple linear regression</em>에서 기준이다(조금 다른 관점일 뿐). <em>squared norm</em>(2-norm) 자체가 <em>sum of square</em>이라서 성분은 분해되고(따로 계산 된다는 의미?), 각각의 원소에 대한 별도의 선형 모델로 재배열 될 수 있다. 다른 y값들을 묶는게 모델에 없어서 가능하다.</p>
+</li>
+<li>
+<p>가장 가까운 타겟으로 분류하는 rule은 maximum fitted component 기준과 같다(4.6과 4.4는 같다).(이거는 직관적으로 이해는 되는데 글로 설명을 못하겠습니다)</p>
+</li>
+</ul>
+<h4 id="클래스의-개수가-3개-이상이-되면">클래스의 개수가 3개 이상이 되면?</h4>
+<p>linear regression 접근 방법은 K가 커지면 문제가 생긴다. 클래스가 masked 될 수 있다. 반면 LDA는 잘 나누는 것을 볼수있다(FIGURE 4.2.). FIGURE 4.3.에서 데이터를 선에 정사영 시켰는데, 왼쪽 그래프는 3개의 regression line이 있고 수평선인 중간 클래스의 fitted value는 never dominant!라고 한다. 즉, class 2는 1이나 3으로 분류될 것이다. 반면, 오른쪽 그래프는 quadratic regression을 사용했다.</p>
+<blockquote>
+<p>p차원 input space에서 최악의 경우, 일반적인 다항식의 항과 교차항의 차수는 K-1, O(p^K-1)가 필요하다.</p>
+</blockquote>
+<h2 id="43-linear-discriminant-analysis">4.3 Linear Discriminant Analysis</h2>
+<p>LDA는 이 챕터에서 설명하는 Linear Discriminant Analysis도 있고, Latent Dirichlet Allocation이라는 용어도 있다. 두개 모두 결과적으로 배워야할 개념이니 헷갈리지 말자. 여담인데 베이지안은 어렵다.</p>
+<p>Section 2.4(Statistical Decision Theory)에서 optimal(최적) classification을 위해 클래스의 posteriors( Pr(G|X) )를 알아야 된다고 했다고 한다(와닿지가 않네&hellip;).</p>
+<p>\( \begin{aligned} f_k(x) &amp;=Pr(X|G=k) \text{ : class-conditional density of X in class G=k} \\\ \pi_k &amp;=Pr(G) \text{ : prior probability of class k, with } \sum\pi_k=1 \end{aligned} \)<br>
+이라고 가정하면</p>
+<p>$$ Pr(G=k|X=x)= {f_k(x) \pi_k \over \sum_{l=1}^K f_l (x) \pi_l}  $$
+이다.</p>
+<blockquote>
+<p>고3 확률과 통계에 나온다.<br>
+\(  \begin{aligned} Pr(G=k|X=x) &amp;= {Pr(X|G)Pr(G) \over Pr(X)} \\\ Pr(X) &amp;= \sum Pr(X|G_i)Pr(G_i) \end{aligned} \)</p>
+</blockquote>
+<p>그런데 in terms of ability to classify \( f_k(x) \)는 almost equivalent to having the quantity \( Pr(G=k|X=x) \)이라고 책에 쓰여져 있다. 왜 그럴까? 이말은 즉, posterior를 계산할 필요 없이 likelihood만 계산하면 classification을 할 수 있다는 의미일 텐데.</p>
+<ul>
+<li>evidence는 상대적인 크기를 비교하는데 영향을 끼치지 않는다(고정된 값이 때문에). evidence를 구하는 작업은 최대한 피하는 것이 원칙이라고 한다(구해도 결과가 바뀌지 않고, computational-cost도 많아서 그런 것 같다).</li>
+<li>그리고 prior가 예를 들어 동전 던지기면 앞면과 뒷면의 확률이 같다. 이러한 상황에서는 likelihood의 비교만으로 posterior의 비교가 가능하고 따라서 저러한 이야기가 나오는 것이다(베이지안의 MLE, MAP를 추가적으로 찾아보면 도움이 될 것이다).</li>
+</ul>
+<blockquote>
+<p>class의 밀도 함수를 모델링 하는 방법은 여러가지가 있는데, 여기서는 정규 분포의 확률 밀도 함수를 사용할 것이다(ch6에서 자세히 다룬다).</p>
+</blockquote>
+<h4 id="multivariate-gaussian로-density를-모델링-하는-과정">multivariate Gaussian로 density를 모델링 하는 과정</h4>
+<h2 id="44-logistic-regression">4.4 Logistic Regression</h2>
+<p>로지스틱 리그레션 모델은 x의 선형 함수를 통해 K개의 클래스들에 대한 posterior를 모델링 하려는 목적에서 비롯된다. 동시에 posterior의 합은 1이고, [0, 1] 범위 내에 있어야 하는 제약이 있다.</p>
+<p>$$ \log {Pr(G=1|X=x)  \over Pr(G=k|X=x) } = \beta_{10}+\beta_1^Tx \\\ \log {Pr(G=2|X=x)  \over Pr(G=k|X=x) } = \beta_{20}+\beta_2^Tx \\\ \vdots \\\ \log {Pr(G=K-1|X=x)  \over Pr(G=k|X=x) } = \beta_{(K-1)0}+\beta_{K-1}^Tx $$
+K-1 log-odds 또는 logit ransformations이라고 부른다. 마지막 클래스인 K를 분모로 사용했지만 임의로 잡아서 사용해서 같은 결과가 나온다.</p>
+<blockquote>
+<p>왜 이러한 형태를 사용하냐면 잘 모르겠다.<br>
+log-likelihood를 보면 명확해진다고 한다.</p>
+</blockquote>
+<p>$$ Pr(G=k|X=x)= {exp(\beta_{k0}+\beta_k^Tx) \over 1+\sum_{l=1}^{K-1}exp(\beta_{l0}+\beta_l^Tx) } \\\ Pr(G=k|X=x)= {1 \over 1+\sum_{l=1}^{K-1}exp(\beta_{l0}+\beta_l^Tx) } $$</p>
+<p><strong>유도과정</strong>
+$$ Pr(G=1|X=x)=Pr(G=K|X=x)exp(\beta_{10}+\beta_1^Tx) \\\ Pr(G=2|X=x)=Pr(G=K|X=x)exp(\beta_{20}+\beta_2^Tx) \\\ \vdots \\\ Pr(G=K-1|X=x)=Pr(G=K|X=x)exp(\beta_{(K-1)0}+\beta_{K-1}^Tx) \\\ \\\ \text{adding the value of }Pr(G=K|X=x) \\\ \\\ \sum_lPr(G=l|X=x)=1=Pr(G=K|X=x)(1+\sum_{l=1}^{K-1}exp(\beta_{l0}+\beta_l^Tx)) $$</p>
+<p>K=2일때는 모델이 단순해진다. 의학통계에서 많이 사용된다.(생존/죽음, 암 진단 등)</p>
+<h3 id="441-fitting-logistic-regression-models">4.4.1 Fitting Logistic Regression Models</h3>
+<p>로지스틱 리그레션은 maximum likelihood에 의해 피팅된다. conditional likelihood P(G|X)를 사용한다. P(G|X)가 conditional 분포를 특정시키므로, 다항 분포가 적절하다. N개 관측치에 대해서 log-likelihood는
+$$ \begin{aligned} l(\theta) = \sum_{i=1}^N\log p_{g_i}(x_i; \theta), \quad \text{ where } p_k (x_i; \theta)=Pr(G=k|X=x_i; \theta) \end{aligned} $$ 이다.</p>
+<p>K=2인 경우로 단순화하여 생각하자. 2개의 클래스를 0/1로 코딩하면 편하다. \( p_1(x; \theta)=p(x; \theta), \quad p_2(x; \theta)=1-p(x; \theta) \)라고 생각하면, log-likelihood는
+$$ \begin{aligned} l(\beta) &amp;= \sum_{i=1}^N {y_i \log p(x_i; \beta)+ (1-y_i)\log (1-p(x_i; \beta))} \\\ &amp;= \sum_{i=1}^N {y_i\beta^Tx_i-\log (1+e^{B^Tx_i})}
+\end{aligned} $$</p>
+<blockquote>
+<p>유도과정</p>
+</blockquote>
+<p>\( p_{g_i}(x_i) = Pr(G=1|X=x)^{y_i}Pr(G=2|X=x)^{1-y_i} \)에서 데이터셋의 전체 likelihood는 \( L = \prod_{i=1}^N p_{g_i}(x_i), \)이고, 로그를 취한 log-likelihood는<br>
+\( \begin{aligned} l &amp;= \sum_{i=1}^N \log p_{g_i}(x_i)  \\\ &amp;=\sum_{i=1}^N {y_i \log p(x_i)+ (1-y_i)\log (1-p(x_i))}  \\\ &amp;= \sum_{i=1}^N y \log( {p(x_i) \over 1-p(x_i)}) + log(1-p(x_i)) \end{aligned} \)</p>
+<p>\( \sum_{i=1}^N y \log( {p(x_i) \over 1-p(x_i)}) = \beta_{10} + \beta_1^T = \beta^T\bold{x} \quad \text{ and } \quad \log(1-p(x_i))={1 \over 1+e^{\beta^T \bold{x}}} \)</p>
+<p>이제 log-likelihood를 maximize하기 위해 미분한다. score equations이라고 부른다.<br>
+$$ \begin{aligned} {\partial l(\beta) \over \partial \beta} &amp;= \sum_{i=1}^N (y_ix_i-{e^{\beta^T x_i} \over 1+e^{\beta^T x_i}}x_i ) \\\ &amp;= \sum_{i=1}^N x_i(y_i-p(x_i))=0, \end{aligned}$$<br>
+p+1개의 equations가 nonlinear이다. \( x_i \)의 첫번째 성분은 1이다. 위 식을 풀기위해 Newton-Raphson algorithm(second-derivative or Hessian matrix)을 사용할 것이다.<br>
+$$ \begin{aligned}
+{\partial^2 l(\beta) \over \partial\beta\partial\beta^T} &amp;= \sum_{i=1}^N -x_i({\partial p(x_i) \over \partial \beta^T }) \\\ &amp;= -\sum_{i=1}^N x_ix_i^T p(x_i;\beta)(1-p(x_i; \beta)) \end{aligned} $$</p>
+<blockquote>
+<p>$$
+{\partial p(x_i) \over \partial \beta^T } = {e^{\beta^T x_i} \over 1+e^{\beta^T x_i}}x_i^T-{(e^{ \beta^T x_i})^2 \over (1+e^{\beta^T x_i})^2 }x_i^T=p(x_i)(1-p(x_i))x_i^T
+$$</p>
+</blockquote>
+<p>$$
+\beta^{new} = \beta^{old}-({\partial^2 l(\beta) \over \partial\beta\partial\beta^T})^{-1} {\partial l(\beta) \over \partial \beta }
+$$</p>
+<p>score equations과 hessian matrix를 행렬로 나타내면 다음과 같다.
+$$
+{\partial l(\beta) \over \partial \beta} = \bold{X}^T(\bold{y}-\bold{p}) \\\ {\partial^2 l(\beta) \over \partial\beta\partial\beta^T}= \bold{X}^T\bold{W}\bold{X} $$</p>
+<p>따라서 the Newton step은
+$$ \begin{aligned} \beta^{new} &amp;= \beta^{old}+(\bold{X}^T\bold{W}\bold{X})^{-1}\bold{X}^T(\bold{y}-\bold{p}) \\\ &amp;= (\bold{X}^T\bold{W}\bold{X})^{-1}\bold{X}^T\bold{W}(\bold{X}\beta^{old}+\bold{W}^{-1}(\bold{y}-\bold{p})) \\\ &amp;=(\bold{X}^T\bold{W}\bold{X})^{-1}\bold{X}^T\bold{W}\bold{z} \end{aligned} $$</p>
+<p>Newton step as a Weigthed Least Square step, z는 adjusted response.
+$$ \bold{z}= \bold{X}\beta^{old}+\bold{W}^{-1}(\bold{y}-\bold{p}) $$</p>
+<p>IRLS
+$$
+\beta^{new} \leftarrow \arg \underset{\beta}{min} (\bold{z}-\bold{X}\beta)^T\bold{W}(\bold{z}-\bold{X}\beta).
+$$</p>
+<h3 id="442-example-south-african-heart-disease">4.4.2 Example: South African Heart Disease</h3>
+<h3 id="443-quadratic-approximations-and-inference">4.4.3 Quadratic Approximations and Inference</h3>
+<p>$$
+z_i = x_i^T\hat{\beta}+{(y_i-\hat{p_i}) \over \hat{p_i}(1-\hat{p_i}) }
+$$</p>
+<p>$$
+\sum_{i=1}^N {(y_i-\hat{p_i})^2 \over \hat{p_i}(1-\hat{p_i})}
+$$</p>
+<p>\( N(\beta, (\bold{X}^T\bold{W}\bold{X})^{-1}) \)</p>
+<h3 id="444--l_1--regularized-logistic-regression">4.4.4 \( L_1 \) Regularized Logistic Regression</h3>
+<p>$$
+\underset{\beta_0, \beta}{max} \left\{ \sum_{i=1}^N[y_i(\beta_0+\beta^T x_i)-\log(1+e^{\beta_0+\beta^T x_i})]-\lambda\sum_{j=1}^p |\beta_j| \right\} $$</p>
+<p>$$ \bold{x}_j^T(\bold{y}-\bold{p})=\lambda\cdot \text{sign}(\beta_j)  $$</p>
+<h3 id="445-logistic-regression-or-lda">4.4.5 Logistic Regression or LDA?</h3>
+<p>$$ \begin{aligned} \log{Pr(G=k|X=x) \over Pr(G=K|X=x)} &amp;= \log {\pi_k \over \pi_K}-{1 \over 2}(\mu_k+\mu_K)^T \Sigma^{-1}(\mu_k-\mu_K)+x^T \Sigma^{-1} (\mu_k-\mu_K) \\\ &amp;=\alpha_{k0}+\alpha_k^Tx \end{aligned} $$</p>
+<p>$$
+begin{aligned} \log {Pr(G=k|X=x) \over Pr(G=K|X=x)} =\beta_{k0}+\beta_k^Tx end{aligned}
+$$</p>
+<p>$$
+Pr(X,G=k)=Pr(X)Pr(G=k|X)
+$$</p>
+<p>$$
+Pr(G=k|X=x)={e^{\beta_{k0}+\beta_k^Tx} \over 1+\sum_{l=1}^{K-1} e^{\beta_(l0)+\beta_k^Tx}}
+$$</p>
+<p>$$
+Pr(X, G=k)=\phi(X;\mu_k,\Sigma)\pi_k
+$$</p>
+<p>$$
+Pr(X)=\sum_{k=1}^{K} \pi_k \phi(X;\mu_k,\Sigma)
+$$</p>
+<h2 id="45-separating-hyperplanes">4.5 Separating Hyperplanes</h2>
+<p>2개의 클래스가 주어져 있는 데이터를 좌표평면 위에 놓으면, linear boundary로 나눌 수 있다.(n차원 평면이면 hyperplanes) 파란색 선 사이에는 무한개의 hseparating hyperplnaes가 있고, 주황색 선은 ols로 추정된 선이다. 선은
+$$ {x : \hat{\beta_0}+\hat{\beta_1}x_1+\hat{\beta_2}x_2=0 } $$ 이다.</p>
+<p>input features의 선형결합을 계산하고, 부호를 정하는 classifiers를 perceptrons이라고 부른다. 퍼셉트론 모델은 neural network의 기본 토대가 된다.  \( f(x)=\beta_0 + \beta^Tx=0 \)으로 정의된 초평면 or 아핀 공간 L 이다. 2차원 평면이니깐 선으로 나옴.</p>
+<ol>
+<li>L 위의 2개의 점 \( x_1,\ x_2 \)에 대해서 \( \beta^T(x_1-x_2)=0 \), 따라서 \( \beta^*=  {\beta} / \parallel \beta \parallel \)는 L과 normal(법선)인 벡터.</li>
+<li>L 위의 임의의 점 \( x_0 \)에 대해, \( \beta^Tx_0=-\beta_0 \)</li>
+<li>거리(임의의 점 x에서 L까지의 거리, 부호 o)가 다음과 같이 주어진다.
+$$ \begin{aligned} \beta^* (x-x_0) &amp;= {1 \over \parallel \beta \parallel} (\beta^T x+\beta_0) \\\ &amp;={1 \over \parallel f^{'}(x) \parallel} f(x) \end{aligned} $$</li>
+</ol>
+<h3 id="451-rosenblatts-perceptron-learning-algorithm">4.5.1 Rosenblatt&rsquo;s Perceptron Learning Algorithm</h3>
+<h3 id="452-optimal-separating-hyperplanes-어려움">4.5.2 Optimal Separating Hyperplanes (어려움)</h3>
 
   
     
     <div class="post-toc">
       <span class="title">Contents</span>
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#41-introduction">4.1 Introduction</a></li>
+    <li><a href="#42-linear-regression-of-an-indicator-matrix">4.2 Linear Regression of an Indicator Matrix</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#43-linear-discriminant-analysis">4.3 Linear Discriminant Analysis</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#44-logistic-regression">4.4 Logistic Regression</a>
+      <ul>
+        <li><a href="#441-fitting-logistic-regression-models">4.4.1 Fitting Logistic Regression Models</a></li>
+        <li><a href="#442-example-south-african-heart-disease">4.4.2 Example: South African Heart Disease</a></li>
+        <li><a href="#443-quadratic-approximations-and-inference">4.4.3 Quadratic Approximations and Inference</a></li>
+        <li><a href="#444--l_1--regularized-logistic-regression">4.4.4 \( L_1 \) Regularized Logistic Regression</a></li>
+        <li><a href="#445-logistic-regression-or-lda">4.4.5 Logistic Regression or LDA?</a></li>
+      </ul>
+    </li>
+    <li><a href="#45-separating-hyperplanes">4.5 Separating Hyperplanes</a>
+      <ul>
+        <li><a href="#451-rosenblatts-perceptron-learning-algorithm">4.5.1 Rosenblatt&rsquo;s Perceptron Learning Algorithm</a></li>
+        <li><a href="#452-optimal-separating-hyperplanes-어려움">4.5.2 Optimal Separating Hyperplanes (어려움)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
     <div style='padding:15px;'>
     </div>
