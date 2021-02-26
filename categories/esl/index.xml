@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Sat, 13 Feb 2021 23:12:17 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/esl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Feb 2021 00:58:01 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/esl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[문제] ESL CH4</title>
+      <link>https://uqpuark.github.io/esl/esl_ch4_exercise/</link>
+      <pubDate>Sat, 27 Feb 2021 00:58:01 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/esl/esl_ch4_exercise/</guid>
+      <description>Excersie 4.1 standard eigenvalue problem으로 변환해서 generalized eigenvalue problem을 푸는 과정을 보여라  B : between-class의 공분산 aBa : Z의 between-class의 분산 W : within-class의 공분산 aWa : Z의 within-class의 분산 Z : aX, 선형 결합 s.</description>
+    </item>
+    
     <item>
       <title>[ESL] CH4 Linear Methods for Classficiation</title>
       <link>https://uqpuark.github.io/esl/esl-ch4-logistic-regression/</link>

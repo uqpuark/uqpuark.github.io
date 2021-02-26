@@ -180,7 +180,7 @@ $$<br>
 <blockquote>
 <p>p차원 input space에서 최악의 경우, 일반적인 다항식의 항과 교차항의 차수는 K-1, O(p^K-1)가 필요하다.</p>
 </blockquote>
-<h2 id="43-linear-discriminant-analysis">4.3 Linear Discriminant Analysis</h2>
+<h2 id="43-linear-discriminant-analysis선형-판별-분석">4.3 Linear Discriminant Analysis(선형 판별 분석)</h2>
 <p>LDA는 이 챕터에서 설명하는 Linear Discriminant Analysis도 있고, Latent Dirichlet Allocation이라는 용어도 있다. 두개 모두 결과적으로 배워야할 개념이니 헷갈리지 말자. 여담인데 베이지안은 어렵다.</p>
 <p>Section 2.4(Statistical Decision Theory)에서 optimal(최적) classification을 위해 클래스의 posteriors( Pr(G|X) )를 알아야 된다고 했다고 한다(와닿지가 않네&hellip;).</p>
 <p>\( \begin{aligned} f_k(x) &amp;=Pr(X|G=k) \text{ : class-conditional density of X in class G=k} \\\ \pi_k &amp;=Pr(G) \text{ : prior probability of class k, with } \sum\pi_k=1 \end{aligned} \)<br>
@@ -199,7 +199,120 @@ $$<br>
 <blockquote>
 <p>class의 밀도 함수를 모델링 하는 방법은 여러가지가 있는데, 여기서는 정규 분포의 확률 밀도 함수를 사용할 것이다(ch6에서 자세히 다룬다).</p>
 </blockquote>
-<h4 id="multivariate-gaussian로-density를-모델링-하는-과정">multivariate Gaussian로 density를 모델링 하는 과정</h4>
+<h4 id="multivariate-gaussian로-density-함수를-모델링-하는-과정">multivariate Gaussian로 density 함수를 모델링 하는 과정</h4>
+<p>$$ f_k(x) = {1 \over (2\pi)^{p/2} |\Sigma_k|^1/2} e^{-{1 \over 2}(x-\mu_k)^T \Sigma_k^{-1}(x-\mu_k)} $$</p>
+<p>Linear discriminat analysis (LDA)는 특별한 케이스에서 나타난다. <strong>클래스들의 공분산이 모두 같다는 가정이 필요하다.</strong> \( \Sigma_k=\Sigma \) (등분산성). 따라서 LDA는 K개 클래스에 속한 관측치들의 분포 \( f_k(x) \) 가 다변량 정규분포 \( N(\mu_k, \Sigma) \)를 따른다고 가정한다.
+log를 취해서 두개의 클래스를 비교해보면,
+$$ \begin{aligned} \log {Pr(G=k|X=x) \over Pr(G=l|X=x)} &amp;= \log {f_k(x) \over f_l(x)}+\log {\pi_k \over \pi_l)} \\\ &amp;= \log{\pi_k \over \pi_l}-{1 \over 2}(\mu_k+\mu^l)^T \Sigma^{-1} (\mu_k - \mu_l) +x^T \Sigma^{-1} (\mu_k-\mu_l) \end{aligned} $$
+은 x에 대해 linear하다.</p>
+<blockquote>
+<p><a href="https://stats.stackexchange.com/questions/405473/linear-discriminant-analysis-deriving-classifier-expression-for-multivariate-n">계산</a><br>
+\( \begin{aligned} \log{f_k(x) \over f_l(x)} &amp;= \log{e^{-{1 \over 2}(x-\mu_k)^T \Sigma_k^{-1}(x-\mu_k)} \over e^{-{1 \over 2}(x-\mu_l)^T \Sigma_l^{-1}(x-\mu_l)}} \\\ &amp;= - {1 \over 2}(x-\mu_k)^T \Sigma^{-1} (x-\mu_k) + {1 \over 2}(x-\mu_l)^T \Sigma^{-1} (x-\mu_l) \\\ &amp;= {1 \over 2} \lbrack x^T\Sigma^{-1}x-x^T\Sigma^{-1}\mu_k-\mu_k^T\Sigma^{-1}x \\\ &amp; \quad + \mu_k^T\Sigma^{-1}\mu_k \rbrack + {1 \over 2} \lbrack x^T\Sigma^{-1}x-x^T\Sigma^{-1}\mu_l-\mu_l^T\Sigma^{-1}x + \mu_l^T\Sigma^{-1}\mu_l \rbrack \\\ &amp;= x^T\Sigma^{-1}\mu_k-x^T\Sigma^{-1}\mu_l-{1 \over 2} \mu_k^T\Sigma^{-1} \mu_k +{1 \over 2} \mu_l^T\Sigma^{-1}\mu_l \\\ &amp;= x^T \Sigma^{-1} (\mu_k-\mu_l) -{1 \over 2}(\mu_k+\mu^l)^T \Sigma^{-1} (\mu_k - \mu_l) \end{aligned} \)
+\( B(x,y) := {1 \over 2}x^T\Sigma^{-1}y = B(y,x) \) B가 symmetric bilinear form이라서 가능</p>
+</blockquote>
+<p>동일한 공분산 행렬이 지수에 있는 2차항 부분(행렬표현이라 잘 안보일수 있으나 2차식으로 되어있습니다)과 normalization factor(밀도함수에 있는 숫자들)가 소거되게 만든다. 이러한 linear log-odds 함수에서 decision boundary는 linear이고, \( Pr(G=k|X=x)=Pr(G=l|X=x) \)를 만족하는 점들의 집합이 됩니다. 몇 차원인지 모르니깐 선은 아니고, hyperplane(초평면)이라고 한다. 다른 클래스 쌍의 decision boundary도 당연히 linear 합니다. \( \mathbb{R}^p \)을 classification된 영역들로 나누면, 하이퍼플레인에 의해 나눠질 것이다. Figure 4.5의 왼쪽 그림이 이상적인 예시.</p>
+<blockquote>
+<p>Figure4.5의 그림에서 decision boundaries가 centroid를 연결하는 선의 수직 이등분선(perpendicular bisectors)이 아니다. 이거는 공분산이 spherical \( \sigma^2 \bold{I} \)이고, 클래스의 priors가 같은 케이스이다.</p>
+</blockquote>
+<p>(4.9)의 식에서 <em>linear discriminant functions</em>(objective function)를 볼 수 있다.
+$$ \delta_k(x) = x^T \Sigma^{-1}\mu_k - {1 \over 2} \mu_k^T\Sigma^{-1} \mu_k + \log\pi_k $$
+는 decision rule, \( \hat{G}(x)=argmax_k \delta_k(x) \) 과 동치이다(이 식을 최대화하는 클래스를 선택 하면 된다). 실제로 parameters를 모르니깐 트레이닝 데이터를 통해 추정한다.</p>
+<ul>
+<li>\( \hat{\pi_k} = {N_k \over N}, \text{ where } N_k \text{ is the number of class-k observations;} \quad \) <strong>prior</strong></li>
+<li>\( \hat{\mu_k} = \sum_{g_i=k} x_i / N_k; \)</li>
+<li>\( \hat{\Sigma} = \sum_{k=1}^K \sum{g_i} (x_i - \hat{\mu_k})(x_i - \hat{\mu_k})^T / (N-K) \quad \) **Covariance matrix**</li>
+</ul>
+<p>2개의 클래스에서 LDA와 linear regresion 분류 사이에 간단한 대응관계가 있다( (4.5) 처럼). LDA 룰은 다음 식을 만족하면 class 2로 분류한다. o.w. class 1
+$$ x^T \hat{\Sigma}^{-1} (\hat{\mu_2}-\hat{\mu_1}) &gt; {1 \over 2}(\hat{\mu_2}+\hat{\mu_1})^T \hat{\Sigma}^{-1}(\hat{\mu_2}-\hat{\mu_1})-\log(N_2 / N_1) $$<br>
+targets을 +1과 -1로 코딩하면, least squares의 coefficient가 LDA 방향에 비례하는 것을 보일 수 있다(예제 4.2). 하지만 N1=N2가 아니면 절편이 달라서 결과적인 decision rules이 다르다. (왜? 해보면 알겠지)</p>
+<h4 id="임시-이해가-안됨">(임시) 이해가 안됨</h4>
+<p>최소 제곱법을 이용한 LDA 방향 도함수는 피쳐에 대해 정규 분포 가정을 사용하지 않는다. 따라서 정규분포 데이터의 영역을 넘어서 확장 된다. 그러나 특정 intercept나 cut-point의 derivation은 정규 분포 데이터를 필요로 한다.</p>
+<p>따라서 대신 트레이닝 에러를 최소화하는 cut-point를 선택하는게 타당하다. 이것은 실제로 잘 작동하지만 문헌에 언급된 것을 보지는 못했다.</p>
+<blockquote>
+<p>derivation of the LDA direction?<br>
+cut-point?</p>
+</blockquote>
+<p>2개의 클래스 이상의 문제에서 LDA는 linear regression과 다르고, masking 문제를 피할 수 있다. LDA와 LR의 대응 관계는 ch12 <em>optimal scoring</em>에서 다룬다</p>
+<p>공분산 \( \Sigma_k \)가 같지 않다면, 아까 했던 소거가 발생하지 않는다; 특히 x의 quadratic 부분이 남게 된다. 우리는 이것을 quadratic discriminant functions (QDA)라고 한다.
+$$
+\delta_k(x) = -{1 \over 2}\log |\Sigma_k | - {1 \over 2}(x-\mu_k)^T\Sigma^{-1} (x-\mu_k) + \log\pi_k
+$$
+클래스 k와 l의 decision boundary는 이차 방정식\( {x:\delta_k(x)=\delta_l(x)} \) 으로 나타난다.</p>
+<p>Figure 4.6.의 왼쪽 그림은 5차원-2차-다항식-공간(\( x_1, x_2 , x_1x_2, x_1^2, x_2^2 \))의 LDA를 사용했고, 오른쪽 그림은 QDA를 사용했다. 차이는 보통 적은데, QDA를 선호한다(LDA를 적절한 대체제로 사용됨).</p>
+<p>QDA의 추정은 LDA와 비슷한데, 공분산 행렬이 각 클래스 마다 추정되어야 한다는 점이 다르다. p가 크다는 것은 parameters의 급격한 증가를 의미한다. decision boundaries는 functions of the parameters of the densities라서 파라미터의 숫자는 주의해서 세야한다. LDA에서는 (K-1)x(p+1)개의 파라미터가 있고, \( \delta_k(x)-\delta_K(x) \)의 차이만 구하면 된다(K는 pre-chosen class, 차이는 p+1 패러미터가 필요함). 비슷하게 QDA는 (K-1)x{p(p+3)/2+1}개의 파라미터가 있다. LDA와 QDA 모두 매우 크고 다양한 셋에서 좋은 성능을 보인다.</p>
+<ul>
+<li>예) STATLOG project<br>
+데이터가 정규분포에 근사적으로 따르고, 공분산이 근사적으로 같아서라는 것 보다는 데이터가 단순한 decision boundaries를 지지할 수 있고, 정규 분포를 통해 제공되는 추정치가 안정적이기 때문이다. (??)</li>
+</ul>
+<h3 id="431-regularized-discriminant-analysis">4.3.1 Regularized Discriminant Analysis</h3>
+<p>Friedman (1989)은 LDA와 QDA의 절충안을 제안했다. QDA 각각의 공분산을 LDA의 공통 공분산 쪽으로 shirink(축소)시키는 방법이다. ridge regression과 비슷하다. regularized된 공분산 행렬은
+$$ \hat{\Sigma}_k(\alpha) = \alpha \hat{\Sigma} _k + (1-\alpha)\hat{\Sigma} $$
+이다.<br>
+\( \hat{\Sigma} \)은 LDA에서 사용되는 pooled covariance matrix이다. \( \alpha \in [0, 1] \)는 LDA와 QDA을 연결해주는 패러미터이다(a continuum of models). \( \alpha \)는 일반적으로 valdation set, cross-validation을 통해 결정한다. 비슷하게 \( \hat{\Sigma} \)가 이렇게도 shrink 된다.
+$$ \hat{\Sigma}(\gamma)=\gamma\hat{\Sigma}+(1-\gamma)\hat{\sigma}^2 \bold{I} \quad \text{ for } \gamma \in [0, 1] $$</p>
+<p>\( \hat{\Sigma}(\alpha, \gamma) \) 패러미터 쌍으로 인덱싱된다.</p>
+<h3 id="432-computations-for-lda">4.3.2 Computations for LDA</h3>
+<p>공분산 행렬을 대각화해서 단순화 시키는 계산이다. Eigen decomposition, \( \hat{\Sigma}_k = \bold{U_k} \bold{D_k} \bold{D_k}^T \)을 이용한다.</p>
+<ul>
+<li>\( (x-\hat{\mu_k})^T \hat{\Sigma}_k^{-1} (x-\hat{\mu_k}) = [\bold{U_k}^T (x-\hat{\mu_k})]^T \bold{D_k}^{-1} [\bold{U_k}^T(x-\hat{\mu_k})]; \)</li>
+<li>\( \log | \hat{\Sigma}_k | = \sum_l \log d_{kl}  \)</li>
+</ul>
+<p>LDA 클래시파이어는 다음 스텝에 의해 실행될 수 있다.</p>
+<ul>
+<li>공분산 추정치와 관련된 <em>Sphere</em> 데이터  \( \hat{\Sigma}:\ X^{*} \leftarrow \bold{D}^{-{1 \over 2}} \bold{U}^T X \) where \( \hat{\Sigma} = \bold{U}\bold{D}\bold{U}^T \). \( X^* \)의 공분산 추정치는 identity가 될 것이다.</li>
+<li>tranformed space에서 가장 가까운 클래스의 센트로이드로 분류하고, prior \( \pi_k \)의 효과를 modulo(나머지?)한다.</li>
+</ul>
+<blockquote>
+<p>\( \begin{aligned}
+(\bold{U}\bold{D}\bold{U}^T)^{-{1 \over 2}}&amp;=(\bold{U}\bold{D}^{{1 \over 2}} \bold{D}^{{1 \over 2}} \bold{U}^T)^{-{1 \over 2}} \\\ &amp;= (\bold{U}\bold{D}(\bold{U}\bold{D})^T)^{-{1 \over 2}} \\\ &amp;= (\bold{U}\bold{D})^{-1} \\\ &amp;= \bold{D}^{-{1 \over 2}} \bold{U}^{-1} = \bold{D}^{-{1 \over 2}} \bold{U}^T \end{aligned} \)</p>
+</blockquote>
+<blockquote>
+<p>\( \begin{aligned} Cov(X^*)=Cov(\bold{D}^{-{1 \over 2}} \bold{U}^T X)&amp;=\bold{D}^{-{1 \over 2}} \bold{U}^T Cov(X) \bold{U}^T \bold{D}^{-{1 \over 2}T} \\\ &amp;= \bold{D}^{-{1 \over 2}} \bold{U}^T \bold{U} \bold{D} \bold{U}^T  \bold{U}^T \bold{D}^{-{1 \over 2}}  \end{aligned} \)</p>
+</blockquote>
+<h3 id="433-reduced-rank-linear-discriminant-analysis">4.3.3 Reduced-Rank Linear Discriminant Analysis</h3>
+<p>지금까지는 제약이 있는 Gaussian classifier로 LDA에 대해 이야기를 했다. 추가적인 제약이 데이터의 낮은 차원의 사영을 볼 수 있게 해줘서 인기가 있다.(단순 번역)</p>
+<blockquote>
+<p>Gaussian classifier의 번역을 못 찾겠다. 왜 가우지안 이냐면 판별함수, likelihood가 정규분포를 따르기 때문</p>
+</blockquote>
+<p>p차원의 K centroid 점들은 K-1 이하 차원의 아핀공간 위에 있고, p가 K보다 크면 차원이 상당히 떨어질 것이다. 게다가 가장 가까운 centroid를 찾을 때, subspace에 orthogonal한 거리를 무시할 수 있다(각 클래스에 같은 영향을 주기 때문). 따라서 centroid들이 spanning한 subspace 위로 \( X^* \)를 정사영 하고, 거기서 거리를 비교하게 만드는 게 낫다. LDA에서도 근본적인 차원 축소가 존재하고, 우리는 최대 K-1 차원의 subspace에서 데이터를 고려하면 된다. 예를 들어, K=3일 때 2차원 플롯에서 데이터를 보면 된다(클래스들을 색깔로 구분 해주면 됨). 이렇게 하면 차원을 낮춰도 봐도 정보를 포기하지 않아도 된다.<br>
+K&gt;3 이면? L &lt; K-1인 최적의 L차원 subspace를 찾으면 된다. optimal의 정의는 Fisher가 &ldquo;정사영된 centroids가 분산의 관점에서 가능한 넓게 퍼뜨려져 있는 것으로&rdquo; 정의했습니다(마치 PCA와 비슷한 느낌이 들면 좋은거, 뒤에 나오네요). 이건 centroids의 PC subspaces를 찾는 것과 마찬가지이다. Figure 4.4.는 optimal 2차원 subspace를 보여준다(11개 클래스, 10차원 input space). 차원이 정렬되어 있어서 추가적인 차원을 순서대로 계산 할 수 있다(?). Figure 4.8.은 추가적인 좌표 쌍 4개를 보여주는데, <em>canonical</em> or <em>discriminant</em> variables로 알려져 있다. 숫자가 높아질 수록 centroid의 퍼진 정도가 점점 낮아진다. LDA의 최적 서브스페이스를 찾는 절차는 다음을 따른다.</p>
+<ul>
+<li>\( K \times p \) centroid 클래스 행렬 \( \bold{M} \)과 공분산 행렬 \( \bold{W} \)(공통, within-class 공분산)을 계산한다</li>
+<li>\( \bold{M^*} = \bold{M} \bold{W}^{-{1 \over 2}} \)을 계산한다. W의 eigen decompoistion을 이용.</li>
+<li>\( \bold{\Beta^*},\ \bold{M^*} \)의 공분산을 계산한다. \( \bold{\Beta^*} \)는 between-class 공분산이고, eigen-decomposition은 \(\bold{\Beta^*}  = \bold{V^*} \bold{D_\beta}\bold{V^*}^T \)이다. \( \ v_l^* \text{ of } \bold{V^* } \)는 최적 subspaces들의 좌표를 순서대로 나타낸 것이다.</li>
+</ul>
+<p><em>l</em>th <em>discriminant variable</em>은 \( Z_l = v_l^TX \text{ with } v_l=\bold{W}^{-{1 \over 2}} v_l^*  \). Fisher는 정규 분포의 언급 없이 다른 루트로 이 decomposition을 했고, 다음과 같은 문제를 제기 했다.
+$$ \text{Find the linear combination } Z = a^TX \text{ such that the between} \\\ \text{-class variance is maximized relative to the within-class variance.} $$</p>
+<p>다시 정리하면, <strong>클래스 간의 분산</strong>은 Z의 클래스 평균의 분산이고, <strong>클래스 내 분산</strong>은 평균에 대한 pooled 분산이다. 후자에 상대적으로 전자를 최대화 하는 선형 결합을 찾는다. Figure 4.9.는 왜 이러한 기준이 사용되는지 보여준다. centroids를 연결하는 방향이 평균을 구분하더라도(클래스 간 분산을 최대화 하더라도), 클래스 간 겹치는 부분이 존재한다(공분산의 성질). 공분산을 고려해서 겹치는 부분을 최소화 시키는 방향을 찾아야 한다(오른쪽 그림).</p>
+<blockquote>
+<p>pooled variacne는 combined, overall variance라고도 한다. 다른 모집단들에서 같은 분산을 가질 것이라는 가정하에서 그 공통의 분산을 추정하는 방식이다.</p>
+</blockquote>
+<blockquote>
+<p>두 개의 클래스가 서로 떨어져 있을 수록, 클래스 내부의 퍼진 정도가 적을 수록 분류가 잘 될 것이다. 약간 타협을 해서 좀 더 전자에 신경을 쓴다고 생각하면 되지 않을까?</p>
+</blockquote>
+<blockquote>
+<p>K-means에서는 min [within cluster] = max [between cluster]이다.</p>
+</blockquote>
+<p>Z의 between-class variance는 \( a^T\bold{B}a \)이고 within-class variance는 \( a^T\bold{W}a \). \( \bold{B} \)는 클래스 centroid 행렬 M의 공분산 행렬. \(\bold{B}+\bold{W} =\bold{T}, \text{ where } \bold{T} \)는 X의 <em>total</em> 공분산 행렬(클래스의 정보를 무시한)</p>
+<p>Fisher의 문제는 <em>Rayleigh quotient</em>(레일리 지수)를 최대화 하거나
+$$ \underset{a}{max} {a^T\bold{B}a \over a^T\bold{W}a} $$
+다음과 동치이다.
+$$ \underset{a}{max}\ a^T\bold{B}a \text{ subject to } a^T\bold{W}a=1 $$</p>
+<blockquote>
+<p>레일리 지수는 알아서 한번 찾아보세요. 처음 들어봤습니다.</p>
+</blockquote>
+<p>이것은 고유값 문제를 일반화한 버전이다( a가 \( \bold{W}^{-1}\bold{B}\)의 최대 고유값?(고유벡터겟지)으로 주어진다). 최적 \( a_1 \)값이 위에서 정의된 \( v_1 \)와 같다(증명은 Exercise 4.1.). 비슷하게 그 다음 방향인 \( a_2 \)는 \( a_1 \)에 직교하고, \( a_2^T\bold{B}a_2 / a_2^T\bold{W}a_2 \)를 최대화 하는 값이다; \( a_2=v_2 \)가 된다. \( a_l \)을 <em>discriminant coordinates</em>라고 부른다(<em>canonical variates</em>도 같은 말, sec12.5에서 다룬다).</p>
+<h4 id="지금까지의-요약">지금까지의 요약</h4>
+<ul>
+<li>Gaussian classification(공분산이 같은)은 linear decision boundaries를 만든다. classification은 \( \bold{W} \)에 관련된 데이터를 구 형태(타원형)로 분류 할 수 있다(가장 가까운 centroid로 분류).</li>
+<li>cetroids와 상대적인 거리를 계산하니까, 데이터를 centroids에 의해 span된 subspace로 제한할 수 있다.</li>
+<li>이 subsapce는 최적 subspace로 분해 될 수 있다. 이 decomposition은 Fisher의 분해와 동일하다.</li>
+</ul>
+<h4 id="reduced-subspaces--data-reduction-tool">reduced subspaces = data reduction tool</h4>
+<p>축소된 subspaces들은 데이터 감소를 확인하는 도구로 모티베이트 되었다. 얘네들을 classification에 활용할 수 있을까(근거를 갖고)? Original과 같은 사용할 수 있다. cetroid에서의 거리를 계산을 정해진 subspace에서 하는 것으로 제한을 두는 것일 뿐이다. Gaussian의 centroids는 L차원 서브스페이스(of \( \R^p \))에 놓여져있다는 추가적인 제약으로 이게 Gaussian classification rule이라는 것을 알 수 있다. MLE로 피팅하고, 베이지안으로 posterior를 구성하는 것은 위의 classification rule에 해당한다(예제 4.8.).</p>
+<p>Gaussian classification은 \( \log \pi_k \)  거리계산 할 때 correction(보정) factor를 따르는데, 보정하는 이유가 있다. Figure 4.9.에서 misclassification 비율은 2개의 밀도함수의 겹치는 부분에 의해 결정된다. 만약 \( \pi_k \)가 같고, 최적의 cut-point는 projected means(centroid를 왼쪽에 나타나있는 분포에 정사영 한건같음) 사이 중간에 있다. \( \pi_k \)가 다르면, cut-point는 좀 더 작은 클래스 쪽으로 이동하면 error 비율이 향상 될 것이다.</p>
+<p>reduced-rank 제약의 이점을 보여주는 예시로, Figure.4.10.. 차원의 갯수 별로 각각의 에러율을 계산 할 수 있다. 2차원에서의 classifier가 최적이고, 그 결과가 Figure.4.11.에 나타나있다.</p>
+<p>Fisher의 reduced-rank 판별 분석과 indicator reponse 행렬의 regression은 관련이 있다(sec 4.2와 갑자기 연결을 시키는데&hellip; 이해가 안됩니다). LDA는 \( \hat{\bold{Y}}^T\bold{Y} \)의 eigen-decomposition로 이어지는 regression에 해당하는 것으로 밝혀졌다(레그레션 하고나면 고유값 분해로 자연스럽게 연결되나?). 2개의 클래스 문제에서는, single discriminant variable(단일 판별 변수)가 있다. \( \hat{\bold{Y}} \) 열 각각의 scalar 곱셉까지 동일하다(ch12에서). original 프리딕터 \( X \)를 \( \hat{\bold{Y}} \)로 변환하면, \( \hat{\bold{Y}} \)를 사용한 LDA는 original space에서의 LDA와 동일하다(예제 4.3.). (이해가 안됩니다.)</p>
 <h2 id="44-logistic-regression">4.4 Logistic Regression</h2>
 <p>로지스틱 리그레션 모델은 x의 선형 함수를 통해 K개의 클래스들에 대한 posterior를 모델링 하려는 목적에서 비롯된다. 동시에 posterior의 합은 1이고, [0, 1] 범위 내에 있어야 하는 제약이 있다.</p>
 <p>$$ \log {Pr(G=1|X=x)  \over Pr(G=k|X=x) } = \beta_{10}+\beta_1^Tx \\\ \log {Pr(G=2|X=x)  \over Pr(G=k|X=x) } = \beta_{20}+\beta_2^Tx \\\ \vdots \\\ \log {Pr(G=K-1|X=x)  \over Pr(G=k|X=x) } = \beta_{(K-1)0}+\beta_{K-1}^Tx $$
@@ -215,6 +328,9 @@ $$ Pr(G=1|X=x)=Pr(G=K|X=x)exp(\beta_{10}+\beta_1^Tx) \\\ Pr(G=2|X=x)=Pr(G=K|X=x)
 <h3 id="441-fitting-logistic-regression-models">4.4.1 Fitting Logistic Regression Models</h3>
 <p>로지스틱 리그레션은 maximum likelihood에 의해 피팅된다. conditional likelihood P(G|X)를 사용한다. P(G|X)가 conditional 분포를 특정시키므로, 다항 분포가 적절하다. N개 관측치에 대해서 log-likelihood는
 $$ \begin{aligned} l(\theta) = \sum_{i=1}^N\log p_{g_i}(x_i; \theta), \quad \text{ where } p_k (x_i; \theta)=Pr(G=k|X=x_i; \theta) \end{aligned} $$ 이다.</p>
+<blockquote>
+<p>\( \begin{aligned} L(\theta) = \prod_{i=1}^N Pr(G=k|X=x_i) \end{aligned} \) 에 log를 취해준 결과이다.</p>
+</blockquote>
 <p>K=2인 경우로 단순화하여 생각하자. 2개의 클래스를 0/1로 코딩하면 편하다. \( p_1(x; \theta)=p(x; \theta), \quad p_2(x; \theta)=1-p(x; \theta) \)라고 생각하면, log-likelihood는
 $$ \begin{aligned} l(\beta) &amp;= \sum_{i=1}^N {y_i \log p(x_i; \beta)+ (1-y_i)\log (1-p(x_i; \beta))} \\\ &amp;= \sum_{i=1}^N {y_i\beta^Tx_i-\log (1+e^{B^Tx_i})}
 \end{aligned} $$</p>
@@ -290,6 +406,60 @@ $$ \begin{aligned} \beta^* (x-x_0) &amp;= {1 \over \parallel \beta \parallel} (\
 </ol>
 <h3 id="451-rosenblatts-perceptron-learning-algorithm">4.5.1 Rosenblatt&rsquo;s Perceptron Learning Algorithm</h3>
 <h3 id="452-optimal-separating-hyperplanes-어려움">4.5.2 Optimal Separating Hyperplanes (어려움)</h3>
+<h2 id="excersie">Excersie</h2>
+<h3 id="41-standard-eigenvalue-problem으로-변환해서-generalized-eigenvalue-problem을-푸는-과정을-보여라">4.1 standard eigenvalue problem으로 변환해서 generalized eigenvalue problem을 푸는 과정을 보여라</h3>
+<ul>
+<li>B : between-class의 공분산 aBa : Z의 between-class의 분산</li>
+<li>W : within-class의 공분산 aWa : Z의 within-class의 분산</li>
+<li>Z : aX, 선형 결합 s.t. between-class 분산을 최대화 하는(within 분산에 비해서)</li>
+</ul>
+<p>최대/최소 문제에서 라그랑지안의 아이디어를 사용해서 목적식과 제약식을 하나의 식으로 표현하면
+$$ \begin{aligned} \mathcal{L}(a) &amp;= a^T \Beta a + \lambda(a^TWa-1)
+\\\ {\partial\mathcal{L}(a) \over \partial a} &amp;= 2\Beta a + \lambda(2Wa)=0, \quad a^TWa=1 \\\ \quad &amp; \Beta a + \lambda Wa = 0 \\\ \text{WLOG, } \quad &amp; W^{-1} \Beta a = \lambda a \end{aligned} $$</p>
+<p>\( Ax=\lambda x \)의 꼴이 나오므로</p>
+<ul>
+<li>\( a,\ \lambda \)는 \( W^{-1} \Beta \)의 고유벡터, 고유값</li>
+</ul>
+<h3 id="44-417에서-k개-클래스를-가진-multi-logit-모델을-생각하자">4.4 (4.17)에서 K개 클래스를 가진 multi-logit 모델을 생각하자.</h3>
+<ul>
+<li>
+<p>multinomial log-likelihood를 최대화 하는 뉴튼 메소드를 도출하고, 어떻게 작동하는지 설명</p>
+</li>
+<li>
+<p>\( y_i \)는 <em>l</em>번째 클래스에서 나온 경우 1, 아니면 0</p>
+</li>
+<li>
+<p>likelihood는 Pr(G=K|X=x)</p>
+</li>
+</ul>
+<p>\( p_{\bold{y}}(\bold{x}) = Pr(G=1|X=x)^{y_1} \times Pr(G=2|X=x)^{y_2} \cdots Pr(G=K-1|X=x)^{y_{K-1}} \\\ \times [1 - Pr(G=1|X=x) - Pr(G=2|X=x) - \cdots - Pr(G=K-1|X=x) ]^{1-y_1-y_2- \cdots - y_{K-1}} \)</p>
+<blockquote>
+<p>\( Pr(G=K|X=x) \\\ = [1 - Pr(G=1|X=x) - Pr(G=2|X=x) - \cdots - Pr(G=K-1|X=x) \)</p>
+</blockquote>
+<p>\( \begin{aligned} l(\theta) &amp;= \sum_{i=1}^N \log(p_{\bold{y}_i} (\bold{x}_i; \theta))  \\\ &amp;= \sum_{i=1}^N \left[ \sum_{l=1}^{K-1} y_{il} \beta_l^T x_i + log(Pr(G=k|X=x_i)) \right] \end{aligned} \)</p>
+<ul>
+<li>유도</li>
+</ul>
+<p>\( \begin{aligned} \log (p_{\bold{y}}(\bold{x}) &amp;= y_1 \log (Pr(G=1|X=x))+y_2 \log (Pr(G=2|X=x)) + \cdots + y_{K-1} \log (Pr(G=1|X=x)) \\\ &amp;+ (1-y_1-y_2- \cdots - y_{K-1}) \log (Pr(G=2|X=x))) \\\ &amp;= \log (Pr(G=K|X=x)) \\\ &amp;= y_1 \log \left( {Pr(G=1|X=x) \over Pr(G=K|X=x)} \right) + y_2 \log \left( {Pr(G=2|X=x) \over Pr(G=K|X=x)} \right) + \cdots + y_{K-1} \log \left( {Pr(G=K-1|X=x) \over Pr(G=K|X=x)} \right) \\\ &amp;= \log (Pr(G=K|X=x)) + y_1(\beta_{01} + \beta_1^T x ) + y_2(\beta_{20} + \beta_2^T x ) + \cdots + y_{K-1}(\beta_{(K-1)1} + \beta_{K-1}^T x) \end{aligned} \)</p>
+<ul>
+<li>\( x_i \)는 i번째 벡터 샘플 \( 1 \le i \le N  \), 1 포함해서 길이 p+1</li>
+<li>\( y_{il} \) i번째 response 벡터의 *l*번째 원소.</li>
+<li>\( \beta_l \)은 <em>l</em>번째 클래스의 계수(벡터), \( \beta_{0l} \) 포함해서 길이 p+1</li>
+<li>Pr(G=k|X=xi)는 posterior $$ Pr(G=k|X=x_i)={1 \over 1+\sum_{i=1}^{K-1}e^{\beta_l^T x_i}} $$</li>
+<li>parameter set : &ldquo;stacked&rdquo; vector of \( \beta&rsquo;s \)
+$$
+\theta = \begin{bmatrix} \beta_1 \\\ \beta_2 \\\ \vdots \\\ \beta_{K-1} \end{bmatrix}
+$$
+벡터 크기는 (K-1)(p+1).</li>
+</ul>
+<p>다시 정리하면
+$$ l(\theta) = \sum_{i=1}^N \left[ \sum_{l=1}^{K-1} y_{il} \beta_l^T x_i + 1+\sum_{i=1}^{K-1}e^{\beta_l^T x_i} \right] $$</p>
+<p>$$
+\theta^{new} = {\theta^{old}-\left(\partial^2 l(\theta) \over \partial \theta \partial \theta^T \right)^{-1}} {\partial l(\theta) \over \partial \theta}
+$$
+뉴튼 메소드에서 미분을 평가한다.</p>
+<p>$$ \begin{aligned}
+{\partial l(\theta) \over \partial \beta_l} &amp;= \sum_{i=1}^N y_{il}\bold{x_i}-{e^{\beta_l^T x_i}  \over 1+ sum_{i=1}^{K-1}e^{\beta_l^T x_i}}\bold{x_i} \\\ &amp;= \sum_{i=1}^N (y_{il}-Pr(G=l|X=\bold{x_i}))\bold{x_i} \end{aligned} $$</p>
 
   
     
@@ -303,9 +473,12 @@ $$ \begin{aligned} \beta^* (x-x_0) &amp;= {1 \over \parallel \beta \parallel} (\
         <li></li>
       </ul>
     </li>
-    <li><a href="#43-linear-discriminant-analysis">4.3 Linear Discriminant Analysis</a>
+    <li><a href="#43-linear-discriminant-analysis선형-판별-분석">4.3 Linear Discriminant Analysis(선형 판별 분석)</a>
       <ul>
         <li></li>
+        <li><a href="#431-regularized-discriminant-analysis">4.3.1 Regularized Discriminant Analysis</a></li>
+        <li><a href="#432-computations-for-lda">4.3.2 Computations for LDA</a></li>
+        <li><a href="#433-reduced-rank-linear-discriminant-analysis">4.3.3 Reduced-Rank Linear Discriminant Analysis</a></li>
       </ul>
     </li>
     <li><a href="#44-logistic-regression">4.4 Logistic Regression</a>
@@ -321,6 +494,12 @@ $$ \begin{aligned} \beta^* (x-x_0) &amp;= {1 \over \parallel \beta \parallel} (\
       <ul>
         <li><a href="#451-rosenblatts-perceptron-learning-algorithm">4.5.1 Rosenblatt&rsquo;s Perceptron Learning Algorithm</a></li>
         <li><a href="#452-optimal-separating-hyperplanes-어려움">4.5.2 Optimal Separating Hyperplanes (어려움)</a></li>
+      </ul>
+    </li>
+    <li><a href="#excersie">Excersie</a>
+      <ul>
+        <li><a href="#41-standard-eigenvalue-problem으로-변환해서-generalized-eigenvalue-problem을-푸는-과정을-보여라">4.1 standard eigenvalue problem으로 변환해서 generalized eigenvalue problem을 푸는 과정을 보여라</a></li>
+        <li><a href="#44-417에서-k개-클래스를-가진-multi-logit-모델을-생각하자">4.4 (4.17)에서 K개 클래스를 가진 multi-logit 모델을 생각하자.</a></li>
       </ul>
     </li>
   </ul>

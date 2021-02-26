@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[문제] ESL CH4  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[문제] ESL CH4'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[문제] ESL CH4">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-02-27">
+  
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[문제] ESL CH4'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://uqpuark.github.io/esl/esl_ch4_exercise/">
+  <meta property="og:site_name" content="데이터 사이언스 블로그">
+  
+  <meta property="og:image" content="https://uqpuark.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="문제">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://uqpuark.github.io/esl/esl_ch4_exercise/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-189694109-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="35px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><form id="search"
+    action='' method="get">
+    <label hidden for="search-input">Search site</label>
+    <input type="text" id="search-input" name="query"
+    placeholder="search or jump to...">
+    <input type="submit" value="search">
+</form>
+
+</li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>
+
+
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://uqpuark.github.io/esl/esl_ch4_exercise/">
+      <div class="post-meta">
+        <time>2021년 02월 27일 00시 58분</time>
+        <h1>[문제] ESL CH4</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <h2 id="excersie">Excersie</h2>
+<h3 id="41-standard-eigenvalue-problem으로-변환해서-generalized-eigenvalue-problem을-푸는-과정을-보여라">4.1 standard eigenvalue problem으로 변환해서 generalized eigenvalue problem을 푸는 과정을 보여라</h3>
+<ul>
+<li>B : between-class의 공분산 aBa : Z의 between-class의 분산</li>
+<li>W : within-class의 공분산 aWa : Z의 within-class의 분산</li>
+<li>Z : aX, 선형 결합 s.t. between-class 분산을 최대화 하는(within 분산에 비해서)</li>
+</ul>
+<p>최대/최소 문제에서 라그랑지안의 아이디어를 사용해서 목적식과 제약식을 하나의 식으로 표현하면
+$$ \begin{aligned} \mathcal{L}(a) &amp;= a^T \Beta a + \lambda(a^TWa-1)
+\\\ {\partial\mathcal{L}(a) \over \partial a} &amp;= 2\Beta a + \lambda(2Wa)=0, \quad a^TWa=1 \\\ \quad &amp; \Beta a + \lambda Wa = 0 \\\ \text{WLOG, } \quad &amp; W^{-1} \Beta a = \lambda a \end{aligned} $$</p>
+<p>\( Ax=\lambda x \)의 꼴이 나오므로</p>
+<ul>
+<li>\( a,\ \lambda \)는 \( W^{-1} \Beta \)의 고유벡터, 고유값</li>
+</ul>
+<h3 id="44-417에서-k개-클래스를-가진-multi-logit-모델을-생각하자">4.4 (4.17)에서 K개 클래스를 가진 multi-logit 모델을 생각하자.</h3>
+<ul>
+<li>
+<p>multinomial log-likelihood를 최대화 하는 뉴튼 메소드를 도출하고, 어떻게 작동하는지 설명</p>
+</li>
+<li>
+<p>\( y_i \)는 <em>l</em>번째 클래스에서 나온 경우 1, 아니면 0</p>
+</li>
+<li>
+<p>likelihood는 Pr(G=K|X=x)</p>
+</li>
+</ul>
+<p>\( p_{\bold{y}}(\bold{x}) = Pr(G=1|X=x)^{y_1} \times Pr(G=2|X=x)^{y_2} \cdots Pr(G=K-1|X=x)^{y_{K-1}} \\\ \times [1 - Pr(G=1|X=x) - Pr(G=2|X=x) - \cdots - Pr(G=K-1|X=x) ]^{1-y_1-y_2- \cdots - y_{K-1}} \)</p>
+<blockquote>
+<p>\( Pr(G=K|X=x) \\\ = [1 - Pr(G=1|X=x) - Pr(G=2|X=x) - \cdots - Pr(G=K-1|X=x) \)</p>
+</blockquote>
+<p>\( \begin{aligned} l(\theta) &amp;= \sum_{i=1}^N \log(p_{\bold{y}_i} (\bold{x}_i; \theta))  \\\ &amp;= \sum_{i=1}^N \left[ \sum_{l=1}^{K-1} y_{il} \beta_l^T x_i + log(Pr(G=k|X=x_i)) \right] \end{aligned} \)</p>
+<ul>
+<li>유도</li>
+</ul>
+<p>\( \begin{aligned} \log (p_{\bold{y}}(\bold{x}) &amp;= y_1 \log (Pr(G=1|X=x))+y_2 \log (Pr(G=2|X=x)) + \cdots + y_{K-1} \log (Pr(G=1|X=x)) \\\ &amp;+ (1-y_1-y_2- \cdots - y_{K-1}) \log (Pr(G=2|X=x))) \\\ &amp;= \log (Pr(G=K|X=x)) \\\ &amp;= y_1 \log \left( {Pr(G=1|X=x) \over Pr(G=K|X=x)} \right) + y_2 \log \left( {Pr(G=2|X=x) \over Pr(G=K|X=x)} \right) + \cdots + y_{K-1} \log \left( {Pr(G=K-1|X=x) \over Pr(G=K|X=x)} \right) \\\ &amp;= \log (Pr(G=K|X=x)) + y_1(\beta_{01} + \beta_1^T x ) + y_2(\beta_{20} + \beta_2^T x ) + \cdots + y_{K-1}(\beta_{(K-1)1} + \beta_{K-1}^T x) \end{aligned} \)</p>
+<ul>
+<li>\( x_i \)는 i번째 벡터 샘플 \( 1 \le i \le N  \), 1 포함해서 길이 p+1</li>
+<li>\( y_{il} \) i번째 response 벡터의 *l*번째 원소.</li>
+<li>\( \beta_l \)은 <em>l</em>번째 클래스의 계수(벡터), \( \beta_{0l} \) 포함해서 길이 p+1</li>
+<li>Pr(G=k|X=xi)는 posterior $$ Pr(G=k|X=x_i)={1 \over 1+\sum_{i=1}^{K-1}e^{\beta_l^T x_i}} $$</li>
+<li>parameter set : &ldquo;stacked&rdquo; vector of \( \beta&rsquo;s \)
+$$
+\theta = \begin{bmatrix} \beta_1 \\\ \beta_2 \\\ \vdots \\\ \beta_{K-1} \end{bmatrix}
+$$
+벡터 크기는 (K-1)(p+1).</li>
+</ul>
+<p>다시 정리하면
+$$ l(\theta) = \sum_{i=1}^N \left[ \sum_{l=1}^{K-1} y_{il} \beta_l^T x_i + 1+\sum_{i=1}^{K-1}e^{\beta_l^T x_i} \right] $$</p>
+<p>목적함수 l(세타)는 세타에 관한 함수. 뉴튼 메소드를 사용할 것이다.
+$$
+\theta^{new} = {\theta^{old}-\left(\partial^2 l(\theta) \over \partial \theta \partial \theta^T \right)^{-1}} {\partial l(\theta) \over \partial \theta}
+$$
+미분1
+$$ \begin{aligned}
+{\partial l(\theta) \over \partial \beta_l} &amp;= \sum_{i=1}^N y_{il}\bold{x_i}-{e^{\beta_l^T x_i}  \over 1+ sum_{i=1}^{K-1}e^{\beta_l^T x_i}}\bold{x_i} \\\ &amp;= \sum_{i=1}^N (y_{il}-Pr(G=l|X=\bold{x_i}))\bold{x_i} \end{aligned} $$
+미분2
+$$ {\partial l(\theta) \over \partial \theta}= \begin{bmatrix} {\partial l \over \partial \beta_1} \\\ {\partial l \over \partial \beta_2} \\\ \vdots \\\ {\partial l \over \partial \beta_{K-1}} \end{bmatrix} $$</p>
+<h4 id="행렬-하는-방법-있음-">행렬 하는 방법 있음 ..</h4>
+
+  
+    
+    <div class="post-toc">
+      <span class="title">Contents</span>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#excersie">Excersie</a>
+      <ul>
+        <li><a href="#41-standard-eigenvalue-problem으로-변환해서-generalized-eigenvalue-problem을-푸는-과정을-보여라">4.1 standard eigenvalue problem으로 변환해서 generalized eigenvalue problem을 푸는 과정을 보여라</a></li>
+        <li><a href="#44-417에서-k개-클래스를-가진-multi-logit-모델을-생각하자">4.4 (4.17)에서 K개 클래스를 가진 multi-logit 모델을 생각하자.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    <div style='padding:15px;'>
+    </div>
+    
+  </section>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:uqpuark@gmail.com">uqpuark</a>
+      
+      님이
+      <span class="highlight">2021년 02월 27일 00시 58분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div style="padding-left: 16px">
+    데이터 사이언티스트를 꿈꾸고 있습니다. 수학, 통계학에 대한 질문이나 의견을 나누고 싶습니다. 
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">[카테고리]</span>
+        
+        
+        <a href="https://uqpuark.github.io/categories/esl">#ESL</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">[태그]</span>
+        
+        
+        <a href="https://uqpuark.github.iotags/%EB%AC%B8%EC%A0%9C">#문제</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://uqpuark.github.io/math/idempotent/" rel="prev">
+          <span>[행렬] Idempotent Matrices</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="uqpuark/uqpuark.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  <div class="share">
+      <a href="https://github.com" title="Github" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+  </div>
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
+
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+</footer>
+</body>
+</html>
