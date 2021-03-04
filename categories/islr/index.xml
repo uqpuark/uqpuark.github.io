@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ISLR on 데이터 사이언스 블로그</title>
+    <link>https://uqpuark.github.io/categories/islr/</link>
+    <description>Recent content in ISLR on 데이터 사이언스 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
+    <lastBuildDate>Mon, 01 Mar 2021 17:31:41 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/islr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[ISLR] CH4 Classification 요약</title>
+      <link>https://uqpuark.github.io/islr/ch4-classification/</link>
+      <pubDate>Mon, 01 Mar 2021 17:31:41 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/islr/ch4-classification/</guid>
+      <description>4.2 Why Not Linear Regression? 회귀분석으로 하기는 몇가지 문제가 발생해서</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -112,6 +112,50 @@ $$ \begin{aligned} \mathcal{L}(a) &amp;= a^T \Beta a + \lambda(a^TWa-1)
 <ul>
 <li>\( a,\ \lambda \)는 \( W^{-1} \Beta \)의 고유벡터, 고유값</li>
 </ul>
+<h3 id="42-피쳐--p차원-클래스--2개크기는-각각-n1-n2-nn1-nn2">4.2 피쳐 : p차원, 클래스 : 2개(크기는 각각 N1, N2), N/N1 N/N2</h3>
+<h4 id="a-lda-rule-411을-증명">(a) LDA rule (4.11)을 증명</h4>
+<p>$$ \begin{aligned} \delta_k(x) &amp;= \log(f_k(x)) + \log(\pi_k) \\\ &amp;= \log(Pr(x|g_k)) + \log(\pi_k) \end{aligned} $$</p>
+<p>conditional density \( Pr(x|g_k)) \)는 multivariate Gaussian(normal)</p>
+<p>$$ Pr(x|g_k)=\mathcal{N}(x;, \mu_k, \Sigma_k) := {1 \over (2\pi)^{p/2} |\Sigma_k|^1/2} e^{-{1 \over 2}(x-\mu_k)^T \Sigma_k^{-1}(x-\mu_k)} $$</p>
+<p>$$ \log(Pr(x|g_k))=-{1 \over 2}(x-\mu_k)^T \Sigma_k^{-1}(x-\mu_k)-{p \over 2}\log(2\pi)-{1 \over 2}\log(|\Sigma_k|) $$</p>
+<p>$$ \begin{aligned} \delta_k(x) &amp;= -{1 \over 2}(x-\mu_k)^T \Sigma_k^{-1}(x-\mu_k)-{p \over 2}\log(2\pi)-{1 \over 2}\log(|\Sigma_k|)+ \log(\pi_k) \\\ \Rightarrow \delta_k(x) &amp;= -{1 \over 2}(x-\mu_k)^T \Sigma^{-1}(x-\mu_k)+\log(\pi_k) \\\ &amp;= {1 \over 2} \left( x^T\Sigma^{-1}x-x^T\Sigma^{-1}\mu_k-\mu_k^T\Sigma^{-1}x+ \mu_k^T\Sigma^{-1}\mu_k \right) + \log(\pi_k) \\\ &amp;= x^T\Sigma^{-1}\mu_k - {1 \over 2}mu_k^T\Sigma^{-1}\mu_k + \log(\pi_k) \end{aligned} $$</p>
+<blockquote>
+<p>LDA는 공분산이 같다는 조건( \( \Sigma_k = \Sigma \) )<br>
+2개 항은 사용하지 않아도 무관</p>
+</blockquote>
+<p>\( \delta_2(x) &gt; \delta_1(x) \)이면 class 2
+$$ \begin{aligned}
+&amp; x^T\Sigma^{-1}\mu_2-{1 \over 2}mu_2^T\Sigma^{-1}\mu_2 + \log({N_2 \over N}) &gt; x^T\Sigma^{-1}\mu_1-{1 \over 2}mu_1^T\Sigma^{-1}\mu_1 + \log({N_1 \over N}) \\\ \Rightarrow \ &amp;x^T\Sigma^{-1} (\mu_2-\mu_1) &gt; {1 \over 2}mu_2^T\Sigma^{-1}\mu_2 - {1 \over 2}mu_1^T\Sigma^{-1}\mu_1 + \log({N_1 \over N}) - \log({N_2 \over N}) \end{aligned} $$</p>
+<h4 id="b-least-squares-식을-기준으로-beta-hat이-다음과-같음을-보여라">(b) least squares 식을 기준으로 beta hat이 다음과 같음을 보여라</h4>
+<p>\( \hat{\beta}=\left( \bold{X}^T\bold{X} \right)^{-1}\bold{X}^T\bold{y} \)에서<br>
+\( X^TX\begin{bmatrix} \beta_0 \\\ \beta \end{bmatrix}=X^T\bold{y} \quad (A) \)</p>
+<blockquote>
+<p>\( \begin{aligned}
+X^TX &amp;= \begin{bmatrix} 1 &amp; 1 &amp; \cdots &amp; 1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 \\\ x_1 &amp; x_2 &amp; \cdots &amp; x_{N1} &amp; x_{N1+1} &amp; x_{N1+2} &amp; \cdots &amp; x_{N1+N2} \end{bmatrix} \begin{bmatrix} 1 &amp; x_1^T \\\ 1 &amp; x_2^T \\\ \vdots &amp; \\\ 1 &amp; x_{N1}^T \\\ 1 &amp; x_{N1+1}^T \\\ 1 &amp; x_{N1+2}^T \\\ \vdots \\\ 1 &amp; x_{N1+N2}^T \end{bmatrix} \\\ &amp;=\begin{bmatrix} N &amp; \sum x_i^T \\\ \sum x_i &amp; \sum x_ix_i^T \end{bmatrix} \end{aligned} \)</p>
+</blockquote>
+<blockquote>
+<p>\( \begin{aligned} X^T\bold{y} &amp;= \begin{bmatrix} 1 &amp; 1 &amp; \cdots &amp; 1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 \\\ x_1 &amp; x_2 &amp; \cdots &amp; x_{N1} &amp; x_{N1+1} &amp; x_{N1+2} &amp; \cdots &amp; x_{N1+N2} \end{bmatrix} \begin{bmatrix} -N/N_1 \\\ -N/N_1 \\\ \vdots \\\ -N/N_1 \\\ N/N_2 \\\ N/N_2 \\\ \vdots \\\ N/N_2 \end{bmatrix} \\\ &amp;=\begin{bmatrix} 0 \\\ -N_1\mu_1+N_2 \mu_2 \end{bmatrix} \end{aligned} \)</p>
+</blockquote>
+<blockquote>
+<p>\( \sum_{i=1}^N x_i = \sum_{i=1}^{N_1} x_i + \sum_{i=N_1+1}^N x_i = -N_1\mu_1+N_2 \mu_2 \)</p>
+</blockquote>
+<p>p109에서 공분산의 추정값은<br>
+$$ \hat{\Sigma} = {1 \over N-K}\sum_{k=1}^K \sum_{i:g_i=k} (x_i-\mu_k)(x_i-\mu_k)^T $$</p>
+<p>K=2일때,</p>
+<p>$$ \begin{aligned} \hat{\Sigma} &amp;= {1 \over N-2} \left[ \sum_{i:g_i=1} (x_i-\mu_1)(x_i-\mu_1)^T + \sum_{i:g_i=2} (x_i-\mu_2)(x_i-\mu_2)^T \right] \\\ &amp;= {1 \over N-2} \left[ \sum_{i:g_i=1} x_ix_i^T - N_1\mu_1\mu_1^T + \sum_{i:g_i=2} x_ix_i^T - N_2\mu_2\mu^T \right] \end{aligned} $$</p>
+<p>\( \sum_{i:g_i=1} x_ix_i^T = (N-2)\hat{\Sigma}+N_1\mu_1\mu_1^T + N_2\mu_2\mu^T \)을 위에 있는 least square estimator 식(A)에 대입하면</p>
+<p>\( \begin{bmatrix} N &amp; N_1\mu_1^T+N_2 \mu_2^T \\\ N_1\mu_1+N_2 \mu_2 &amp; (N-2)\hat{\Sigma}+N_1\mu_1\mu_1^T + N_2\mu_2\mu^T \end{bmatrix} \begin{bmatrix} \beta_0 \\\ \beta \end{bmatrix} = \begin{bmatrix} 0 \\\ -N_1\mu_1+N_2 \mu_2 \end{bmatrix} \)</p>
+<p>2개의 연립방정식이 나오고, 잘 정리 해주면 된다.</p>
+<p>$$
+N\beta_0 + \left(N_1\mu_1^T+N_2 \mu_2^T \right)\beta = 0, \\\ \beta_0 = \left(-{N_1 \over N} \mu_1^T -{N_2 \over N} \mu_2^T \right)\beta
+$$</p>
+<p>\( (N_1\mu_1+N_2 \mu_2)\left( -{N_1 \over N} \mu_1^T -{N_2 \over N} \mu_2^T \right)\beta + \left( (N-2)\hat{\Sigma}+N_1\mu_1\mu_1^T + N_2\mu_2\mu^T \right) \beta = N(\mu_2 - \mu_1) \\\ \\\ \Rightarrow \left[ (N-2)\hat{\Sigma}+N\hat{\Sigma}_{\Beta} \right]\hat{\beta} = N(\hat{\mu_2} - \hat{\mu_1}) \)</p>
+<h4 id="c-least-suqare의-계수는-lda-계수와-비례-관계다">(c) least suqare의 계수는 LDA 계수와 비례 관계다.</h4>
+<p>\( \hat{\Sigma}_{\Beta} \beta \)는 \(\ {N_1N_2 \over N^2}(\hat{\mu_2} - \hat{\mu_1})(\hat{\mu_2} - \hat{\mu_1})^T \beta \)이다.<br>
+\( (\hat{\mu_2} - \hat{\mu_1})^T\beta \)는 상수(스칼라)이므로 벡터의 방향은 \( \hat{\mu_2} - \hat{\mu_1} \)에 의해 결정된다.</p>
+<p>\( \begin{aligned} (N-2)\hat{\Sigma}\beta &amp;=  -N\hat{\Sigma}_{\Beta}\beta + N(\hat{\mu_2} - \hat{\mu_1}) \\\ &amp;= c_1(\hat{\mu_2} - \hat{\mu_1}) + N(\hat{\mu_2} - \hat{\mu_1}) \\\ \\\hat{\Sigma}\beta &amp;= c \hat{\Sigma} \\\ \\\ \hat{\beta} &amp;=c \hat{\Sigma}^{-1} (\hat{\mu_2} - \hat{\mu_1}) \end{aligned} \)</p>
+<h4 id="d">(d)</h4>
+<h4 id="e">(e)</h4>
 <h3 id="44-417에서-k개-클래스를-가진-multi-logit-모델을-생각하자">4.4 (4.17)에서 K개 클래스를 가진 multi-logit 모델을 생각하자.</h3>
 <ul>
 <li>
@@ -166,6 +210,7 @@ $$ {\partial l(\theta) \over \partial \theta}= \begin{bmatrix} {\partial l \over
     <li><a href="#excersie">Excersie</a>
       <ul>
         <li><a href="#41-standard-eigenvalue-problem으로-변환해서-generalized-eigenvalue-problem을-푸는-과정을-보여라">4.1 standard eigenvalue problem으로 변환해서 generalized eigenvalue problem을 푸는 과정을 보여라</a></li>
+        <li><a href="#42-피쳐--p차원-클래스--2개크기는-각각-n1-n2-nn1-nn2">4.2 피쳐 : p차원, 클래스 : 2개(크기는 각각 N1, N2), N/N1 N/N2</a></li>
         <li><a href="#44-417에서-k개-클래스를-가진-multi-logit-모델을-생각하자">4.4 (4.17)에서 K개 클래스를 가진 multi-logit 모델을 생각하자.</a></li>
       </ul>
     </li>
@@ -218,6 +263,12 @@ $$ {\partial l(\theta) \over \partial \theta}= \begin{bmatrix} {\partial l \over
         </a>
       </li>
       
+      
+      <li>
+        <a href="https://uqpuark.github.io/islr/ch4-classification/" rel="next">
+          <span>[ISLR] CH4 Classification 요약</span>
+        </a>
+      </li>
       
     </ul>
   </div>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[ISLR] CH4 Classification 요약  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ISLR] CH4 Classification 요약'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[ISLR] CH4 Classification 요약">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-03-01">
+  
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ISLR] CH4 Classification 요약'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://uqpuark.github.io/islr/ch4-classification/">
+  <meta property="og:site_name" content="데이터 사이언스 블로그">
+  
+  <meta property="og:image" content="https://uqpuark.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="LDA">
+  
+  <meta property="og:tags" content="Logistic">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://uqpuark.github.io/islr/ch4-classification/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-189694109-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="35px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><form id="search"
+    action='' method="get">
+    <label hidden for="search-input">Search site</label>
+    <input type="text" id="search-input" name="query"
+    placeholder="search or jump to...">
+    <input type="submit" value="search">
+</form>
+
+</li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>
+
+
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://uqpuark.github.io/islr/ch4-classification/">
+      <div class="post-meta">
+        <time>2021년 03월 01일 17시 31분</time>
+        <h1>[ISLR] CH4 Classification 요약</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <h3 id="42-why-not-linear-regression">4.2 Why Not Linear Regression?</h3>
+<p>회귀분석으로 하기는 몇가지 문제가 발생해서</p>
+<h3 id="43-logistic-regression">4.3 Logistic Regression</h3>
+<ul>
+<li>Y를 직접 모델링 하지 않고, 확률(Y가 어떤 클래스에 속할지)을 모델링한다.</li>
+</ul>
+<blockquote>
+<p>정확하게 확률이라고 볼 수는 없음 - overconfidence가 발생</p>
+</blockquote>
+<ul>
+<li>logit이 X와 linear하다.<br>
+베타 : X가 하나 증가할때 logit의 변화량(오즈가 exp(베타)만큼 증가).
+<figure>
+    <img src="/images/islr/ch4.png"/> 
+</figure>
+</li>
+</ul>
+<p><em>maximum likelihood</em>를 사용한다.</p>
+<h3 id="44-lda">4.4 LDA</h3>
+<p>Pr(Y|X) 분포를 모델링 한다. 로지스틱 리그레션과 다르게 less direct한 접근법. Pr(X|Y)를 이용한다(베이지안). 이 분포가 normal이면 로지스틱과 굉장히 비슷해짐.</p>
+
+  
+    
+    <div class="post-toc">
+      <span class="title">Contents</span>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#42-why-not-linear-regression">4.2 Why Not Linear Regression?</a></li>
+        <li><a href="#43-logistic-regression">4.3 Logistic Regression</a></li>
+        <li><a href="#44-lda">4.4 LDA</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    <div style='padding:15px;'>
+    </div>
+    
+  </section>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:uqpuark@gmail.com">uqpuark</a>
+      
+      님이
+      <span class="highlight">2021년 03월 01일 17시 31분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div style="padding-left: 16px">
+    데이터 사이언티스트를 꿈꾸고 있습니다. 수학, 통계학에 대한 질문이나 의견을 나누고 싶습니다. 
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">[카테고리]</span>
+        
+        
+        <a href="https://uqpuark.github.io/categories/islr">#ISLR</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">[태그]</span>
+        
+        
+        <a href="https://uqpuark.github.iotags/lda">#LDA</a>
+        
+        <a href="https://uqpuark.github.iotags/logistic">#Logistic</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://uqpuark.github.io/esl/esl_ch4_exercise/" rel="prev">
+          <span>[문제] ESL CH4</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="uqpuark/uqpuark.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  <div class="share">
+      <a href="https://github.com" title="Github" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+  </div>
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
+
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+</footer>
+</body>
+</html>
