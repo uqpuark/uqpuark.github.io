@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Sat, 20 Feb 2021 16:57:08 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/%EC%88%98%ED%95%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 02:39:57 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/categories/%EC%88%98%ED%95%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[해석학] CH1 The Real and Complex Number Systems </title>
+      <link>https://uqpuark.github.io/2021_01/pma_ch01/</link>
+      <pubDate>Tue, 23 Feb 2021 02:39:57 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/2021_01/pma_ch01/</guid>
+      <description>* 교재는 Principles of mathematical analysis(PMA, baby rudin이라고 부름)을 사용.</description>
+    </item>
+    
     <item>
       <title>[행렬] Idempotent Matrices</title>
       <link>https://uqpuark.github.io/math/idempotent/</link>
