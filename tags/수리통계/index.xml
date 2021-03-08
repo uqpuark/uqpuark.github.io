@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>수리통계 on 데이터 사이언스 블로그</title>
+    <link>https://uqpuark.github.io/tags/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84/</link>
+    <description>Recent content in 수리통계 on 데이터 사이언스 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
+    <lastBuildDate>Mon, 08 Mar 2021 16:18:05 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[수리통계] CH2</title>
+      <link>https://uqpuark.github.io/2021_01/mathprob_01/</link>
+      <pubDate>Mon, 08 Mar 2021 16:18:05 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/2021_01/mathprob_01/</guid>
+      <description>CH2  사건과 샘플 스페이스 정확하게 정의(집합의 개념과 연결)   S : a set that contains all possible experimental outcomes E : subset of the smaple space S defined by a certain condition  확률의 2가지 관점   전통적인 확률론 근대의 확률 공리  Proposition   4.</description>
+    </item>
+    
+  </channel>
+</rss>
