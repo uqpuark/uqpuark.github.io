@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[ESL] CH5 Basis expansion &amp; regularization  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] CH5 Basis expansion &amp; regularization'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[ESL] CH5 Basis expansion &amp; regularization">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-03-09">
+  
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[ESL] CH5 Basis expansion &amp; regularization'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://uqpuark.github.io/esl/esl-ch5-basis_expansion_regularization/">
+  <meta property="og:site_name" content="데이터 사이언스 블로그">
+  
+  <meta property="og:image" content="https://uqpuark.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="ESL">
+  
+  <meta property="og:tags" content="머신러닝">
+  
+  <meta property="og:tags" content="통계학">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://uqpuark.github.io/esl/esl-ch5-basis_expansion_regularization/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-189694109-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="35px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><form id="search"
+    action='' method="get">
+    <label hidden for="search-input">Search site</label>
+    <input type="text" id="search-input" name="query"
+    placeholder="search or jump to...">
+    <input type="submit" value="search">
+</form>
+
+</li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>
+
+
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://uqpuark.github.io/esl/esl-ch5-basis_expansion_regularization/">
+      <div class="post-meta">
+        <time>2021년 03월 09일 13시 29분</time>
+        <h1>[ESL] CH5 Basis expansion &amp; regularization</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <h1 id="시작">시작</h1>
+<h2 id="51-introduction">5.1 Introduction</h2>
+<p>앞장에서 우리는 input features에서 모델을 선형으로 사용했다, regression과 classification을 위해서. 선형회귀, LDA, 로지스틱, separating Hyperplanes 모두 선형 모델에 의존한다. 실제 true f(X)가 X에 대해서 linear인 경우가 많을까? 거의 없다. 회귀분석에서 f(x)=E(Y|X)는 비선형, nonadditive인데, 필요에 의해 편해서 선형으로 추정하는 것이다. classification에서도 마찬가지. Bayes-optimal decision boundary에서 Pr(Y=1|X)의 단조 변환은 리니어이다.</p>
+<blockquote>
+<p>왜 편해? : 해석이 쉽고, 리니어는 테일러 급수의 first-order<br>
+왜 필요해? : 오버피팅 없이 피팅이 잘 된다(N이 작거나 p가 클때)</p>
+</blockquote>
+<h4 id="moving-beyond-linearity--linear-basis-expansion선형인-기저들을-확장">moving beyond linearity | linear basis expansion(선형인 기저들을 확장)</h4>
+<p>CH5의 core idea : X를 추가적인 변수(X의 transformtion)로 대체(또는 추가)해서 선형 모델을 새로운 공간(input features에서 도출된)에서 사용하는 것이다.</p>
+<blockquote>
+<p>이렇게 하면 non-linear함수를 linear 처럼 쉽게 다룰 수 있어서</p>
+</blockquote>
+<p>\( h_m(X) : \R^p \mapsto \R \text{ the mth transformation of } X,\ m=1, \cdots, M. \)
+$$ f(X) = \sum_{m=1}^M \beta_m h_m(X), $$</p>
+<p>a <strong>linear basis expansion</strong> in X. 한번 \( h_m \)이 정해지면, 모델은 새로운 변수들에 대해 선형이고, 피팅이 이전과 같이(linear) 된다.<br>
+\(h_m \)의 예시들 :</p>
+<ul>
+<li>\( h_m(X) = X_m,\ m=1, \cdots, p \) 원래 모델을 recover(사상이 자기 자신)</li>
+<li>\( h_m(X) = X_j^2 \text{, or }\ h_m(X)=X_jX_k \) polynomial 항(테일러 확장을 달성하는)을 사용하여 input을 늘린다.</li>
+<li>\( h_m(X) = \log(X_j), \sqrt{X_j},\cdots \) 하나의 input에 대한 nonlinear transformation. 일반적으로 여러 input을 포함하는 \( h_m(X)= \lvert X \rvert \) 같은 함수를 쓸수 있다.</li>
+<li>\( h_m(X)= I(L_m \le X_k &lt; U_m) \), X_k 영역의 지표. X_k의 범위를 나눠서</li>
+</ul>
+<p>가끔씩 문제는 로그나 제곱 함수같은 특정 basis 함수를 필요로 할 것이다. 그러나 우리는 basis 확장을 더 많이 사용한다, f(x)에 대해 더 flexible한 표현을 위해서. polynomials는 특성상 제한이 있긴 하지만 후자의 예시이다 -  계수를 조정하는 것(functional form을 만들기 위해)은 remote region(?)에서  함수가 심하게 흔들릴 수 있다.</p>
+<h4 id="이-챕터에서-다룰-것">이 챕터에서 다룰 것</h4>
+<ol>
+<li>
+<p>local polynomial 표현에 유용한 <strong>piecewise-polynomials</strong>와 <strong>splines</strong></p>
+</li>
+<li>
+<p><strong>wavelet</strong> bases,  신호처리(signals)과 이미지에 유용하다.</p>
+</li>
+</ol>
+<p>이 방법론들은 <em>dictionary</em> \( \mathcal{D} \)(매우 큰 수 \( |\mathcal{D}| \)개의 기저함수로 구성된)를 생성하는데, 우리가 데이터에 피팅할 수 있는 것 보다 훨씬 많다. 딕셔너리로 부터 기저 함수를 사용하면서 모델의 복잡함을 컨트롤 하는 방법이 요구된다. 3가지의 일반적인 접근 방식이 있다.</p>
+<ul>
+<li>
+<p>Restriction method : 함수의 클래스를 사전에 제한한다.</p>
+<ul>
+<li>예) Additivity, 모델의 형태가
+$$ \begin{aligned} f(X)&amp;=\sum_{j=1}^p f_j(X_j) \\\ &amp;= \sum_{j=1}^p \sum_{m=1}^{M_j} \beta_{jm}h_{jm(X_j)}, \end{aligned} $$
+라고 가정한다. 모델의 크기는 기저 함수의 개수(M_j)에 의해 제약이 된다.</li>
+</ul>
+</li>
+<li>
+<p>Selection method : 딕셔너리를 adaptively(?)하게 스캔하고, 모델 피팅에 중요한 기여를 하는 기저 함수 \( h_m \)들만 포함한다.</p>
+<ul>
+<li>예) variable selection techniqeus(CH3)</li>
+<li>예) CART, MARS, boosting 같은 stagewise greedy approaches</li>
+</ul>
+</li>
+<li>
+<p>Regularization method : 전체 딕셔너리(기저 함수들)를 사용하지만 계수에 제약을 준다.</p>
+<ul>
+<li>예) Ridge regression</li>
+<li>Lasso는 regularization + selection method이다.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Regularization : 위아래로 많이 움직이는 non-linear 함수의 모양이 눌리는 느낌</p>
+</blockquote>
+<h2 id="52-piecewise-polynomials-and-splines">5.2 Piecewise Polynomials and Splines</h2>
+<p>sec 5.7 까지 X는 1차원. Piecewise polynomial 함수 f(X)는 정의역 X의 구간을 나누고, 각 구간 마다 분리된(다른) polynomial로 표현으로 얻어진다. Figure 5.1은 piecewise polynomial 2개를 보여준다. 왼쪽 그림은 piecewise constant, 3개의 기저 함수를 곁들인:
+$$
+h_1(X)=I(X&lt;\xi_1),\quad h_2(X)=I(\xi_1&lt;X&lt;\xi_2), \quad h_3(X)=I(\xi_2 \le X).
+$$
+이 함수들은 disjoint인 영역에서 positive라서, \( f(X)=\sum_{m=1}^3 \beta_mh_m(X) \) OLS 추정치는 \( \hat{\beta}_m=\bar{Y}_m \)이다.</p>
+<p>오른쪽 그림은 piecewise linear fit이다. \( h_{m+3}=h_m(X)X,\ m=1,2,3 \)
+특별한 경우를 제외하면, 보통 3번째 그림을 선호한다. 얘도 piecewise linear인데 2개 노트에서 연속이 되도록 제약이 되어있다. 연속성 제약은 패러미터가 선형 제약을 주게 한다. 예를 들면, 2개의 제약이 있으니, 2개의 매개변수가 돌아오고, 4개가 남는다(총 6개 기준인듯)<br>
+더 직접적인 방법으로 제약을 포함하는 기저를 사용하는 것이다.
+$$
+h_1(X)=1, h_2(X)=X, h_3(X)=(X-\xi_1)_+, h_4(X)=(X-\xi_2)_+
+$$
+우리는 보통 부드러운 함수를 좋아하고, local 다항식의 차수를 증가시켜서 만들 수 있다(Figure 5.2). 4번째(아래의 우측) 그림은 연속이고, 1차, 2차 도함수가 노트에서 연속이다. *cubic spline*으로 알려져 있다. Enforcing one more order of
+continuity would lead to a global cubic polynomial(해석?)(예제 1).
+$$
+h_1(X)=1 \quad h_3(X)=X^2 \quad h_5(X)=(X-\xi_1)_+^3, \\\ h_2(X)=X \quad h_3(X)=X^3 \quad h_5(X)=(X-\xi_2)_+^3
+$$
+6개의 기저 함수가 있고, 함수의 6차원 선형 공간에 대응한다. 파라미터 갯수 : (3개 영역) X (영역 당 4개의 파라미터) - (2개의 knot) X (knot당 3개의 제약 ) = 6.</p>
+<h4 id="임시-더-일반적으로-regression-splines">(임시) 더 일반적으로, regression splines</h4>
+<p>차수가 M이고, knot가 K개인 spline은 차수 M인 piecewise polynomial이고, M-2 차수까지 도함수가 연속이다. cubic spline은 M=4이다(3아님? 아님). piecewise-constant는 order-1 spline, continous piecewise linear function은 order-2 spline. 일반화 시키면(truncated-power basis set이용해서)<br>
+$$
+h_j(X)=X^{j-1},\ j=1,\cdots,M, \\\<br>
+h_{M+l}(X)=(X-\xi_l)_+^{M-1}, l=1,\cdots,K.
+$$
+큐빅 스플라인은 최저 차수를 갖는 스플라인이다, knot의 불연속성을 인간이 볼 수 없는(그래프에서 안보인다는 이야기?). smooth한 도함수에 관심이 있는 경우가 아니면 cubic보다 복잡한걸 볼 이유가 없다. 그래서 M=1,2,4인걸 보통 많이 사용한다.<br>
+이렇게 knot가 고정되있는 스플라인을 *regression splines*이라고 한다. 먼저, 차수와 knot의 개수를 선택할 필요가 있다. 단순하게 기저 함수와 자유도로 스플라인들을 매개변수화 시키고, 관측치 x_i로 knots들의 위치를 결정하는 방법이 있다. 예를 들어, **bs(x, df=7)**은 7-3=4개의 knots(백분위 기준으로 20, 40, 60,80th번째에 knot가 있음)준)를 가진 cubic spline 함수의 basis matrix를 생성한다. 또 다른 예로, 좀 더 직접적인데, **bs(x, degree=1, knots=c(0.2, 0.4, 0.6))** (df와 degree 구별)은 linear spline의 베이시스를 생성한다(knot 3개, Nx4 행렬).</p>
+<blockquote>
+<p>N은 관측치 개수</p>
+</blockquote>
+<p>특정한 차수와 knot 수열(?)로 정해진 스플라인 함수의 공간이 벡터 공간이 되기 때문에, 그것들을 표현하는 수많은 동치인 기저들이 있다. truncated-power basis는 개념적으로는 단순하지만, 수치적으로 매력적인 것은 아니다: 큰 수의 거듭제곱은 심각한 rounding 문제를 초래할 수 있다. <em>B-splines</em> basis가 챕터 Appendix에 묘사되어 있는데, knots K가 클 때 효율적인 계산을 가능하게 해준다.</p>
+<h3 id="521-natural-cubic-splines">5.2.1 Natural Cubic Splines</h3>
+<p>데이터에 피팅한 polynomials의 움직임(?)이 경계 근처에서 불규칙 한 경향이 있고, extrapolation이 위험할 수 있다.</p>
+<blockquote>
+<p>난 모르겠다.<br>
+경계(knot 마다 있는? 양쪽 끝!)에서는 연속성에 문제가 있을 수 있고, 경게 부근의 데이터가 적을 수도 있어서 erratic 하다는 것 같다.</p>
+</blockquote>
+<p>이러한 문제들은 스플라인으로 악화된다. 경계가 되는 knot를 넘어서 피팅된 다항식들은 해당영역의 global 다항식에 해당하는 것보다 더 광범위하게 움직인다. 다음 섹션에서 볼 수 있는데,  least square로 피팅된 spline functions의 pointwise 분산(?)으로 쉽게 요약이 된다. Figure 5.3은 여러 모델들의 pointwise variance를 비교한 것이다. boundaries 근처의 분산이 폭발(?)하는 것은 분명하고, 최악은 cubic splines인 경우이다.</p>
+<blockquote>
+<p>pointwise variance가 뭘까요? : <a href="https://stats.stackexchange.com/questions/41405/what-is-point-wise-variance">https://stats.stackexchange.com/questions/41405/what-is-point-wise-variance</a></p>
+</blockquote>
+<p><em>naturla cubic splines</em>은 제약을 추가한다. boundary knots를 넘어가면 함수가 선형이라는 제약이다. 이렇게 하면 4개의 자유도(양쪽 경계에서 각각 2개의 제약)가 확보되고, 내부 영역에 더 많은 knots들을 사용함으로서 더 유리하게 쓸 수 있다.이 trade-off는 Figure 5.3에서 분산의 관점에서 설명된다. 경계 근처의 bias라는 대가를 치루지만 이러한 가정(정보가 적은 경우)은 보통 상당히 합리적(분산이 작아진다)이다.</p>
+<blockquote>
+<p>선형이라는 제약은 2차 이상인 항의 계수가 0이라는 이야기<br>
+cubic에서 2차, 3차 계수가 0이니 자유도 2개 + 2개가 free. 그럼 자유도가 줄어들게 되는 거인듯.<br>
+요즘에는 bias주고 var를 낮게 가져가는 경향이 있다고&hellip;</p>
+</blockquote>
+<p>K개의 knots를 갖는 Natural Cubic Spline은 K개의 기저 함수로 표현된다. cubic splinees의 기저에서 시작해서, reduced 기저를 도출한다, 경계에 제약을 줘서. Sec 5.2에서 설명하는 truncated power series basis에서 시작하면 예제 5.4에 도달한다:
+$$
+N_1(X)=1,\quad N_2(X)=X,\quad N_{k+2}(X)=d_k(X)-d_{k-1}(X), \\\ \\\ \text{ where }\quad d_k(X)={(X-\xi_k)_+^3 - (X-\xi_K)_+^3 \over \xi_K-\xi_k}.
+$$
+각각의 basis functions들은 \( X \ge \xi_K \)에 대해 2차, 3차 도함수가 zero가 되는 것으로 볼 수 있다.</p>
+<h3 id="522-example-south-african-heart-disease-continued">5.2.2 Example: South African Heart Disease (Continued)</h3>
+<p>Sec 4.4.2에서 사용한 데이터를 다시 사용해보자. Natural Splines를 사용해서 함수의 non-linearity를 볼거다. 모델 폼은
+$$
+logit[Pr(chd|X)]= \theta_0 + h_1(X_1)^T\theta_1 + h_2(X_2)^T\theta_2 + \cdots + h_p(X_p)^T\theta_p
+$$
+이제 각 항의 natural spline bases 4개를 사용한다. 예를 들어, X_1이 <strong>sbp</strong>를 나타내는 경우, \( h_1(X_1) \) 는 4개의 기저 함수로 구성된 basis이다. 이것은 2개의 내부 knots가 아니라 3개의 매듭을 나타내는 것이고, 추가로 양끝 2개가 더 있다, 왜냐하면 각 h_j의 상수한은 제외하기 때문.<br>
+<strong>fmahist</strong>는 binary나 dummy로 코딩된 2-레벨 팩터라서 단일 계수와 연관된다.<br>
+더 컴팩트하게 기저함수의 <em>p</em> 벡터들을 하나의 큰 벡터 h(X)로 결합할 수 있고, 모델은 \( h(X)^T \theta \), 전체 파라미터의 수 \( df=1+\sum_{j=1}^p df_j \)는 각 성분 항에 있는 패러미터의 합이다.(번역 이상함). 각 기저 함수는 N개 샘플에서 펑가돼서 N x df 기저 행렬 \( \bold{H} \)가 된다.<br>
+그리고 나서 backward stepwise deletion process를 해서 구조를 유지하면서 항을 삭제한다. AIC 통계량이 사용되고, 최종 모델에 남아있는 모든 항들이 삭제 될 수록 AIC가 증가한다. Figure 5.4는 stepwise regression으로 선택된 최종 모델이다.</p>
+<ul>
+<li>함수는 \( \hat{f}_j = h_j(X_j)^T \hat{\theta_j}  \).</li>
+<li>공분산 행렬은 \( Cov(\hat{\theta})=\Sigma \text{ is estimated by } \hat{Sigma}=(H^TWH)^{-1} \)
+<ul>
+<li>W는 diagonal wieght matrix from the logistic regression.</li>
+</ul>
+</li>
+<li>pointwise 분산 함수는 \( Var[\hat{f}_j(X_j)]=h_j(X_j)^T \hat{\Sigma}_{jj} h_j(X_j), \text{ where } Cov(\hat(\theta))_j \) 은 적절한 서브 매트릭스.</li>
+<li>음영 부분은 \( \hat{f}_j(X_j) \pm 2\sqrt{v_j(X_j)} \).</li>
+</ul>
+<p>AIC 통계량은 likelihood-ratio test(deviance test)보다 좀 더 geneous하다. <strong>sbp</strong>와 <strong>obesity</strong>가 이 모델 내에 포함되어 있는 반면, linear 모델에는 없다. sbp와 obesity의 기여하는 부분이 본질적으로 non-linear하기 때문이라고 설명한다. 이러한 영향들은 처음에 보면 다소 의아할 수 있지만, 설명은 retrospective 데이터의 본질에 있다(?). 환자가 심장마비를 겪고 난 후 측정을 하였고, 이미 많은 경우에 건강한 식단과 생활습관으로 이익을 받았다. 따라서 obesity와 sbp가 낮은 값에서 위험이 증가하는 것처럼 보이게 된다.</p>
+<blockquote>
+<p>retrospective data?<br>
+여전히 의아하다</p>
+</blockquote>
+<h3 id="523-example-phoneme-recognition">5.2.3 Example: Phoneme Recognition</h3>
+<p>이 예제에서는 flexibility를 늘리는게 아니라 줄이는데 스플라인을 사용한다; 이러한 작업은 functional 모델링의 일반적인 주제이다. Figure 5.5는 &ldquo;aa&rdquo;, &ldquo;ao&rdquo; 2개의 음소에 대한 log-periodograms로 이뤄진 그래프이다(패널 데이터). 이 데이터를 사용해서 2개를 classification하는게 목표.<br>
+밑에 그래프에서 회색선은 엄청 등락이 심한데, 이거를 빨간 선으로 변환하는게 최종 결론이다(로지스틱 리그레션 이용). 계수는 빈도 함수로 나타나고, 모델을 아래 식으로 근사되는 연속적인 대응관계에 있는 식으로 생각할 수 있다.
+$$
+\log {Pr(aa|X) \overs Pr(ao|X)}= \int X(f)\beta(f) df, \\\ \sum_{j=1}^256 X(f_j) \beta(f_j) = \sum_{j=1}^256 x_j \beta_j
+$$
+계수는 contrast functional을 계산하고, 주목할 만한 값을 가질 것이다, 2개 클래스 간에 log-periodogramsdl 다른 빈도 영역에서(?).<br>
+회색 선은 매우 rought 하다. 인풋 시그널이 매우 강한 양의 자기상관을 가져서, 계수에서 음의 자기상관을 갖게된다. 게다가 샘플의 크기는 계수당 4개의 관측치만 제공한다.<br>
+이제 자연스러운 regularization을 적용하여 계수가 smoothly하게 달라지게 만든다, function of frequency 처럼. 낮은 빈도가 가장 큰 변별력을 주는 것을 볼 수 있다. smoothing은 contrast에 해석을 쉽게 해주고, 또한 더 정확한 classifier를 만든다.</p>
+<p>(마무리 안함)</p>
+<h2 id="53-filtering-and-feature-extraction">5.3 Filtering and Feature Extraction</h2>
+<p>이전 예제에서, \( p \times M \text{ basis matrix } \bold{H} \)을 세웠고, 피쳐 x를 \( x^* = \bold{H}^T x \)로 변환 시켰다. 피쳐가 필터링된 이 버전은 인풋으로 사용 되었다.<br>
+차원이 높은 피쳐(X변수)를 전처리 하는 것은 매우 일반적이고, 러닝 알고리즘의 성능을 향상시키는 강력한 방법이다. 전처리는 선형일 필요는 없지만, 일반적인 (비선형) 함수의 폼 \( x^* = g(x) \)을 가질 수 있다. 유도된 피쳐 x*는 인풋으로 사용된다.</p>
+<h2 id="54-smoothing-splines">5.4 Smoothing Splines</h2>
+<p>spline bais 방법에 대해 이야기 할 건데, 얘는 maximal knots 집합을 사용해서 knot 선택을 완전히 피하는 방법이다(미리 knot 개수, 위치를 정하지 않는 방법). 피팅이 복잡한 거는 regularization으로 컨트롤 할거다. 다음의 문제를 생각해보자: 모든 함수들  f(x) with two continuous derivatives(?) 사이에서 패널티를 받는 SSR을 최소화하는 함수를 찾자.</p>
+<blockquote>
+<p>f(x)가 continuous derivative를 가지다는 의미 : 도함수 + 도함수가 연속이다<br>
+f(x)가 differentiable이다 : 도함수가 있다 (끝)<br>
+근데 왜 2개?</p>
+</blockquote>
+<p>$$
+RSS(f, \lambda) = \sum_{i=1}^N {y_i - f(x_i)}^2 + \lambda \int {f''(t)}^2 dt,
+$$
+람다가 *smoothing parameter*. 첫번째 항이 데이터에 가까운 정도를 측정하고(원래 cost function), 두번째항이 휘어진 정도에 패널티를 준다(regularization 추가).<br>
+\( \lambda=0 \) : 원래 식 그대로, f는 데이터를 interpolate하는 임의의 함수가 될 수 있음.</p>
+<p>\( \lambda=\infty \) : simple least square 피팅, 용인되는 이계도함수가 없다.</p>
+<blockquote>
+<p>f가 3차함수면 f'&lsquo;는 1차함수(f에서 2차, 3차 항의 계수들이 영향을 받게 됨), 람다가 무한대로 가면 f'&lsquo;의 남아있는 계수(2차, 3차)가 0으로 추정되어야 minmization의 최적해가 나온다. 그래서 OLS 피팅.</p>
+</blockquote>
+<p>smoothing parameter은 rough한것 부터 smooth한 것 까지 다양하고, \( \lambda \in (0, \infty) \)가 중간에 함수의 흥미로운 클래스를 인덱스하는 것이다(?).<br>
+(5.9)의 기준은 무한-차원 함수 공간(사실은, 두번째 항이 정의된 함수의 Sobolev 공간)에 정의되어 있다. 주목할 만한 점은, (5.9)는 확실하게, 유한 차원에서 unique minimizer(유일하게 최적해)가 있다. xi의 유일해에서 knots를 갖는 natural cubic spline이다(예제 5.7). 겉보기에는 the family(집합족?)가 여전히 over-parametrized된 것 처럼 보인다, 왜냐면 N개의 자유도를 시사하는 N개의 knots개수만큼 있기 때문이다. 그러나 패널티 항은 스플라인 계수에 대한 패널티로 해석이되고, 이는 선형 피팅을 향한 어떠한 방식으로 shrink 된다.</p>
+<p>왜냐하면 해가 natural spline이기 때문에, 함수를 다음과 같이 쓰고
+$$
+f(x) = \sum_{j=1}^N N_j(x) \theta_j,
+$$
+where the \( N_j(x) \)는 기저함수의 N-차원 집합이다(natural splines의 족으로 표현되는). 따라서 그 기준 (5.9)는
+$$
+RSS(\theta, \lambda)=(\bold{y}-\bold{N}\theta)^T (\bold{y}-\bold{N}\theta) + \lambda \theta^T \bold{\Omega}_N \theta, \\\ \text{ where } { \bold{N} }_ij = N_j(x_i)\ and\ { \bold{\Omega}_N}_{jk} = \int {N_j}''(t) {N_k}''(t) dt.
+$$
+The solution is
+$$
+\hat{\theta}=(\bold{N}^T \bold{N}+ \lambda \bold{\Omega}_N)^{-1}\bold{N}^T\bold{y},
+$$
+a generalized ridge regession. The fitted smoothing splines is given by
+$$
+\hat{f}(x) = \sum_{j=1}^N N_j(x) \hat{\theta}_j.
+$$
+효율적인 computational 테크닉은 어펜딕스에서 설명한다.</p>
+<blockquote>
+<p>$$ \begin{aligned}
+\bold{N} = \begin{bmatrix} N_1(x_1) &amp; N_2(x_1) &amp; \cdots &amp; N_N(x_1) \\\ N_1(x_2) &amp; N_2(x_2) &amp; \cdots &amp; N_N(x_2) \\\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\\ N_1(x_N) &amp; N_2(x_N) &amp; \cdots &amp; N_N(x_N) \end{bmatrix} \end{aligned} $$</p>
+</blockquote>
+<p>Figure 5.6은 smoothing spline fit을 보여준다. response(Y)는 1년 간격으로 2번 연속 방문시 척추 BMD의 상대적 변화이다. 성별로 색이 나눠지고, 2개의 분리된 곡선이 피팅 된 상태이다. 결과는 여성이 남성보다 2년 먼저 성장한다는 데이터의 증거를 강화한다. 람다를 어떻게 정하는 지는 다음 섹션에서 논의한다.</p>
+<h3 id="541-degrees-of-freedom-and-smoother-matrices">5.4.1 Degrees of Freedom and Smoother Matrices</h3>
+<p>우리는 \( \lambda \)가 어떻게 smoothing spline을 정하는지 나타내지 않았다. 이 챕터를 다음에 우리는 cross-validation같은 테크닉을 사용하는 자동적인 방법을 설명할거고, 여기서는 smmothing 정도를 미리 정하는 직관적인 방법에 대해 이야기 할 것이다.<br>
+미리 선택된 \( \lambda \)를 이용하는 sommthing spline은 <em>linear smoother</em>의 예이다. (5.12)의 estimates가 y_i에 대한 선형결합이기 때문이다. 트레이닝 데이터 x_i에서 N-vector로 이뤄진 fitted values \( \hat{f}(x_i) \)를 \( \bold{\hat{f}} \)라고 하자.
+$$ \begin{aligned} \bold{\hat{f}} &amp;= \bold{N} \hat{\theta} \\\ &amp;= \bold{N}(\bold{N}^T \bold{N}+ \lambda \bold{\Omega}_N)^{-1}\bold{N}^T\bold{y} \\\  &amp;= \bold{S} _\lambda \bold{y} \end{aligned} $$
+다시 fit은 y에 대해 선형이고, 유한의 선형 연산자인 S는 <em>somoother matrix</em>라고 알려져 있다. 이러한 선형성의 결과는 y로부터 f를 생산하는 방법이 y 자체에 의존하지 않는 다는 것이다; \( S _\lambda \)는 \( x_i \text{ and } \lambda \)에 의존한다.<br>
+선형 연산자는 least squares에도 익숙하다.  \( \bold{\xi}  \)는 트레이닝 x_i N개에서 M개 cubic-spline 기저함수의 NxM 행렬이고, knot 순서는 \( \xi \text{ and } M \ll N \). fitted spline값의 벡터는</p>
+<p>$$ \begin{aligned}
+\hat{\bold{f}} &amp;= \bold{B} _\xi (\bold{B} _\xi^T \bold{B} _\xi)^{-1} \bold{B} _\xi^T \bold{y} \\\ &amp;= \bold{H} _\xi \bold{y}  \end{aligned} $$</p>
+<p>\(  \bold{H} _\xi \)는 정사영(직교) 연산자, 통계에서는 <em>hat matrix</em>라고 알려져있다. \( \bold{H} _\xi \text{ and } \bold{S} _\lambda \)사이에는 몇가지 중요한 유사점과 차이점이 있다.</p>
+<ul>
+<li>둘다 symmetric, positive semidefinite matricees.</li>
+<li>\(  \bold{H} _\xi \bold{H} _\xi = \bold{H} _\xi \)는  (idempotent), 반면 \( \bold{S} _\lambda \bold{S} _\lambda \preceq \bold{S} _\lambda  \), RHS가 LHS 보다 postive semi-definite matrix에 해당하는 만큼 크다. 이것은 S_lambda의 shrinking 결과이다.</li>
+<li>\(  \bold{H} _\xi \)는 랭크 M, \( \bold{S} _\lambda \)는 랭크 N.</li>
+</ul>
+<p>\( M = trace(\bold{H} _\xi) \) 표현은 사영공간의 차원을 주는데, 또한 기저 함수의 개수이고, 따라서 패러미터의 갯수는 fit에 관련되어있다. smoothing spline에 유효 자유도(effective degrees of freedom)를 추론하여 정의한다.
+$$
+df _\lambda = trace( \bold{S} _\lambda )
+$$
+이러한 정의는 매우 유용하고, 우리가 smoothing spline을 일관적으로 매개변수화 하는 직관적인 방법을 제공한다. 예를 들어, Figure 5.6에서 각각의 곡선에 대해 자유도를 12로 주고, 대응하는 람다는 \( trace( \bold{S} _\lambda ) = 12 \)를 풀면 약 0.00022로 나온다. 자유도를 정의하는 방법은 이것말고도 여러개가 있다.<br>
+\( \bold{S} _\lambda \)가 symmetric &amp; positive semi-definite라서, eigen-decompoistion이다. \( \bold{S} _\lambda \)를 <em>Reinsch</em> form으로 다시 쓰면 편리하다.
+$$
+\bold{S} _\lambda = (\bold{I} + \lambda \bold{K})^{-1},
+$$
+<strong>K</strong>는 \( \lambda \)에 의존하지 않는다(예제 5.9). \( \hat{\bold{f}} = \bold{S} _\lambda \bold{y} \)를 푸는거는
+$$
+\underset{\bold{f}}{min} (\bold{y}-\bold{f})^T(\bold{y}-\bold{f})+\lambda \bold{f}^T \bold{K} \bold{f},
+$$<br>
+<strong>K</strong>는 <em>penalty matrix</em>라고 알려져있고, 실제로 <strong>K</strong>에 quadratic form은 weigthed sum of squared (divided) second difference에 관해서 표현된다. \( \bold{S} _\lambda \)의 eigen-decomposition은</p>
+<p>$$
+\bold{S} _\lambda = \sum_{k=1}^N \rho_k (\lambda) \bold{u}_k \bold{u}_k^T \\\ \\\ \text{with } \rho_k (\lambda) = {1 \over 1 + \lambda d_k}
+$$</p>
+<blockquote>
+<p>\( \bold{K}=(\bold{N}^T)^{-1} \bold{\Omega}_N \bold{N}^{-1} \)</p>
+</blockquote>
+<p>d_k는 <strong>K</strong>의 고유값에 대응하는 수. Figure 5.7(top)은 데이터에 cubic smoothing spline을 적용한 결과를 보여준다. 2개의 적합치가 주어진다 : smoother fit(람다 큼)과 rougher fit(람다 작음). eigen-representation의 하이라이트는 다음과 같다.</p>
+<ul>
+<li>(많은데 생략)</li>
+</ul>
+<p>Figure 5.8은 smoothing spline matrix를 묘사한다, 행이 x로 정렬 되어 있는. 이 표현의 banded nature은 smoothing spline이 local fitting method임을 시사하며, 이는 CH6에서 locally weighted regression 절차와 매우 유사하다. 오른쪽 패널은 선택된 <strong>S</strong>행을 자세히 보여주고, <em>equivalent kernels</em>라고 부른다.<br>
+\( \lambda \rightarrow 0,\ df _\lambda \rightarrow N, \text{ and } \bold{S} _\lambda \rightarrow \bold{I}, \text{ N-dimensional identity matrix } \\\ \lambda \rightarrow \infty,\ df _\lambda \rightarrow 2, \text{ and } \bold{S} _\lambda \rightarrow \bold{H}, \text{ the hat matrix for linear regression on x} \)</p>
+<blockquote>
+<p>banded nature(?)</p>
+</blockquote>
+<h2 id="55-automatic-selection-of-the-smoothing-parameters">5.5 Automatic Selection of the Smoothing parameters</h2>
+<p>regression splines에 대한 smoothing parameter는 스플라인의 degree와 knots의 개수, 위치를 포함한다. smoothing splines에 대해, 우리가 선택하는 패널티 파라미터는 \( \lambda \)뿐이다. 왜냐하면 knots는 유니크한 트레이닝 X에 있고, cubic degree는 현실에서 거의 항상 사용되기 때문이다.<br>
+knots의 위치와 개수를 선택하는 것은 조합적으로 복합한 작업이 될 수 있다, 약간의 단순화 과정이 이뤄지지 않으면. CH9에서 MARS는 현실에서 절충으로 추가적인 근사값이 있는 greedy algorithm을 사용한다.</p>
+<h3 id="551-fixing-the-degrees-of-freedom">5.5.1 Fixing the Degrees of Freedom</h3>
+<p>\( df _\lambda = trace( \bold{S} _\lambda ) \)는 smoothing splines의 \( \lambda \)에서 단조적이므로, df를 고쳐서 관계를 반전시키고 \( \lambda \)를 정할 수 있다. 실제로 단순 numerical methods로 가능하다.</p>
+<h3 id="552-the-bias-variance-tradeoff">5.5.2 The Bias-Variance Tradeoff</h3>
+
+  
+    
+    <div class="post-toc">
+      <span class="title">Contents</span>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#51-introduction">5.1 Introduction</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#52-piecewise-polynomials-and-splines">5.2 Piecewise Polynomials and Splines</a>
+      <ul>
+        <li></li>
+        <li><a href="#521-natural-cubic-splines">5.2.1 Natural Cubic Splines</a></li>
+        <li><a href="#522-example-south-african-heart-disease-continued">5.2.2 Example: South African Heart Disease (Continued)</a></li>
+        <li><a href="#523-example-phoneme-recognition">5.2.3 Example: Phoneme Recognition</a></li>
+      </ul>
+    </li>
+    <li><a href="#53-filtering-and-feature-extraction">5.3 Filtering and Feature Extraction</a></li>
+    <li><a href="#54-smoothing-splines">5.4 Smoothing Splines</a>
+      <ul>
+        <li><a href="#541-degrees-of-freedom-and-smoother-matrices">5.4.1 Degrees of Freedom and Smoother Matrices</a></li>
+      </ul>
+    </li>
+    <li><a href="#55-automatic-selection-of-the-smoothing-parameters">5.5 Automatic Selection of the Smoothing parameters</a>
+      <ul>
+        <li><a href="#551-fixing-the-degrees-of-freedom">5.5.1 Fixing the Degrees of Freedom</a></li>
+        <li><a href="#552-the-bias-variance-tradeoff">5.5.2 The Bias-Variance Tradeoff</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    <div style='padding:15px;'>
+    </div>
+    
+  </section>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:uqpuark@gmail.com">uqpuark</a>
+      
+      님이
+      <span class="highlight">2021년 03월 09일 13시 29분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div style="padding-left: 16px">
+    데이터 사이언티스트를 꿈꾸고 있습니다. 수학, 통계학에 대한 질문이나 의견을 나누고 싶습니다. 
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">[카테고리]</span>
+        
+        
+        <a href="https://uqpuark.github.io/categories/esl">#ESL</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">[태그]</span>
+        
+        
+        <a href="https://uqpuark.github.iotags/esl">#ESL</a>
+        
+        <a href="https://uqpuark.github.iotags/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D">#머신러닝</a>
+        
+        <a href="https://uqpuark.github.iotags/%ED%86%B5%EA%B3%84%ED%95%99">#통계학</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://uqpuark.github.io/2021_01/mathprob_01/" rel="prev">
+          <span>[수리통계] CH2</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="uqpuark/uqpuark.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  <div class="share">
+      <a href="https://github.com" title="Github" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+  </div>
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
+
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+</footer>
+</body>
+</html>

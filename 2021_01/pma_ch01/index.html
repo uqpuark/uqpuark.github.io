@@ -101,7 +101,7 @@
   </div>
   <section class="post-content">
     <p>* 교재는 Principles of mathematical analysis(PMA, baby rudin)을 사용.</p>
-<h2 id="강의-키워드">강의 키워드</h2>
+<h2 id="2주차-01-강의-키워드">2주차-01 강의 키워드</h2>
 <ol start="0">
 <li>해석학은 함수를 분석하고 이해하는 것(일변수 함수에 대해 다룰 것이다)</li>
 <li>해석학의 증명 방법</li>
@@ -114,11 +114,18 @@
 <li>도대체 실수는 무엇이며, 마음대로 써도 되는건가?</li>
 </ol>
 <ul>
+<li>자연수 -&gt; 유리수는 자연스럽게 받아들였는데 -&gt; 무리수, algebraic number(다항식의 해) 부터 ???가 된다.</li>
+<li>유리수가 숫자의 전체인줄 알았는데 아니였다(gap이 있다).</li>
 <li>데데킨트가 실수의 존재성을 보여서, 실수를 믿고 마음 놓고 써도 된다.</li>
 </ul>
+<blockquote>
+<p>데데킨트 절단을 어떻게 이용해서 보이는지 모르겠다.<br>
+자연수, 정수, 유리수까지는 그냥 받아들이고 실수와 복소수에 대해 다룰 것</p>
+</blockquote>
 <p>3.유리수와 실수는 밀접한 관계가 있다.</p>
 <ul>
 <li>실수는 유리수를 포함 &amp; 사칙연산 가지고 있고 &amp; 추가적으로 어떤 성질 하나 더</li>
+<li>실수는 gap이 없다.</li>
 </ul>
 <ol start="4">
 <li>Ordered set (Def 1.5) 정의</li>
@@ -127,12 +134,67 @@
 <li>복소수는 ordered set 아니다(크기 비교 불가)</li>
 </ul>
 <ol start="5">
-<li>upper bound, low bound, Sup, Inf</li>
+<li>upper bound, low bound, Sup, Inf (Def 1.7)</li>
 </ol>
 <ul>
-<li>상한, 하한 정의를 잘 알고 활용하는게 매우 중요하다. 실수의 정의에 핵심</li>
-<li>LUBP, GLBP</li>
+<li>Def 1.8 : 상한, 하한 정의를 잘 알고 활용하는게 매우 중요하다. 실수의 정의에 핵심</li>
+<li>Thm 1.10 : LUBP, GLBP</li>
 <li>Thm 1.11 : LUBP 속성, inf 정의, lower bound의 정의 활용</li>
+</ul>
+<h2 id="2주차-02-강의-키워드">2주차-02 강의 키워드</h2>
+<ol>
+<li>CH1에서는 수가 무엇인지 알아보려는 것, 간단하지 않아서 실수가 뭔지만 알려고 하는데&hellip;(그것도 어렵다)</li>
+</ol>
+<ul>
+<li>실수를 정의해내가는 과정</li>
+</ul>
+<ol start="2">
+<li>필드 : 사칙연산이 있는 집합, 필드는 대수학에서 깊이있게, 실수가 필드라서 도입</li>
+</ol>
+<ul>
+<li>순서 필드</li>
+<li>정수는 필드 아님(곱셈에 대한 역원 없음)</li>
+<li>유리수는 ordered field지만 L.U.B property 없음</li>
+</ul>
+<ol start="3">
+<li>실수 정의(Thm 1.19)</li>
+</ol>
+<ul>
+<li>오더 필드 + L.U.B.P + 유리수를 포함</li>
+</ul>
+<ol start="4">
+<li>가장 많이 쓰는 성질 : 1.아르키메데스 2. 유리수의 조밀성</li>
+</ol>
+<ul>
+<li>
+<ol start="2">
+<li>: 실수에 점점 근사할 수 있는 유리수가 있다. 따라서 원하는 만큼 실수를 유리수로 근사시킬 수 있다</li>
+</ol>
+</li>
+</ul>
+<ol start="5">
+<li>Extended Real Number System</li>
+</ol>
+<ul>
+<li>무한대는 사칙연산이 성립 X, Not Field지만 연산을 정의해 주겠다.</li>
+<li>왜? 나중에 이론을 전개할 때 되게 편해진다</li>
+</ul>
+<ol start="6">
+<li>복소수 : 넘어감</li>
+</ol>
+<ul>
+<li>삼각 부등식과 코시 슈바르츠</li>
+</ul>
+<ol start="7">
+<li>유클리디안 스페이스</li>
+</ol>
+<p>결론 : 실수가 뭐냐? 아무 생각 없이 쓰는 그 실수가 잘 정의가 되어있느냐?
+실수가 문제가 없는가? 믿고 써도 되는 집합이냐?</p>
+<ul>
+<li>대소비교,</li>
+<li>사칙연산 있고(field)</li>
+<li>유리수 포함?</li>
+<li>LUBP(꼭 알아야할 개념)</li>
 </ul>
 <h2 id="책-내용">책 내용</h2>
 <h3 id="수의-개념을-정확하게-정의하는게-중요하다">수의 개념을 정확하게 정의하는게 중요하다.</h3>
@@ -237,7 +299,8 @@ $$ x \in R,\ y \in R,\ x&lt;y \rightarrow \exists p \in \bold{Q
       <span class="title">Contents</span>
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#강의-키워드">강의 키워드</a></li>
+    <li><a href="#2주차-01-강의-키워드">2주차-01 강의 키워드</a></li>
+    <li><a href="#2주차-02-강의-키워드">2주차-02 강의 키워드</a></li>
     <li><a href="#책-내용">책 내용</a>
       <ul>
         <li><a href="#수의-개념을-정확하게-정의하는게-중요하다">수의 개념을 정확하게 정의하는게 중요하다.</a></li>
