@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Tue, 23 Feb 2021 02:39:57 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%EC%88%98%ED%95%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Mar 2021 10:48:09 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%EC%88%98%ED%95%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[해석학] CH2 Basic Topology</title>
+      <link>https://uqpuark.github.io/2021_01/pma_ch02/</link>
+      <pubDate>Mon, 15 Mar 2021 10:48:09 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/2021_01/pma_ch02/</guid>
+      <description>3주차 - 01 리뷰(upper bound의 3가지 표현)</description>
+    </item>
+    
     <item>
       <title>[해석학] CH1 The Real and Complex Number Systems </title>
       <link>https://uqpuark.github.io/2021_01/pma_ch01/</link>

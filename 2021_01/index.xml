@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Mon, 08 Mar 2021 16:18:05 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/2021_01/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Mar 2021 10:48:09 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/2021_01/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[해석학] CH2 Basic Topology</title>
+      <link>https://uqpuark.github.io/2021_01/pma_ch02/</link>
+      <pubDate>Mon, 15 Mar 2021 10:48:09 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/2021_01/pma_ch02/</guid>
+      <description>3주차 - 01 리뷰(upper bound의 3가지 표현)</description>
+    </item>
+    
     <item>
       <title>[수리통계] CH2</title>
       <link>https://uqpuark.github.io/2021_01/mathprob_01/</link>
@@ -16,15 +25,6 @@
       <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/2021_01/mathprob_01/</guid>
       <description>CH2  사건과 샘플 스페이스 정확하게 정의(집합의 개념과 연결)   S : a set that contains all possible experimental outcomes E : subset of the smaple space S defined by a certain condition  확률의 2가지 관점   전통적인 확률론 근대의 확률 공리  Proposition   4.</description>
-    </item>
-    
-    <item>
-      <title>[예측애널리틱스] 1주차</title>
-      <link>https://uqpuark.github.io/2021_01/pred_anal_01/</link>
-      <pubDate>Mon, 08 Mar 2021 12:51:11 +0900</pubDate>
-      <author>uqpuark@gmail.com (uqpuark)</author>
-      <guid>https://uqpuark.github.io/2021_01/pred_anal_01/</guid>
-      <description>1. Introduction (1주차-1) 개요 데이터 : 예측 모델을 구축하기 위해 필요한 것  Y : 예측하는 대상 예측 모델링 : 예측 모델을 구축하는 과정  수치예측(discrete variable)과 범주예측(continuous variable)  수치예측(regression)   주어진 데이터를 이용해서 Y ~ X의 관계를 최대한 잘 설명하는 모델을 구축하고, 새로운 데이터가 주어지면 모델을 사용하여 예측을 실행하는 단계   2단계 구조로 나눠서 보는 것을 강조한 것 같음</description>
     </item>
     
     <item>
