@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>통계 on 데이터 사이언스 블로그</title>
+    <link>https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84/</link>
+    <description>Recent content in 통계 on 데이터 사이언스 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
+    <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
+    <lastBuildDate>Tue, 16 Mar 2021 10:42:52 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[범주형자료분석] CH01. INTRODUCTION</title>
+      <link>https://uqpuark.github.io/2021_01/cda_ch01/</link>
+      <pubDate>Tue, 16 Mar 2021 10:42:52 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/2021_01/cda_ch01/</guid>
+      <description>CH1 강의 키워드 2주차-01   데이터 타입에 따라 계산의 종류가 다르다</description>
+    </item>
+    
+  </channel>
+</rss>

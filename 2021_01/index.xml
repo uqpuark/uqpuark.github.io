@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Mon, 15 Mar 2021 10:48:09 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/2021_01/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Mar 2021 10:42:52 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/2021_01/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[범주형자료분석] CH01. INTRODUCTION</title>
+      <link>https://uqpuark.github.io/2021_01/cda_ch01/</link>
+      <pubDate>Tue, 16 Mar 2021 10:42:52 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/2021_01/cda_ch01/</guid>
+      <description>CH1 강의 키워드 2주차-01   데이터 타입에 따라 계산의 종류가 다르다</description>
+    </item>
+    
     <item>
       <title>[해석학] CH2 Basic Topology</title>
       <link>https://uqpuark.github.io/2021_01/pma_ch02/</link>
