@@ -151,32 +151,32 @@ A가 nonempty이기 때문에 -A도 nonempty set. \( -A \in \mathbb{R} \)<br>
 Rudin은 책에서 정수에 대해서는 알지만 실수에 대해서는 모른다고 가정했다. 따라서 자연스럽게 쓰자</p>
 </blockquote>
 <h4 id="c">c.</h4>
-<p>\( B(x)=\left{ b^t:t\in\Q,\ t \le x \right} \)
-\( b^r=b^t b^{r-t} \ge b^t \rightarrow b^r \)는 upper bound of \( B(r) \)<br>
+<p>\( B(x)= \left\{ b^t : t \in \mathbb{Q},\quad t \le x \right\} \)</p>
+<p>\( b^r=b^t b^{r-t} \ge b^t \rightarrow b^r \)는 upper bound of \( B(r) \)<br>
 \(\gamma \in \R\ r&lt;\gamma \rightarrow b^r &lt; b^\gamma \quad  b^\gamma\)는 upper bound of \( B(r) \)이 아니다.</p>
 <p>따라서 \( b^r=\sup B(r) \)</p>
 <h4 id="d">d.</h4>
-<p>\( B(x+y)=\left{ x+y | t \in \Q \quad t \le x+y \right}  \)<br>
-\( t=r+s \text{ such that } r &lt; x r &lt; y \) 라고 할수있다. (r,s는 유리수)<br>
+<p>\( B(x+y) = \left\{ x+y : t \in \mathbb{Q} \quad t \le x+y \right\}  \)<br>
+\( t=r+s\ \text{ such that }\ r &lt; x,\ r &lt; y \) 라고 할수있다. (r,s는 유리수)<br>
 \( t=r+s &lt; x+y \)<br>
 \( t-y &lt; r &lt; x \quad (\because s-y&lt;0) \)</p>
 <p>\(B(x+y)\): set of all numbers \( b^t=b^{r+s}=b^r b^s \), B(x)와 B(y)의 성분의 곱으로 이루어져있다.<br>
-따라서 \( \supB(x)\sup(B(y) \)는 upper bound of \(B(x+y)\)이다.</p>
-<p>\( 0&lt; c &lt; supB(x)supB(y) \)인 c를 잡자.<br>
-\({c \over \supB(x) } &lt; \supB(y) \) 두 항 사이에 있는 수 하나를 정해주자.(중점을 사용)
-\( {c \over \supB(x) } &lt; k &lt; \supB(y) \quad \text{such that } k={1 \over 2}\left( {c \over \supB(x) }+\supB(y) \right) \)<br>
-\( {c \over k} &lt; \supB(x) \rightarrow \exist \alpha \text{ such that } {c \over k} &lt; \alpha \in B(x) &lt; \supB(x) \)<br>
-\( k &lt; \supB(y) \rightarrow \exist \beta \text{ such that } k&lt;\beta \in B(y) &lt; \supB(y) \)<br>
-\( c= {c \over k} \times k &lt; \alpha\beta \in B(x+y) \)<br>
+따라서 \( \supB(x) \supB(y) \)는 upper bound of \(B(x+y)\)이다.</p>
+<p>\( 0 &lt; c &lt; \sup B(x) \sup B(y) \)인 c를 잡자.<br>
+\({c \over \sup B(x) } &lt; \sup B(y) \) 두 항 사이에 있는 수 하나를 정해주자.(중점을 사용)<br>
+\( {c \over \sup B(x) } &lt; k &lt; \sup B(y) \quad \text{ such that } k={1 \over 2}\left( {c \over \sup B(x) }+\sup B(y) \right) \)<br>
+\( {c \over k} &lt; \supB (x) \rightarrow \exist \alpha \text{ such that } {c \over k} &lt; \alpha \in B(x) &lt; \sup B(x) \)<br>
+\( k &lt; \sup B(y) \rightarrow \exist \beta \text{ such that } k&lt;\beta \in B(y) &lt; \sup B(y) \)<br>
+\( c= {c \over k} \times k &lt; \alpha \beta \in B(x+y) \)<br>
 따라서 \( c \)는 not upper bound of \(B(x+y)\)가 아니다.</p>
-<p>따라서 \( \supB(x)\sup(B(y) \)는 least upper bound of \(B(x+y)\)이다.</p>
+<p>따라서 \( \sup B(x) \sup (B(y) \)는 least upper bound of \(B(x+y)\)이다.</p>
 <h3 id="7">7.</h3>
 <h3 id="8">8.</h3>
-<p>\( \C \)가 ordered field라고 가정자
-\( x\in \C \) such that \( x^2=-1\)는<br>
-\( x &lt; 0 \), \( x = 0 \), \( x &gt; 0 \) 중 하나를 만족해야한다. (\( 0 \in \C \))</p>
-<p>\( x &lt; 0 \)이라고 가정하면 \( x^2=-1 &lt; 0 \)이므로 x&lt;0이 아니다
-\( x = 0 \)이라고 가정하면 \( x^2=-1 \ne 0 \)이므로 x=0이 아니다
+<p>\( \mathbb{C} \)가 ordered field라고 가정자
+\( x\in \mathbb{C} \) such that \( x^2=-1\)는<br>
+\( x &lt; 0 \), \( x = 0 \), \( x &gt; 0 \) 중 하나를 만족해야한다. (\( 0 \in \mathbb{C} \))</p>
+<p>\( x &lt; 0 \)이라고 가정하면 \( x^2=-1 &lt; 0 \)이므로 x&lt;0이 아니다<br>
+\( x = 0 \)이라고 가정하면 \( x^2=-1 \ne 0 \)이므로 x=0이 아니다<br>
 \( x &gt; 0 \)이라고 가정하면 \( x^2=-1 &lt; 0 \)이므로 x&gt;0이 아니다</p>
 <p>따라서 complex filed의 원소가 order의 성질을 만족하지 않으므로 증명된다.</p>
 <h3 id="9">9.</h3>
@@ -204,16 +204,38 @@ Rudin은 책에서 정수에 대해서는 알지만 실수에 대해서는 모�
 <p>\( x=(a_1,b_1),\quad y=(a_2,b_2),\quad z=(a_3,b_3) \quad a_i,b_i \in \R \)<br>
 \( x &lt; y: \begin{cases} a_1 &lt; a_2 &amp; \cdots (1) \\\ a_1=a_2,\ b_1 &lt; b_2 &amp; \cdots (2) \end{cases} \)<br>
 \( y &lt; z: \begin{cases} a_2 &lt; a_3 &amp; \cdots (3) \\\ a_2=a_3,\ b_2 &lt; b_3 &amp; \cdots (4) \end{cases} \)에서 총 4가지 경우가 생긴다.</p>
-<p>\( \begin{aligned}
-\text{ (1) &amp; (3) : } a_1 &lt; a_3 \\\<br>
-\text{ (1) &amp; (4) : } a_1 &lt; a_3 \\\<br>
-\text{ (2) &amp; (3) : } a_1 &lt; a_3 \\\<br>
-\text{ (2) &amp; (4) : } a_1 = a_3,\ b_1 &lt; b_3 \\\ \end{aligned}\)</p>
+<p>\( \begin{aligned} &amp;\text{ (1) and (3) : } a_1 &lt; a_3 \\\ &amp;\text{ (1) and (4) : } a_1 &lt; a_3 \\\ &amp;\text{ (2) and (3) : } a_1 &lt; a_3 \\\ &amp;\text{ (2) and (4) : } a_1 = a_3,\ b_1 &lt; b_3 \\\ \end{aligned}\)</p>
 <p>따라서 만족하고, 1.과 2.에 의해 증명된다.</p>
 <h4 id="does-this-ordered-set-have-the-least-upper-bound-property">Does this ordered set have the least-upper-bound property?</h4>
 <h3 id="12">12.</h3>
+<p>삼각부등식에 의해</p>
+<p>\( \begin{aligned}
+\left|z_1+ \left(z_2 + \cdots z_n \right) \right| &amp;\le \left|z_1 \right| + \left| \left(z_2 + \cdots z_n \right) \right| \\\ \Rightarrow \left|z_1 \right| + \left| z_2 + \left( z_3 + \cdots z_n \right) \right|  &amp;\le \left|z_1 \right| + \left| z_2 \right| + \left| \left( z_3 + \cdots z_n \right) \right| \\\ \cdots \\\ &amp;\le \left|z_1 \right| + \left|z_2 \right| + \cdots + \left|z_n \right| \end{aligned} \)</p>
 <h3 id="13">13.</h3>
+<p>$$ \begin{aligned}
+&amp;\left| |x| - |y| \right| \le \left| x-y \right| \\\ \Leftrightarrow&amp; -\left| x-y \right| \le |x| - |y| \le \left| x-y \right| \\\ \Leftrightarrow&amp; \begin{cases} -\left| x-y \right| \le |x| - |y| \\\ |x| - |y| \le \left| x-y \right| \end{cases} \\\ \Leftrightarrow&amp; \begin{cases} |y| \le |x| + \left| x-y \right| \\\ |x| \le |y| +\left| x-y \right| \end{cases}
+\end{aligned} $$</p>
+<p>1번식</p>
+<p>$$
+|y| = |y-x+x| \le |y-x|+|x| = |x-y| + |x|
+$$</p>
+<blockquote>
+<p>\( |x-y| = |y-x| \)이다. \( x=(a,b),\quad y=(c,d) \)로 놓고 계산하면 증명된다.</p>
+</blockquote>
+<p>2번식</p>
+<p>$$
+|x|=|x-y+y| \le |x-y|+|y|
+$$</p>
+<p>따라서 증명된다.</p>
 <h3 id="17">17.</h3>
+<p>$$ \begin{aligned}
+\left| \bold{x}+\bold{y} \right|^2 + \left| \bold{x}-\bold{y} \right|^2 &amp;= \left( \bold{x}+\bold{y} \right)\cdot\left( \bold{x}+\bold{y} \right)+\left( \bold{x}-\bold{y} \right)\cdot\left( \bold{x}-\bold{y} \right) \\\ &amp;= \bold{x}\cdot\bold{x}+\bold{x}\cdot\bold{y}+\bold{y}\cdot\bold{x}+\bold{y}\cdot\bold{y}+\bold{x}\cdot\bold{x}-\bold{x}\cdot\bold{y}-\bold{y}\cdot\bold{x}+\bold{y}\cdot\bold{y} \\\ &amp;= 2|\bold{x}|^2+2|\bold{y}|^2
+\end{aligned} $$</p>
+<blockquote>
+<p>기하적으로보면 x+y와 x-y는 길이가 x, y로 이루어진 평행사변형의 대각선에 해당한다.<br>
+즉, 대각선 길이의 제곱의 합 = 평행사변형 두 변의 길이의 제곱의 합을 2배한것과 같다.<br>
+두 대각선의 길이가 같은 경우 피타고라스의 정리를 만족한다.(직사각형이 되는 경우)</p>
+</blockquote>
 
   
     
