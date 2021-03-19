@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Mon, 15 Mar 2021 10:48:09 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%ED%95%B4%EC%84%9D%ED%95%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Mar 2021 20:59:54 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%ED%95%B4%EC%84%9D%ED%95%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[해석학] CH1 문제</title>
+      <link>https://uqpuark.github.io/math/pma_ch1_exercise/</link>
+      <pubDate>Wed, 17 Mar 2021 20:59:54 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/math/pma_ch1_exercise/</guid>
+      <description>Exercise 1. (1) \( r+x \in \mathbb{Q} \)라 하자.</description>
+    </item>
+    
     <item>
       <title>[해석학] CH2 Basic Topology</title>
       <link>https://uqpuark.github.io/2021_01/pma_ch02/</link>

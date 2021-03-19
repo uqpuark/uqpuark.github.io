@@ -216,7 +216,7 @@ $$
 <h3 id="522-example-south-african-heart-disease-continued">5.2.2 Example: South African Heart Disease (Continued)</h3>
 <p>Sec 4.4.2에서 사용한 데이터를 다시 사용해보자. Natural Splines를 사용해서 함수의 non-linearity를 볼거다. 모델 폼은
 $$
-logit[Pr(chd|X)]= \theta_0 + h_1(X_1)^T\theta_1 + h_2(X_2)^T\theta_2 + \cdots + h_p(X_p)^T\theta_p
+logit[\Pr(chd|X)]= \theta_0 + h_1(X_1)^T\theta_1 + h_2(X_2)^T\theta_2 + \cdots + h_p(X_p)^T\theta_p
 $$
 이제 각 항의 natural spline bases 4개를 사용한다. 예를 들어, X_1이 <strong>sbp</strong>를 나타내는 경우, \( h_1(X_1) \) 는 4개의 기저 함수로 구성된 basis이다. 이것은 2개의 내부 knots가 아니라 3개의 매듭을 나타내는 것이고, 추가로 양끝 2개가 더 있다, 왜냐하면 각 h_j의 상수한은 제외하기 때문.<br>
 <strong>fmahist</strong>는 binary나 dummy로 코딩된 2-레벨 팩터라서 단일 계수와 연관된다.<br>
@@ -241,7 +241,7 @@ $$
 <p>이 예제에서는 flexibility를 늘리는게 아니라 줄이는데 스플라인을 사용한다; 이러한 작업은 functional 모델링의 일반적인 주제이다. Figure 5.5는 &ldquo;aa&rdquo;, &ldquo;ao&rdquo; 2개의 음소에 대한 log-periodograms로 이뤄진 그래프이다(패널 데이터). 이 데이터를 사용해서 2개를 classification하는게 목표.<br>
 밑에 그래프에서 회색선은 엄청 등락이 심한데, 이거를 빨간 선으로 변환하는게 최종 결론이다(로지스틱 리그레션 이용). 계수는 빈도 함수로 나타나고, 모델을 아래 식으로 근사되는 연속적인 대응관계에 있는 식으로 생각할 수 있다.
 $$
-\log {Pr(aa|X) \overs Pr(ao|X)}= \int X(f)\beta(f) df, \\\ \sum_{j=1}^256 X(f_j) \beta(f_j) = \sum_{j=1}^256 x_j \beta_j
+\log {\Pr(aa|X) \overs \Pr(ao|X)}= \int X(f)\beta(f) df, \\\ \sum_{j=1}^256 X(f_j) \beta(f_j) = \sum_{j=1}^256 x_j \beta_j
 $$
 계수는 contrast functional을 계산하고, 주목할 만한 값을 가질 것이다, 2개 클래스 간에 log-periodogramsdl 다른 빈도 영역에서(?).<br>
 회색 선은 매우 rought 하다. 인풋 시그널이 매우 강한 양의 자기상관을 가져서, 계수에서 음의 자기상관을 갖게된다. 게다가 샘플의 크기는 계수당 4개의 관측치만 제공한다.<br>
@@ -339,6 +339,60 @@ knots의 위치와 개수를 선택하는 것은 조합적으로 복합한 작�
 <h3 id="551-fixing-the-degrees-of-freedom">5.5.1 Fixing the Degrees of Freedom</h3>
 <p>\( df _\lambda = trace( \bold{S} _\lambda ) \)는 smoothing splines의 \( \lambda \)에서 단조적이므로, df를 고쳐서 관계를 반전시키고 \( \lambda \)를 정할 수 있다. 실제로 단순 numerical methods로 가능하다.</p>
 <h3 id="552-the-bias-variance-tradeoff">5.5.2 The Bias-Variance Tradeoff</h3>
+<p>Figure 5.9는 \( df_\lambda \)에 따라 달라지는 효과를 보여준다, smoothing spline을 사용했을 때.</p>
+<p>$$
+Y=f(X)+\varepsilon, \\\ f(X)={\sin(12(X+0.2)) \over X+0.2},
+$$
+with \(X\simU[0,1]\) and \( \varepsilon\simN(0,1)\).<br>
+3개의 다른 fitted splines이 있다. 노란색 음영은 \( \hat{f}_\lambda \)의 pointwise standard error를 나타낸 것이고, \(  \hat{f}_\lambda(x)\pm2\cdot se( \hat{f}_\lambda(x)) \) 사이의 영역이 음영으로 칠해졌다. 왜냐하면 \( \hat{\bold{f}}=\bold{S}_lambda \bold{y} \)이기 때문에,</p>
+<p>$$ \begin{aligned}
+Cov(\hat{f})&amp;=\bold{S}<em>\lambda Cov(y)\bold{S}</em>\lambda^T \\\ &amp;=\bold{S}<em>\lambda\bold{S}</em>\lambda^T
+\end{aligned} $$
+대각성분은 트레이닝 데이터 \( x_i \)의 pointwise variances를 의미한다. Bias는</p>
+<p>$$ \begin{aligned}
+Bias(\hat{f})&amp;=f-E(\hat{f}) \\\ &amp;=f-\bold{S}<em>\lambda f,
+\end{aligned} $$
+로 주어지고, <strong>f</strong>는 실제 <strong>f</strong>를 평가하는 (unknown) vector이다. 기대값과 분산은 5.22 모델에서 반복되는 표본 추출과 관련이 있다. 유사한 방식에서 \( Var(\hat{f}</em>\lambda (x_0)\)과 \( Bias(\hat{f}_\lambda (x_0))\)는 임의의 점 \(x_0\)에서 계산될 수 있다.(예제 5.10) 3개의 피팅은 smoothing parameter 선택과 연관지어서 bias-variance의 트레이드오프를 시각적으로 보여준다.</p>
+<ul>
+<li>자유도 5: 스플라인이 언더피팅되었다. <em>trims down the hills and fills in the valleys</em>. 바이어스가 생긴다(특히 많이 휘어는 곳에서). SE의 폭은 매우 좁고, 신뢰도가 높은 원래 함수의 편향된 버전을 badly하게? 추정하게 된다.</li>
+<li>자유도 9: 약간의 바이어스, 분산도 조금 증가?. 하나마나한거 아닌가?</li>
+<li>자유도 15: 좀 구불구불하지만, 실제 함수와 비슷하다. 구불구불해진게 개별 점들에 영향을 더 많이 받아서 된것이고, 그걸로인해서 SE band의 폭이 조금 증가했다.</li>
+</ul>
+<p>여기서 우리는 a single realization of data(샘플의 원소)와 각각의 케이스에 대한 fitted spline을 보고있고, 반면? bias는 기대값을 포함한다(???). 중간 곡선은 편향과 분산 사이에서 좋은 타협을 이루었다는 점에서 &ldquo;just right&quot;한 것으로 보인다.</p>
+<blockquote>
+<p>자유도 9인게 just right? : 바이어스 주고, 분산을 줄인 자유도 5짜리가 더 좋은거 같은데&hellip;</p>
+</blockquote>
+<p>EPE(the integrated squared prediction error)는 bias와 variance를 하나의 식으로 결합시킨다.</p>
+<p>$$ \begin{aligned}
+EPE(\hat{f}<em>\lambda) &amp;= E(Y-\hat{f}</em>\lambda(X))^2 \\\ &amp;=Var(Y)+E\left[ Bias^2(\hat{f}<em>\lambda (X))+Var(\hat{f}</em>\lambda(X)) \right] \\\ &amp;= \sigma^2+MSE(\hat{f}_\lambda))
+\end{aligned} $$</p>
+<p>이것은 \( \hat{f}_\lambda \)를 만들어내는 트레이닝 샘플과 독립적으로 선탠된 예측 좌표값 (X,Y) 둘 다에 대해 평균이다(?). EPE는 자연스러운 관심을 가지는 수치(quantity of interest, QOI)이고, bias와 variance사이에 트레이드오프를 형성한다. Figure 5.9의 첫번째 그림에서 파란색 점을 보면 자유도 9가 최적점이다.<br>
+우리는 실제 함수 f를 모르기 때문에, EPE를 직접 구할 수 없고, estimate를 구해야한다. CH7에서 디테일하게 이야기하고, K-fold CV, GCV, C_p같은 테크닉이 일반적으로 사용된다. 여기서는 N-fold(leave-one-out) cross-validation을 포함하였다:</p>
+<p>$$ \begin{aligned}
+CV(\hat{f})<em>\lambda &amp;= {1 \over N}\sum</em>{i=1}^N (y_i-\hat{f}<em>\lambda^{(-i)}(x_i))^2 \\\ &amp;= {1 \over N}\sum</em>{i=1}^N ({y_i-\hat{f}<em>\lambda(x_i) \over 1-S</em>\lambda(i,i)})^2,
+\end{aligned} $$
+놀랍게도 각 \(\lambda\)값에 대해 계산할 수 있다.(람다는 원래의 fitted value와 \(S_\lambda\)의 대각 성분에서 계산이 가능하다)<br>
+EPE와 CV 곡선은 비슷한 모양을 갖지만 CV 곡선이 위에 위치해있다. 일부 관찰된 데이터에서 이 대소관계는 반전되고, 전반적인 CV 곡선은 EPE 곡선의 근사적으로 unbiased estimate가 된다.</p>
+<h2 id="56-nonparametric-logistic-regression">5.6 Nonparametric Logistic Regression</h2>
+<p>섹션 5.4의 smoothing spline problem는 regression 가정으로 제시되었다. 이 방법을 다른 도메인에 적용하는 것은 보통 간단하다. 하나의 input X가 있는 로지스틱 레그레션을 보자. 모델은
+$$
+\log {\Pr(Y=1|X=x) \over \Pr(Y=0|X=x)}=f(x), \\\ \Rightarrow \Pr(Y=1|X=x)={e^{f(x)} \over 1+e^{f(x)}}
+$$
+smooth 방식으로 f(x)를 피팅하면 조건부 확률의 smooth estimate를 얻게 되고, classification이나 risk scoring에 사용할 수 있게 된다.<br>
+우리는 패널티를 준 log-likelihood 기준을 생성한다.</p>
+<p>$$ \begin{aligned}
+l(f;\lambda) &amp;= \sum_{i=1}^N \left[ y_i\log p(x_i)+(1-y_i)\log(1-p(x_i))\right]-{1\over2}\lambda\int{f&rsquo;'(t)}^2dt \\\ &amp;=\sum_{i=1}^N \left[y_if(x_i)-\log(1+e^{f(x_i)})\right]-{1\over2}\lambda\int{f&rsquo;'(t)}^2dt,
+\end{aligned} $$
+we have abbreviated \(p(x)=\Pr(Y=1|x)\). 첫번째 항은 이항분포에서의 log-likehood이다. 최적 f는 unique한 x값에서 knots가 있는 유한차원의 natural spline이다. 이것이 의미하는 바는 \(f(x)=\sum N_j(x)\theta_j\)라고 표현할 수 있다는 것이다. 1차, 2차 도함수를 계산해보면</p>
+<p>$$ \begin{aligned}
+{\partial l(\theta)\over\partial\theta}&amp;=\bold{N}^T(\bold{y}-\bold{p})-\lambda\bold{\Omega}\theta, \\\ {\partial^2l(\theta)\over\partial\theta\partial\theta^T}&amp;=-\bold{N}^T\bold{W}\bold{N}-\lambda\bold{\Omega},
+\end{aligned} $$
+1차 도함수가 세타에 대해서 non-linear이다. 따라서 뉴턴 메소드를 사용해서 세타를 업데이트 해준다(?). 세타를 업데이트하면 적합치도 업데이트를 할 수 있다.</p>
+<p>$$\begin{aligned}
+\theta^{new}&amp;=(\bold{N}^T\bold{W}\bold{N}+\lambda\bold{\Omega})^{-1}\bold{N}^T\bold{W}(\bold{N}\theta^{old}+\bold{W}^{-1}(\bold{y}-\bold{p}))\\\ &amp;=(\bold{N}^T\bold{W}\bold{N}+\lambda\bold{\Omega})^{-1}\bold{N}^T\bold{W}\bold{z} \\\ \\\ \bold{\operatorname{f}}^{new}&amp;=\bold{N}(\bold{N}^T\bold{W}\bold{N}+\lambda\bold{\Omega})^{-1}\bold{N}^T\bold{W}(\bold{\operatorname{f}}^{old}+\bold{W}^{-1}(\bold{y}-\bold{p})) \\\ &amp;=\bold{S}<em>{\lambda,\omega}\bold{z}.
+\end{aligned}$$
+(5.34)의 형식은 시사적이다. 임의의 non-parametric (weighted) regression 연산자를 \(\bold{S}</em>{\lambda,\omega}\)로 대체하고, non-parametric 로지스틱 리그레션 모델의 일반적인 family를 얻는 것은 괜찮아 보인다. 물론 여기서 x가 일차원이지만, 더 많은 차원으로 일반화된다. 이러한 확장은 <em>generalized additive models</em>의 핵심이고, CH9에 나온다.</p>
+<h2 id="57-multidimensional-spline-여기서부터-포기">5.7 Multidimensional Spline (여기서부터 포기)</h2>
 
   
     
@@ -371,6 +425,8 @@ knots의 위치와 개수를 선택하는 것은 조합적으로 복합한 작�
         <li><a href="#552-the-bias-variance-tradeoff">5.5.2 The Bias-Variance Tradeoff</a></li>
       </ul>
     </li>
+    <li><a href="#56-nonparametric-logistic-regression">5.6 Nonparametric Logistic Regression</a></li>
+    <li><a href="#57-multidimensional-spline-여기서부터-포기">5.7 Multidimensional Spline (여기서부터 포기)</a></li>
   </ul>
 </nav>
     </div>
