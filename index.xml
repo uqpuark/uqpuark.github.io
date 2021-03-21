@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Thu, 18 Mar 2021 14:19:34 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Mar 2021 21:29:03 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[DS]5회차</title>
+      <link>https://uqpuark.github.io/dsstudy/5_neural_network/</link>
+      <pubDate>Thu, 18 Mar 2021 21:29:03 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/dsstudy/5_neural_network/</guid>
+      <description>스터디를 위해 잠시 오픈 (일요일 오후 2시) 5회차 - Neural Network (Basic) 4회차 리뷰</description>
+    </item>
+    
     <item>
       <title>[생산계획] CH4. FORECASTING</title>
       <link>https://uqpuark.github.io/2021_01/pp_01/</link>
