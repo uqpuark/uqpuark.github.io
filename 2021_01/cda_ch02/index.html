@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[범주형자료분석] CH02. Analyzing Contingency Tables   | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[범주형자료분석] CH02. Analyzing Contingency Tables '을 한 번 살펴보세요.">
+  <meta property="og:title" content="[범주형자료분석] CH02. Analyzing Contingency Tables ">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-03-24">
+  
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[범주형자료분석] CH02. Analyzing Contingency Tables '을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://uqpuark.github.io/2021_01/cda_ch02/">
+  <meta property="og:site_name" content="데이터 사이언스 블로그">
+  
+  <meta property="og:image" content="https://uqpuark.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="통계">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://uqpuark.github.io/2021_01/cda_ch02/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-189694109-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="35px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><form id="search"
+    action='' method="get">
+    <label hidden for="search-input">Search site</label>
+    <input type="text" id="search-input" name="query"
+    placeholder="search or jump to...">
+    <input type="submit" value="search">
+</form>
+
+</li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>
+
+
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://uqpuark.github.io/2021_01/cda_ch02/">
+      <div class="post-meta">
+        <time>2021년 03월 24일 10시 36분</time>
+        <h1>[범주형자료분석] CH02. Analyzing Contingency Tables </h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <h2 id="ch2-강의-키워드">CH2 강의 키워드</h2>
+<h3 id="3주차---01">3주차 - 01</h3>
+<ol start="0">
+<li>두개의 변수가 차이가 있는지(관계), 독립적인지 살펴보는 챕터
+<ul>
+<li>두 범주형 변수의 연관관계
+<ul>
+<li>Correlation</li>
+<li>Covariance</li>
+</ul>
+</li>
+<li>(핵심) 독립성 여부는 Odds Ratio 개념으로 본다</li>
+<li>Chi-square test</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>나오는 수식들을 그냥 외우지 말고, 직관적으로 바로 파악할 수 있게 생각을 고치는게 좋을 것 같다.</p>
+</blockquote>
+<ol>
+<li>
+<p>Contingency Tables(분할표)
+<figure>
+    <img src="/images/2021/cda_00.png"/> 
+</figure>
+</p>
+<ul>
+<li>X, Y 변수는 각각 I, J개의 범주를 갖는다.</li>
+<li>\( n_{ij} \)</li>
+<li>\( n_{1+} = n_{11} + n_{12} \) : i행 원소들을 다 합쳐라</li>
+<li>\( n_{+j} \) : j열 원소들을 다 합쳐라</li>
+<li>\( n \) : 모든 원소들의 합</li>
+</ul>
+</li>
+<li>
+<p>Joint and Marginal, Conditional Probabilities</p>
+<ul>
+<li>확률을 파이로 쓰는데 헷갈리니깐 p로 쓸 예정</li>
+<li>joint distribution of X and Y : \( p_{ij} = P(X=\text{ith level in X, }Y=\text{jth in level in Y}) \)</li>
+<li>Marginal distributions of X and Y :
+<ul>
+<li>\( p_{i+} = \sum_j p_{ij} \) : i행의 모든 확률들의 합</li>
+<li>\( p_{+j} = \sum_i p_{ij}\) : j열의 모든 확률들의 합</li>
+</ul>
+</li>
+<li>\( \sum_i \sum_j p_{ij} = 1 \)</li>
+<li>\( \sum_i p_{i+} = \sum_j p_{+j} = 1 \)</li>
+<li>conditional distribution of Y at category <em>i</em> of X
+<ul>
+<li>\( p_{j|i} = P(\text{Y=jth level | X=ith level}) \\\ = {p_{ij} \over p_{i+}} \)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Sample distribution</p>
+<ul>
+<li>\( \hat{p} \)을 사용</li>
+<li>\( \hat{p}_{ij} = n_ij/n \)</li>
+<li>\( \hat{p}<em>{i+} = \sum_j \hat{p}</em>{ij}  \) and \( \hat{p}<em>{+j} = \sum_i \hat{p}</em>{ij}  \)</li>
+<li>\( \hat{p}<em>{j|i} = \hat{p}</em>{ij} / \hat{p}<em>{i+} = n</em>{ij} / n_{i+} \)</li>
+</ul>
+</li>
+<li>
+<p>Sensitivity and Specificity</p>
+<ul>
+<li>Sensitivity(민감도) : \( P(T+|D+) \), 진짜 환자를 얼마나 정확하게 진단하는지</li>
+<li>Specificity(특이도) : \( P(T-|D-) \), 정상인을 얼마나 정확하게 진단하는지</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Sensitivity : 원래 목적인 환자를 찾는 게 제일 중요하다. 그래서 이게 높아야 되는데, 이걸 높인다고 모든 진단을 Positive라고 해버리면 그건 쓸모없는 진단이다. 그래서<br>
+Specificity : 정상인이 병원에 왔을때 아니라고 정확히 진단해주는 것도 필요하다. 그래서 둘 다 고려한다.</p>
+</blockquote>
+<ol start="5">
+<li>두개의 변수가 독립이라면?
+<ul>
+<li>\( p_{ij} = p_{i+}p_{+j} \) (왜?)</li>
+<li>\( p_{j|i} = p_{+j} \)</li>
+<li>independence = homogeneity of the conditional
+<ul>
+<li>\( p_{j|1} = p_{j|2} = \cdots = p_{j|i} = p_{+j} \) : i가 뭔지 상관없이 동일하다, 독립이니까</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="3주차---02">3주차 - 02</h3>
+<ol start="0">
+<li>
+<p>첫번째 행과 두번째 행이 독립이라면 이항분포 이야기를 꺼내볼 수 있어요. (왜? 확률변수가 iid)<br>
+우리의 관심은 response variable! -&gt; conditional distribution을 관심을 가질 수 밖에 없다.<br>
+게다가 독립이면 joint 확률이 marginal 확률로 분리할 수 있다.</p>
+</li>
+<li>
+<p>Difference of Proportions</p>
+<ul>
+<li>\( p_1 \) : probability of success in row 1 \( = p_{1|1} \)<br>
+\( p_2 \) : probability of success in row 2 \( = p_{2|1} \)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">S</th>
+<th style="text-align:center">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">\(p_1\)</td>
+<td style="text-align:center">1-\(p_1\)</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">\(p_2\)</td>
+<td style="text-align:center">1-\(p_2\)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>\( D = \hat{p_1} - \hat{p_2} = {n_{11} \over n_{1+}} - {n_{21} \over n{2+}} \)</li>
+</ul>
+</li>
+<li>
+<p>DOP2</p>
+<ul>
+<li>\( SE=\sqrt{{\hat{p_1}(1-\hat{p_1}) \over n_{1+}}+{\hat{p_2}(1-\hat{p_2}) \over n_{2+}}} \) (왜? 확률변수 2개의 변수의 합의 분산은 각각 나눠질수있음)</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>왜 두 변수에 대한 성공률의 차이를 보려고 하는 것인가? 차이보려고 분산을 관찰하는데 왜?<br>
+진짜약 vs 가짜약의 차이가 있어야 진짜 약에 효과가 있으니 차이가 클수록 많이 팔아먹을 수 있다. 이런 느낌</p>
+</blockquote>
+<ol start="3">
+<li>Ratio of Proportions (Relative Risk)
+<ul>
+<li>Relative Risk : 상대적 리스크, 약먹고 병걸린 사람 보다 가짜약 먹고 병걸린 사람이 상대적으로 많다. 확률이 높다. 위험도가 높다.
+<ul>
+<li>\( 0 \ge {p_1 \over p_2} \ge \infty \)</li>
+<li>\( {p_1 \over p_2} = 1 \)이면 독립(왜?)</li>
+</ul>
+</li>
+<li>Sample RR = \({n11/n1+ \over n21/n2+}\)</li>
+<li>Wald CI
+<ul>
+<li>\( SE(\log {\hat{p_1} \over \hat{p_2}})=\sqrt{{1-\hat{p_1} \over n_{1+}\cdot\hat{p_1}}+{1-\hat{p_2} \over n_{2+}\cdot\hat{p_2}}} \)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>2개 변수에 대해서 연관성을 체크했다. : 파이1과 파이2의 차이, ratio<br>
+차이가 같을때 각 변수들의 값이 굉장히 작은경우 ratio의 비율이 unstable하다.(400 / 401 : 0.25%와 10과 11 : 10% )</p>
+</blockquote>
+<ol start="4">
+<li>
+<p>The Odds Ratio (가장 중요!)</p>
+<ul>
+<li>odds=\({ p /over (1-p)} \Leftrightarrow p={odds \over odds+1 } \)</li>
+<li>OR : \(\theta = {p_1/(1-p_1) \over p_2/(1-p_2)}={p_11 p_22 \over p_12 p_21 } \)</li>
+<li>Sample OR : \(\hat{\theta} = {\hat{p_1}/(1-\hat{p_1}) \over \hat{p_2}/(1-\hat{p_2})={n_11 n_22 \over n_12 n_21}}</li>
+<li>\( \theta=1\)이면 독립(왜? 파이1과 파이2가 같으면 독립이니까 세타도 1이됨)</li>
+<li>1을 기준으로 세타의 크기에 따라 달라지는 해석</li>
+<li>1에서 멀수록 stronger association</li>
+<li>\( n_{ij}=0 \)이면 어떻게 될까요?</li>
+<li>test, 추론, CI</li>
+</ul>
+</li>
+<li>
+<p>OR과 RR의 관계</p>
+<ul>
+<li>RR is much more sensitive than D</li>
+<li>\( OR = RR \times {1-\hat{\p}_2 \over 1-\hat{p_1}}\)</li>
+<li>if \( \hat{\p}_1 \approx \hat{\p}_2 \approx 0 \)이면 \( {1-\hat{\p}_2 \over 1-\hat{p_1}} \approx 1 \), OR이랑 RR이랑 근사한다.</li>
+</ul>
+</li>
+<li>
+<p>Case-Control(대조군) Studies (중요)</p>
+<ul>
+<li>Case : 환자군, Control : 대조군</li>
+<li>질병의 유무로 군을 선정하는데&hellip; 그렇게 되면</li>
+<li>response variable이 우리가 알고싶은 결과인데, response variable을 선정하고나서 explanatory var를 찾는 아이러니한 상황이 발생한다.
+<ul>
+<li>이거는 그 사람을 선정하고 과거를 살펴본것</li>
+<li>사실상 우리의 관심사, response가  explanatory의 역할을 하게 되는 실험이 case-control study이다.</li>
+</ul>
+</li>
+<li>제대로 하려면 smoker를 구해서 일정기간 동안(몇십년) 관찰하는 방식이 올바른 study design이다.
+<ul>
+<li>시간과 비용이 많이 든다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Retrospective와 Prospective</p>
+<ul>
+<li>Retrospective study = Case-control study
+<ul>
+<li>열에 해당하는 Y를 고정하고 다룬다.(\( n_{+j} \))</li>
+<li>reverse direction</li>
+</ul>
+</li>
+<li>Prospective study
+<ul>
+<li>실험자를 10대 부터 60대까지 조사하는 실험</li>
+<li>Sampling design</li>
+<li>이렇게 디자인 할 필요가 있지만 비싸다</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Prospective보다 더 좋은 것</p>
+<ul>
+<li>Clinical trials
+<ul>
+<li>흡연에 끼치는 다른 변수(성별)이 있을 수 있다. 그것까지 통제하는게 더 좋은 실험 -&gt; 불가능</li>
+<li>모든 조건을 똑같이 맞추고, 랜덤하게 선택(절반은 흡연해, 절반은 흡연하지마)해서 60년 후를 보는 것.</li>
+<li>가장 이상적인 디자인</li>
+</ul>
+</li>
+<li>Cohort studies
+<ul>
+<li>실험자 자기 자신이 흡연여부를 선택하는 스터디</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Cross-sectional studies</p>
+<ul>
+<li>total sample size is fixed, ij 성분은 multinomial sample</li>
+<li>실험자를 샘플로 뽑고, 분류하는 작업을 동시에 한다</li>
+</ul>
+</li>
+<li>
+<p>Odds Ratio가 짱이다.</p>
+<ul>
+<li>OR값은 안 바뀐다. 테이블의 행과 열을 바꿔도 -&gt; Case control에서도 같은 값이 나온다</li>
+<li>\( \begin{aligned} \theta &amp;= {P(Y=1|X=1)/P(Y=2|X=1) \over P(Y=1|X=2)/P(Y=2|X=2)} \\\ &amp;= {P(X=1|Y=1)/P(X=2|Y=1) \over P(X=1|Y=2)/P(X=2|Y=2)} \end{aligned} \)</li>
+<li>어느 실험에서나 똑같은 값이 나오기 때문에 인기많은 통계량이다.</li>
+</ul>
+</li>
+</ol>
+<h3 id="4주차---01">4주차 - 01</h3>
+<ol>
+<li>
+<p>Types of Studies (아까와 다른 기준으로)</p>
+<ul>
+<li>Observational : case-control, cohort, cross-sectional
+<ul>
+<li>일반적인 실험</li>
+<li>바이어스가 있음을 생각하고 결론을 내야한다.</li>
+</ul>
+</li>
+<li>Experimental : clinical trial
+<ul>
+<li>randomized -&gt; bias를 최소화하고 실험을 분석할수있다</li>
+<li>very expensive</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Test of Independence</p>
+<ul>
+<li>X와 Y가 연관이있는지 test</li>
+<li>H0 : X &amp; Y are independent, \( p_{ij}=p_{i+} p_{+j} \)</li>
+<li>기대값 : \( np_{ij}=np_{i+}p_{+j} \)</li>
+<li>sample에서 기대값 : 위 식에 hat붙이면 됨</li>
+<li>H0 : \( \mu_{ij}=np_{ij}=np_{i+}p_{+j} \)</li>
+</ul>
+</li>
+<li>
+<p>Pearson \( \chi^2 \) test</p>
+<ul>
+<li>관측된 빈도와 기대 빈도의 차이를 보는 방법</li>
+<li>\( X^2= \sum {(n_{ij}-\mu_{ij})^2 \over \mu_{ij} \quad \sim \chi_{df}^2 \)</li>
+<li>df = (I-1)(J-1)</li>
+</ul>
+</li>
+<li>
+<p>Likelihood-Ratio \( \chi^2 \) test</p>
+<ul>
+<li>관측 빈도(observed)와 기대 빈도(fitted)의 비율을 보는 방법</li>
+<li>\( G^2 = 2\sum n_{ij} \log(n_ij/\hat{mu}_{ij}) \quad \sim \chi_{df}^2 \)</li>
+<li>df = (I-1)(J-1)</li>
+<li>피어슨은 fitted가 아니고, LR은 fitted이다.</li>
+<li>\( \hat{mu}<em>ij = {n</em>{i+} n_{j+} \over n} \)</li>
+</ul>
+</li>
+<li>
+<p>Standardized Residuals</p>
+<ul>
+<li>\(r_{ij}\)</li>
+</ul>
+</li>
+<li>
+<p>왜 자유도가 (I-1)(J-1)인가?</p>
+<ul>
+<li>전체에서 모든 IJ 확률의 합은 1 : 자유도 하나 빼주고</li>
+<li>H0 가정 밑에서, \( p_{1+}\)에서 free parameter는 (I-1)개, 마찬가지로 J-1개</li>
+<li>(IJ-1) - [(I-1)+(J-1)] = (I-1)(J-1)</li>
+</ul>
+</li>
+<li>
+<p>LR test의 장점</p>
+<ul>
+<li>분할이 된다</li>
+<li>다시 합칠 수도 있다.</li>
+<li>분할을 해서 귀무가설 기각하는 데 어떠한 부분이 문제가 있는지 알려줄 수 있다.</li>
+</ul>
+</li>
+<li>
+<p>카이제곱 정리</p>
+<ul>
+<li>test는 large samples이 필요함</li>
+<li>G^2보다 X^2이 수렴이 빠르게 됨</li>
+<li>피어슨 test는 기대빈도가 5보다 작을때는 LR보다 안 좋다.</li>
+<li>nominal case를 다룬다. 순서있는거 아님</li>
+</ul>
+</li>
+</ol>
+<h3 id="4주차--01-두번째">4주차 -01 두번째</h3>
+<ol>
+<li>
+<p>Testing Independence for Ordinal Data</p>
+</li>
+<li>
+<p>Linear Trend Alternative to Independence</p>
+<ul>
+<li>row X에 대해 scores를 지정 해준다.</li>
+<li>row Y에도</li>
+<li>sample corr : R = 귀찮</li>
+<li>H0 : \( \rho = 0 \)</li>
+<li>\( M^2 = (n-1)R^2 \sim \chi_1^2 \)</li>
+</ul>
+</li>
+</ol>
+<p>정리 : independence test를 배웠다.<br>
+공식이 중요한게 아니라 이 test를 언제, 왜 사용해야되는지가 중요하다.</p>
+<h3 id="4주차--02">4주차 = 02</h3>
+<ol>
+<li>
+<p>샘플이 작을때 어떻게 추론할 것인가?</p>
+<ul>
+<li>apporximation을 못해서 Chi squared test 사용 불가</li>
+<li>아이디어 : 초기하분포, 비복원 추출하는 것.</li>
+<li>랜덤변수는 n_11 하나로 설정한다. (나머지는 자연스럽게 결정됨)</li>
+<li>H0 : \( \theta = 1 \) (여기 있는 세타 뭐야? odds ratio), 실제 주입순서와 추측하는것은 독립이다(무관하다)</li>
+<li>통계량 : small-sample distributions(hyper-geometric)</li>
+</ul>
+</li>
+<li>
+<p>Fisher&rsquo;s Exact Test for 2x2 Tables</p>
+<ul>
+<li>독립 가정하에서,</li>
+<li>\( P(n_{11}=t)={{n_{1+} \choose t}{n_{2+} \choose n_{1+}-t} \over {n \choose n_{+1}}} \)</li>
+<li>\( n_{11} \)이 클수록 OR이 커지고, H0을 기각하기에 더 강한 증거가 된다.</li>
+<li>그래서 \( P(n_{11} \ge t_0) = P(n_{11}=3)+P(n_{11}=4) \)의 값을 p-value으로 한다.</li>
+<li>모든 cell count가이 5이상은 되어야 사용 가능</li>
+<li>귀무가설을 기각하기 어려운 경우가 많다.(굉장히 보수적)</li>
+</ul>
+</li>
+</ol>
+
+  
+    
+    <div class="post-toc">
+      <span class="title">Contents</span>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ch2-강의-키워드">CH2 강의 키워드</a>
+      <ul>
+        <li><a href="#3주차---01">3주차 - 01</a></li>
+        <li><a href="#3주차---02">3주차 - 02</a></li>
+        <li><a href="#4주차---01">4주차 - 01</a></li>
+        <li><a href="#4주차--01-두번째">4주차 -01 두번째</a></li>
+        <li><a href="#4주차--02">4주차 = 02</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    <div style='padding:15px;'>
+    </div>
+    
+  </section>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:uqpuark@gmail.com">uqpuark</a>
+      
+      님이
+      <span class="highlight">2021년 03월 24일 10시 36분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div style="padding-left: 16px">
+    데이터 사이언티스트를 꿈꾸고 있습니다. 수학, 통계학에 대한 질문이나 의견을 나누고 싶습니다. 
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">[카테고리]</span>
+        
+        
+        <a href="https://uqpuark.github.io/categories/21%EB%85%84-1%ED%95%99%EA%B8%B0">#21년 1학기</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">[태그]</span>
+        
+        
+        <a href="https://uqpuark.github.iotags/%ED%86%B5%EA%B3%84">#통계</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://uqpuark.github.io/2021_01/pp_01/" rel="prev">
+          <span>[생산계획] CH4. FORECASTING</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="uqpuark/uqpuark.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  <div class="share">
+      <a href="https://github.com" title="Github" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+  </div>
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
+
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+</footer>
+</body>
+</html>

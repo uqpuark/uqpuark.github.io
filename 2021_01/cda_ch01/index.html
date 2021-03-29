@@ -186,7 +186,7 @@ pdf에서 관측치를 모르기 때문에 y는 확률변수 -&gt; 샘플추출�
 </ul>
 </li>
 <li>
-<p>Wald test : 통계량에 \( \hat{\pi) \)</p>
+<p>Wald test : 통계량에 \( \hat{\pi} \)</p>
 </li>
 <li>
 <p>Likelihood-Ratio test</p>
@@ -194,10 +194,10 @@ pdf에서 관측치를 모르기 때문에 y는 확률변수 -&gt; 샘플추출�
 <li>카이제곱 성질 : X, Y가 독립</li>
 <li>\( l_0 = \text{the maximized value of the likelihood under } H_0 \)</li>
 <li>\( l_1 = \text{the maximized value of the likelihood under } H_0 \cup H_1 \)</li>
-<li>l1이 l0보다 항상 더 크다</li>
+<li><em>l1</em>이 <em>l0</em>보다 항상 더 크다(왜? -&gt; 이해함)</li>
 <li>두개의 크기를 비교하는 통계량</li>
 <li>$$ \begin{aligned} -2\log A &amp;= -2\log(l_0/l_1) \\\ &amp;= 2\left[ y\log{\hat{\pi} \over \pi_0}+(n-y)\log{1-\hat{\pi} \over 1-\pi_0} \right] \\\ &amp;= 2\left[ y\log{y \over n\pi_0}+(n-y)\log{n-y \over n-n\pi_0} \right] \sim \chi_1^2 = \chi_{1(0.05)}^2=1.96^2=3.84 \end{aligned} $$</li>
-<li>\( 2\sum \text{observed} \log{observed \over fitted})</li>
+<li>\( 2\sum \text{observed} \log{observed \over fitted} \)</li>
 </ul>
 </li>
 <li>
@@ -206,8 +206,14 @@ pdf에서 관측치를 모르기 때문에 y는 확률변수 -&gt; 샘플추출�
 </ol>
 <p>large-sample 추론하는데 likelihood function을 사용하는 3가지 방법</p>
 <ol start="4">
-<li>asymptotic equivalences : \( n \rightarrow \infty \), the Wald, LR, score tests have certain asymptotic equivalences.</li>
+<li></li>
 </ol>
+<ul>
+<li>asymptotic equivalences : \( n \rightarrow \infty \), the Wald, LR, score tests have certain asymptotic equivalences.</li>
+<li>large-sample tests &amp; CIs : \( n\pi \ge 5 \) and \( n(1-\pi) \ge 5)\</li>
+<li>샘플이 작으면 LR test가 보통 reliable하다. Wald test보다</li>
+<li>샘플이 작을때, 노말(근사) 보다는 정확한 분포를 사용하는게 안전하다.</li>
+</ul>
 
   
     

@@ -8,7 +8,16 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Tue, 16 Mar 2021 10:42:52 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Mar 2021 10:36:36 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[범주형자료분석] CH02. Analyzing Contingency Tables </title>
+      <link>https://uqpuark.github.io/2021_01/cda_ch02/</link>
+      <pubDate>Wed, 24 Mar 2021 10:36:36 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/2021_01/cda_ch02/</guid>
+      <description>CH2 강의 키워드 3주차 - 01 두개의 변수가 차이가 있는지(관계), 독립적인지 살펴보는 챕터  두 범주형 변수의 연관관계  Correlation Covariance   (핵심) 독립성 여부는 Odds Ratio 개념으로 본다 Chi-square test     나오는 수식들을 그냥 외우지 말고, 직관적으로 바로 파악할 수 있게 생각을 고치는게 좋을 것 같다.</description>
+    </item>
+    
     <item>
       <title>[범주형자료분석] CH01. INTRODUCTION</title>
       <link>https://uqpuark.github.io/2021_01/cda_ch01/</link>
