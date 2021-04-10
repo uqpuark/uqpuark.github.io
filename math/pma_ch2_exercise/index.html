@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[해석학] CH2 문제  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[해석학] CH2 문제'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[해석학] CH2 문제">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-04-02">
+  
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[해석학] CH2 문제'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://uqpuark.github.io/math/pma_ch2_exercise/">
+  <meta property="og:site_name" content="데이터 사이언스 블로그">
+  
+  <meta property="og:image" content="https://uqpuark.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="해석학">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://uqpuark.github.io/math/pma_ch2_exercise/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-189694109-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="35px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><form id="search"
+    action='' method="get">
+    <label hidden for="search-input">Search site</label>
+    <input type="text" id="search-input" name="query"
+    placeholder="search or jump to...">
+    <input type="submit" value="search">
+</form>
+
+</li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>
+
+
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://uqpuark.github.io/math/pma_ch2_exercise/">
+      <div class="post-meta">
+        <time>2021년 04월 02일 21시 01분</time>
+        <h1>[해석학] CH2 문제</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <h1 id="2018170865-산업경영공학부-박재현">2018170865 산업경영공학부 박재현</h1>
+<h2 id="exercise">Exercise</h2>
+<h3 id="1-prove-that-the-empty-set-is-a-subset-of-every-set">1. Prove that the empty set is a subset of every set.</h3>
+<p>\(\forall x \in \varnothing,\ x \in E \) (E는 임의의 집합)<br>
+\(\therefore \varnothing \in E \)</p>
+<h3 id="2-a-complex-number-z-is-said-to-be-algebraic-if-there-are-integers">2. A complex number z is said to be algebraic if there are integers.</h3>
+<p>\( E_N = {z|n+|a_0|+|a_1|+\cdots+|a_n|=N}\)이라 하자. 좌변은 자연수이고, n개는 유한하므로 다항식도 유한개만큼 존재한다. \(E_N\)은 finite.</p>
+<p>\(E = \bigcup_{N_1}^\infty E_N \) : the set of all algebraic numbers.<br>
+E는 at most countable. N이 finite가 아니기 때문에 E는 infinite.
+따라서 E는 countable.</p>
+<h3 id="3-prove-that-there-exist-real-numbers-which-are-not-algebraic">3. Prove that there exist real numbers which are not algebraic.</h3>
+<p>\( \forall x \in \R,\ \exist x \in A \)라 하자. (A는 모든 algebraic numbers의 집합)<br>
+문제 2번에 의해 집합 A는 countable이다. 반면 \(\R\)은 uncountable. 따라서 모순이다.</p>
+<h3 id="4-is-the-set-of-all-irrational-real-numbers-countable">4. Is the set of all irrational real numbers countable?</h3>
+<p>무리수 집합은 \(\mathbb{I} = \R - \mathbb{Q} \)라 하자.<br>
+\( \R = \mathbb{Q}\cup\mathbb{I} \)에서 \( \mathbb{Q} \)가 countable이고, \(\R\)이 uncountable이므로
+\(\mathbb{I}\)는 uncountable이어야만 한다.</p>
+<h3 id="5-construct-a-bounded-set-of-real-numbers-with-exactly-three-limit-points">5. Construct a bounded set of real numbers with exactly three limit points.</h3>
+<p>정수 m에 대해서, \( E_m = \{ m + {1 \over n+1} | n \in \mathbb{N} \} \)를 잡자.<br>
+\(E_0 \cup E_1 \cup E_2 \)은 정확히 3개의 limit point를 갖는다.</p>
+<h3 id="6">6.</h3>
+<h4 id="prove-that-e-is-closed">Prove that \(E'\) is closed.</h4>
+<p>\( E'\)가 closed \( \Leftrightarrow =E'\)이다.<br>
+\( E'' \subseteq E' \)임을 보이자.</p>
+<p>\( x \in E'' \)에 대해 \(B(x,r)\)을 생각하자.<br>
+\( y \in E',\ z \in E \)이다.</p>
+<p>(1) \( y \in E \)
+\( \exist y  \text{ s.t } d(x,y) &lt; r \).<br>
+따라서 x is limit point of E.</p>
+<p>(2) \( y \notin E,\ y \in \bar{E} \rightarrow y \in E' \)<br>
+\( s = {r - d(x,y) \over 2} \)로 잡으면 \( \exist z \in E \text{ s.t } d(y,z) &lt; s  \)<br>
+\( d(x,z) \le d(x,y)+d(y,z) &lt; d(x,y) + r - d(x,y) = r \)<br>
+따라서 x is limit point of E.</p>
+<p>(1)과 (2)에 의해 \( x \in E' \)이다.</p>
+<h4 id="prove-that-e-and-bare-have-the-same-limit-points">Prove that \(E\) and \(\bar{E}\) have the same limit points.</h4>
+<p>위의 결과에 의해 \( E'' \subseteq \bar{E})' \subseteq E' \)를 보일 수 있다.</p>
+<p>\( x \in E' \)라 하자.<br>
+\( B(x, r) \)는 \(E\) 또는 \( E' \)를 반드시 포함한다.<br>
+즉, x is limit point of \(\bar{E})\)<br>
+\( E' \subseteq \bar{E})' \)</p>
+<p>따라서 증명된다.</p>
+<h4 id="do-e-and-e-always-have-the-same-limit-points">Do \(E\) and \(E'\) always have the same limit points?</h4>
+<p>반례 : \( E = \{ {1 \over n } | n \in \mathbb{N} \},\quad E'={0} \)이면 \( E''=\varnothing \)</p>
+<h3 id="7">7.</h3>
+<h4 id="a">(a)</h4>
+<p>\(\begin{aligned} \text{Suppose } &amp;x \in (\underset{i=1}{\overset{n}{\bigcup}} A_i)'. \\\ \Rightarrow\ &amp;x \text{ is limit point of } \underset{i=1}{\overset{n}{\bigcup}} A_i \\\ \Rightarrow\ &amp;x \text { is limit point of } A_i \text{ for some i} \\\ \Rightarrow\ &amp;x \in (A_i)' \text{ for some i } \\\ \Rightarrow\ &amp;x \in  \underset{i=1}{\overset{n}{\bigcup}} (A_i)' \end{aligned} \)</p>
+<p>\( B_n' = (\underset{i=1}{\overset{n}{\bigcup}} A_i)' = \underset{i=1}{\overset{n}{\bigcup}} A_i' \)</p>
+<p>\( \begin{aligned} \overline{B}_n = B_n \cup B_n' &amp;= \underset{i=1}{\overset{n}{\bigcup}} A_i \cup \underset{i=1}{\overset{n}{\bigcup}} A_i' \\\ &amp;= (A_1 \cup A_2 \cup \cdots \cup A_n ) \cup (A_1' \cup A_2' \cup \cdots \cup A_n' ) \\\ &amp;= (A_1 \cup A_1') \cup (A_2 \cup A_2') \cup \cdots \cup (A_n \cup A_n') \\\ &amp;= \underset{i=1}{\overset{n}{\bigcup}} \overline{A}_i
+\end{aligned} \)</p>
+<h4 id="b">(b)</h4>
+<p>\( \begin{aligned}
+\text{Suppose } &amp;x \in \bigcup_i \overline{A}_i. \\\ \Rightarrow \exist &amp;i \in \mathbb{N} \text{ such that } x \in \overline{A}_i \\\ \Rightarrow\ &amp;x \in A_i \text{ or } x \in A_i' \\\ \text{(1) if } &amp;x \in A_i, \text{ then } x \in \overline{B} \\\ \text{(2) if } &amp;x \in A_i', \text{ then } \forall B(x,r),\ \exist y \ne x \text{ such that } y \in A_i \\\ \Rightarrow\ &amp;y \in B,\ x \text{ is a limit point of } B.\ \therefore x \in \overline{B}
+\end{aligned} \)</p>
+<p>따라서 \( \overline{B} \supset \underset{i=1}{\overset{\infty}{\bigcup}} \overline{A}_i \)</p>
+<p>예시 : \( A_i = {1/i | i \in \mathbb{N}} \)로 잡으면 (b)를 보일 수 있다.</p>
+<h3 id="8">8.</h3>
+<h4 id="open-set-e">open set E</h4>
+<p>\( \forall p = (x,y) \in E \)에 대해 \(p\)는 interior point of E이다. \(x,y \in \R \)<br>
+\( B(p,r) \subset E,\ E \subset \R^2 \)<br>
+\( \forall B(p,r) \)은 \(q \in E \)를 포함한다.<br>
+따라서 \(p\)는 limit point of \(E\)이다.</p>
+<h4 id="closed-set-e">closed set E</h4>
+<p>closed set E를 \( \{ (x,0)| 1 \le x \le 2 \} \cup \{(0,0)\}  \) 라고잡자.<br>
+E는 closed지만 (0,0)은 isolated point이므로 거짓이다.</p>
+<h3 id="9">9.</h3>
+<h4 id="a-1">(a)</h4>
+<p>\( \forall x \in E^{\circ} \)에 대해<br>
+\(x \)는 interior point of E, \( B(x,r) \subset E \).
+\( B(x,r) \)내에 있는 임의의 점 \(y\)를 잡고,<br>
+\( B(y,s),\ \text{ such that } (s={r-d(x,y) \over 2}) \)라 하면<br>
+\(N_s(y) \subset N_r(x) \subset E \)이므로 \(y\)는 interior point of E이다.<br>
+즉, \(N_r(x) \subset E^{\circ} \).</p>
+<h4 id="b-1">(b)</h4>
+<p>(1) (\(\Rightarrow\))<br>
+E : open.<br>
+정의에 의해<br>
+\( \forall x \in E  \) is an interior point of E<br>
+\( \forall x \in E^{\circ} \) is an interior point of E.<br>
+\( \therefore E = E^{\circ} \)</p>
+<p>(2) (\(\Leftarrow \))<br>
+조건에 의해<br>
+\( \forall x \in E \) is an interior point of E and E is open by (a).</p>
+<p>따라서 (1)과 (2)에 의해 증명된다.</p>
+<h4 id="c">(c)</h4>
+<p>\( \forall x \in G, x \) is interior point of G.<br>
+\( \Rightarrow B(x,r) \subset G \subset E \)<br>
+\( \Rightarrow\ x \) is interior point of E. (\( G \subset E \))<br>
+\( \Rightarrow\ x \in E^{\circ} \)</p>
+<h4 id="d">(d)</h4>
+<p>\( x \notin E^{\circ} \)<br>
+\( \exist y \notin E \text{ in } B(x,r) \)<br>
+\( \Rightarrow x \text{ is a limit point of } E^c \)  \(\quad \therefore (E^{\circ})^c \subset \overline{E^c} \)</p>
+<p>\( x \in \overline{E}^c \), then <br>
+(1) \( x \in E^c,\ x \) is not interior point of E.<br>
+(2) \( x \in (E^c)',\ \exist y \in B(x,r)  \text{ such that } y \in E^c,\ \therefore x \) is not interior point of E.<br>
+따라서 \( x \notin E^{\circ} \Rightarrow (E^{\circ})^c \supset \overline{E^c} \)</p>
+<h4 id="e">(e)</h4>
+<p>반례 : \( E=(0,1] \), \( \overline{E}=[0,1] \)  in \(\R^1\)</p>
+<h4 id="f">(f)</h4>
+<p>반례 : \( E={0} \), then \( 0 \in \overline{E},\ \overline{E^{\circ}} = \varnothing \)</p>
+<h3 id="10">10.</h3>
+<h4 id="prove-that-this-is-a-metric">Prove that this is a metric.</h4>
+<p>(1)<br>
+If \( p \ne q \), then \( d(p,q) = 1 \),<br>
+\( d(p,p)=0 \),<br>
+\( d(q,p)=d(p,q) \).</p>
+<p>\( d(p,q) = 1,\ d(p,r) + d(r,q) \ge 1 \) for any \( r \in X \)</p>
+<p>(2)<br>
+If \( p = q \),\ \( d(p,q) = 0 \le d(p,r) + d(r,q) \) for any \( r \in X \)</p>
+<p>따라서 \(d\)는 metric.</p>
+<h4 id="which-subsets-of-the-resulting-metric-space-are-open">Which subsets of the resulting metric space are open?</h4>
+<p>\( B(p,r) \subseteq {p} \)<br>
+\( \forall p \in E \subset X \) is an interior point of E.<br>
+따라서 모든 \(X\)의 부분집합이 open이다.</p>
+<h4 id="which-are-closed">Which are closed?</h4>
+<p>E가 open이므로 E의 여집합은 closed이다. 따라서 모든 X의 부분집합은 또한 closed이다.</p>
+<h4 id="which-are-compact">Which are compact?</h4>
+<p>finite subset of X가 compact.<br>
+(infinite subset of X는 open cover를 갖는데, finite sube cover를 갖지 않는다.)<br>
+따라서 X의 유한개의 부분집합만이 컴팩트이다.</p>
+<h3 id="11-determine-for-each-of-these-whether-it-is-a-metric-or-not">11. Determine, for each of these, whether it is a metric or not.</h3>
+<p>$$ \begin{aligned}
+d_1(x,y) &amp;= (x-y)^2 \quad &amp;\cdots (1) \\\  d_2(x,y) &amp;= \sqrt{|x-y|} \quad &amp;\cdots (2) \\\ d_3(x,y) &amp;= |x^2-y^2| \quad &amp;\cdots (3) \\\ d_4(x,y) &amp;= |x-2y| \quad &amp;\cdots (4) \\\ d_5(x,y) &amp;= {|x-y| \over 1+|x-y|} \quad &amp;\cdots (5)
+\end{aligned} $$</p>
+<p>(1) not metric, \( d_1(1,3) = 4 \nleq d(1,2) + d(2,3) = 2\) : 삼각부등식을 만족하지 않는다.</p>
+<p>(2) metric,<br>
+\(  d_2(x,y)^2 = |x-y| = |x-z+z-y| \le |x-z|+|z-y| \\\ = d_2(x,z)^2 + d_2(z,y)^2 \le [d_2(x,z)+d_2(z,y)]^2  \)<br>
+\( \Rightarrow d_2(x,y) \le d_2(x,z) + d_2(z,y) \)</p>
+<p>(3) not metric,  \( d_3(-1, 1) = 0 \)</p>
+<p>(4) not metric, \( d_4(0,1) = 2 \ne 1 = d(1,0) \)</p>
+<p>(5) metric,<br>
+\( d(x,y) &gt; 0 \quad (x \ne y) \text{  and  } d(x,x) = 0,\ d(x,y)=d(y,x) \)</p>
+<p>$$ {|x-y| \over 1+|x-y|} \le {|x-z| \over 1+|x-z|} + {|z-y| \over 1+|z-y|} \\\ \\\ |x-y|=a,\ |x-z|=b,\ |y-z|=c \\\ \\\ \Rightarrow {a \over 1+a} \le {b \over 1+b}+{c \over 1+c} $$</p>
+<p>정리하면 \( a \le b+c+2bc+abc \)는 삼각부등식을 따른다. 따라서 metric이다.</p>
+<h3 id="12--k-subset-r1--0-cup--1-over-n--n12cdots--">12. \( K \subset \R^1 = \{0\} \cup \{ {1 \over n} | n=1,2,\cdots \} \)</h3>
+<p>\( \{ G_\alpha \} \)는 임의의 open over of \( K \)라 하자.<br>
+\( \exist \alpha_1 \text{ such that } 0 \in G_{\alpha_1} \)<br>
+\( \Rightarrow G_{\alpha_1} \)는 open, 0은 interior point of \( G_{\alpha_1} \).<br>
+따라서 \( G_{\alpha_1}\)내에 0을 포함하는 선분 \( (a,b)\)가 존재한다.</p>
+<p>한편, (a,b) 구간에 없는 K의 원소의 개수는 유한개이다.</p>
+<p>\( K \subset \bigcup_{i=1}^n G_{\alpha_i} \)<br>
+\( G_{\alpha_i} \)는 finite subcover이고, \(K\)는 compact이다.</p>
+<h3 id="13-construct-a-compact-set-of-real-numbers-whose-limit-point-form-a-a-countable-set">13. Construct a compact set of real numbers whose limit point form a a countable set</h3>
+<p>\( K = \{0\} \cup \{ {1 \over n}| n =1,2,3,\cdots \} \cup \{ {1 \over n}+{1 \over 2^k}|k=n, k=1,2,3,\cdots, \}  \).<br>
+K의 limit points는 \( 0, 1, 1/2, 1/3, \cdots  \).<br>
+\( \forall x \in \{ {1 \over n}+{1 \over 2^k} \}, \text{ let } r={1/2^k - 1/2^{k+1} \over 4}  \)<br>
+\( B(x,r) = \{x\} \Rightarrow x \) is not limit point of K.<br>
+따라서 limit points는 countable set.</p>
+<p>\( G_{\alpha_0} = (a_0, b_0) \)를 0를 포함하는 선분이라고 하자.<br>
+\( G_{\alpha_i} = (a_i, b_i) \)를 \( {1 \over i},\ i=1,2,\cdots N \)를 포함하는 선분이라고 하자. (N은 충분히 큰 수)<br>
+\( \bigcup_{i=0}^N G_{\alpha_i} \)에 포함되지 않는 K 원소의 개수는 유한개이다.<br>
+따라서 K는 compact set.</p>
+<h3 id="14">14.</h3>
+<p>임의의 양의 정수 n에 대해 \( A_n = \left( {1 \over n+1},1-{1 \over n+1} \right) \)라 하자.<br>
+\( {A_n} \)은 open cover of (0,1) with no finite subcover.</p>
+<h3 id="15">15.</h3>
+<h4 id="compact-is-replaced-by-closed">&ldquo;compact&rdquo; is replaced by &ldquo;closed&rdquo;</h4>
+<p>반레 :<br>
+\( K_\alpha = \{ x \in \R | x \ge \alpha, \alpha=1,2,3,\cdots \} \)<br>
+\( \{K_\alpha\} \)는 collections of closed sets, 모든 finite subcollections의 intersection은 nonempty.<br>
+\( \forall \alpha,\ \{K_\alpha\} \supset \{K_{\alpha+1}\} \)</p>
+<p>큰 \( N \)에 대해서 \( K_N = \{ x \in \R | x \ge N, N=1,2,3,\cdots \} \)인데,<br>
+\( \exist N &gt; x \)(by Archimedean Principle). 따라서 모순이다.</p>
+<h4 id="compact-is-replaced-by-bounded">&ldquo;compact&rdquo; is replaced by &ldquo;bounded&rdquo;</h4>
+<p>반례 :<br>
+\( K_n = (0, {1 \over n}),\ n \in \N \)라 하자.<br>
+\( \{ K_n \} \)는 collections of bounded sets, 모든 finite subcollections의 intersection은 nonempty.<br>
+\( \forall n,\ \{K_n\} \supset \{K_{n+1}\} \)</p>
+<p>\( \forall x \in \bigcap_{n=1}^\infty K_n \rightarrow 0 &lt; x &lt; {1 \over n}  \).
+따라서 \( \bigcap_{n=1}^\infty K_n = \varnothing \).</p>
+
+  
+    
+    <div class="post-toc">
+      <span class="title">Contents</span>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#exercise">Exercise</a>
+      <ul>
+        <li><a href="#1-prove-that-the-empty-set-is-a-subset-of-every-set">1. Prove that the empty set is a subset of every set.</a></li>
+        <li><a href="#2-a-complex-number-z-is-said-to-be-algebraic-if-there-are-integers">2. A complex number z is said to be algebraic if there are integers.</a></li>
+        <li><a href="#3-prove-that-there-exist-real-numbers-which-are-not-algebraic">3. Prove that there exist real numbers which are not algebraic.</a></li>
+        <li><a href="#4-is-the-set-of-all-irrational-real-numbers-countable">4. Is the set of all irrational real numbers countable?</a></li>
+        <li><a href="#5-construct-a-bounded-set-of-real-numbers-with-exactly-three-limit-points">5. Construct a bounded set of real numbers with exactly three limit points.</a></li>
+        <li><a href="#6">6.</a></li>
+        <li><a href="#7">7.</a></li>
+        <li><a href="#8">8.</a></li>
+        <li><a href="#9">9.</a></li>
+        <li><a href="#10">10.</a></li>
+        <li><a href="#11-determine-for-each-of-these-whether-it-is-a-metric-or-not">11. Determine, for each of these, whether it is a metric or not.</a></li>
+        <li><a href="#12--k-subset-r1--0-cup--1-over-n--n12cdots--">12. \( K \subset \R^1 = \{0\} \cup \{ {1 \over n} | n=1,2,\cdots \} \)</a></li>
+        <li><a href="#13-construct-a-compact-set-of-real-numbers-whose-limit-point-form-a-a-countable-set">13. Construct a compact set of real numbers whose limit point form a a countable set</a></li>
+        <li><a href="#14">14.</a></li>
+        <li><a href="#15">15.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    <div style='padding:15px;'>
+    </div>
+    
+  </section>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:uqpuark@gmail.com">uqpuark</a>
+      
+      님이
+      <span class="highlight">2021년 04월 02일 21시 01분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div style="padding-left: 16px">
+    데이터 사이언티스트를 꿈꾸고 있습니다. 수학, 통계학에 대한 질문이나 의견을 나누고 싶습니다. 
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">[카테고리]</span>
+        
+        
+        <a href="https://uqpuark.github.io/categories/%EC%88%98%ED%95%99">#수학</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">[태그]</span>
+        
+        
+        <a href="https://uqpuark.github.iotags/%ED%95%B4%EC%84%9D%ED%95%99">#해석학</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://uqpuark.github.io/2021_01/cda_ch02/" rel="prev">
+          <span>[범주형자료분석] CH02. Analyzing Contingency Tables </span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://uqpuark.github.io/2021_01/pp_summary/" rel="next">
+          <span>[생산계획] 1~3장 요약</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="uqpuark/uqpuark.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  <div class="share">
+      <a href="https://github.com" title="Github" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+  </div>
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
+
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+</footer>
+</body>
+</html>

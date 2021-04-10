@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[생산계획] 1~3장 요약  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[생산계획] 1~3장 요약'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[생산계획] 1~3장 요약">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-04-09">
+  
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[생산계획] 1~3장 요약'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://uqpuark.github.io/2021_01/pp_summary/">
+  <meta property="og:site_name" content="데이터 사이언스 블로그">
+  
+  <meta property="og:image" content="https://uqpuark.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="생산계획">
+  
+  <meta property="og:tags" content="Daniel Sipper">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://uqpuark.github.io/2021_01/pp_summary/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-189694109-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="35px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><form id="search"
+    action='' method="get">
+    <label hidden for="search-input">Search site</label>
+    <input type="text" id="search-input" name="query"
+    placeholder="search or jump to...">
+    <input type="submit" value="search">
+</form>
+
+</li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>
+
+
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://uqpuark.github.io/2021_01/pp_summary/">
+      <div class="post-meta">
+        <time>2021년 04월 09일 14시 37분</time>
+        <h1>[생산계획] 1~3장 요약</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <h1 id="ch1-the-production-paradigm생산-패러다임">CH1 THE PRODUCTION PARADIGM(생산 패러다임)</h1>
+<p>생산시스템은 현대사회에서 중요하다. 시스템은 국가의 기반을 형성한다.</p>
+<h2 id="1-global-production세계화-생산">1. GLOBAL PRODUCTION(세계화 생산)</h2>
+<p>공장생산라인, 분업, 기능적 관리구조 등의 개념은 유럽의 1차 산업혁명, 미국의 2차 산업혁명에서 왔다. 반면, 2차 세계대전 이후 일본과 같은 나라들의 출현으로 국제적인 경쟁이 필수불가결한 개방형무역시스템(open trading system)이 만들어지게 되었다.</p>
+<h3 id="11-evolution-of-production-systems생산시스템의-발전">1.1 Evolution of Production Systems(생산시스템의 발전)</h3>
+<p>생산시스템의 발전에 대해 역사와 관리이론 두가지 측면에 대해 설명.</p>
+<h4 id="111-history">1.1.1 History</h4>
+<ol>
+<li>
+<p>Ancient system : 기원전 몇천년 전 부터 수메르인들은 재고, 대부금, 세금처리를 기록했고, 이집트인들은 피라미드 건설에 계획, 구성, 통제와 같은 기본적인 관리개념을 사용하기 시작하였다. 점점 경영상의 책임, 최저임금에 대한 개념, 간부라는 개념이 생기기 시작하였다. 동아시에에서는 중국이 완전한 정부시스템을 가지고 있었다. 노동의 전문화와 더불어 생산 계획, 구성 및 통제를 시행하였다.</p>
+</li>
+<li>
+<p>feudal system(봉건 시스템) : 유럽 중세시대에는 계급제로 윗 계급에 충성하여 대가로 토지와 권력을 받았다. 가내수공업 체제에서 생산이 이루어 졌다.</p>
+</li>
+<li>
+<p>European system : 르네상스 시대가 도래하면서, 1300년대 복식부기와 원가회계가 이탈리아에서 사용되었다. 뿐만아니라 베니스의 Arsenal이라는 국영조선소에서는 2달만에 100척 이상의 선박을 생산한 적도 있을 만큼 생산 시스템이 발달하였다. 1700년대 초기, 영국에서 산업혁명이 시작되면서 보다 적은 인원으로 필요한 식량을 생산하는 것이 가능해졌다. 그러면서 분업의 개념이 생겨났고, 노동의 전문화로 모든 영역에서 생산량이 기하급수적으로 증가하였다. 도시화, 운송수단의 발달, 대규모 시장의 형성의 결과가 나타났다.</p>
+</li>
+<li>
+<p>American System : 1800년 경, Maudslya가 발명한 근대 선반에서 시작되었다. 기계를 이용하여 새로운 기계를 만들 수 있게 되어 생산시스템 발전에 매우 큰 영향을 미쳤다. 한편, 미국에서는 부품 교환이 가능해지면서 제조업이 발전하였고, 비숙련자도 생산이 가능하도록 보조 장치를 사용하였다. 앞선 아이디어들이 확장되어 1913년 Ford는 교환가능한 부품과 이동조립라인 시스템을 만들어냈다. 조립라인은 자본으로 노동을 대체하는 변화의 노동전문화의 필연적이었다. 하지만, 여전히 수요가 적고 다양한 제품을 생산하는 공장은 대량생산 설비화를 하지 않았다.</p>
+</li>
+</ol>
+<h4 id="112-management-theories-관리-이론">1.1.2 Management Theories (관리 이론)</h4>
+<p>생산시스템의 발전과 합께 관리 이론도 발전해왔다. 공장 관리의 중요성을 주장하고(Towne), 점점 과학적 관리(Scientific Management)의 중요성이 높아지면서 비효율적인 시스템을 개선하는 방향으로 발전되었다. 뛰어난 작업자들 보다 작업자들을 관리하는 방법이 더 중요하고, 인간적 요소도 무시해서는 안된다는 내용이 실험 결과 나타났다.</p>
+<h3 id="12-the-competitive-environment">1.2 The Competitive Environment</h3>
+<p><strong>경쟁력은 자유롭고 정당한 시장환경하에서 세계시장에서의 시험을 만족시키는 서비스와 제품을 생산할 수 있으며 동시에 시민들의 실제 수입을 유지하거나 확장시킬 수 있는 국가 능력의 정도를 말한다.</strong> - National Center for Manufacturing Sciences (NCMS, 1988)</p>
+<h4 id="121-the-status">1.2.1 The Status</h4>
+<p>2차 세계대전 이후로 미국의 경쟁력은 하락하였다는 것이 책의 의견이다. 반면, 현재 미국은 어느 나라도 넘보기 어려운 1강이다. 중국이 성장하면서 2강 체제를 형성하고 있다고 하지만 코로나, 무역전쟁으로 중국의 많은 기업들이 파산하고있고, 특히 미국에 상장된 중국 기업은 위험한 상태이다. 한국은 AI 열풍으로 오히려 코딩 위주의 학습만 이뤄지고, 제대로된 학습이 무시되고 있다. 수학은 어렵다고 무시되고, 논리학(철학)은 인문계열이라고 무시되고 있는게 현실이다.</p>
+<h4 id="122-the-decline-in-competitiveness경쟁력의-하락">1.2.2 The Decline in Competitiveness(경쟁력의 하락)</h4>
+<p>생산위주시스템(production-driven system)위주로 제품을 대량생산하던 미국은 다양한 품질과 가격의 제품을 원하는 소비자들의 니즈를 파악하지 못했다. 그로 인해 세계화 시장에서 미국은 경쟁력이 하락하기 시작했다.</p>
+<h4 id="123-the-changing-environment">1.2.3 The Changing Environment</h4>
+<p>시장의 경제 구조는 규모의 경제(대량생산)에서 범위의 경제(다양화)로 변화하였다. 선택의 경제(economy of choice)는 표준대량생산품보다는 다양성을 강조한다. 시장은 생산위주시스템(production-driven system)은 시장위주시스템(market-driven system)으로 변경되었다. 이제 세계화가 되면서 유럽, 일본 뿐만아니라 동아시아, 남미국가들과도 경쟁이 필요한 사회가 되었다. 소비자들이 제품과 서비스에 대해 요구를 하면서 소비자는 생산소비자(prosumer)로 변화하고 있다.</p>
+<h2 id="2-production-systems">2. Production Systems</h2>
+<p>넓은 의미에서 생산시스템은 무언가를 만들어 내는 것이다. 보다 정확하게 말한다면, 재료를 투입해서 가치를 가지는 산출물로 변환시킬 수 있는 것을 생산시스템이라고 정의한다. 생산시스템은 제조와 서비스로 구분되며, 이는 산출물의 형태, 변환과정의 차이로 구분된다. 제조는 투입물과 산출물이 유형이고 물리적 변환과정을 거친다. 반면 서비스는 무형이고, 물리적이지 않을 수 있다. 일반적으로 눈으로 볼 수 있는 변환과정에 대해서만 생산시스템이라고 생각한다. 하지만 현대의 생산시스템은 눈에 보이지 않는 부분이 훨씬 많다. 예를 들어, 제품과 고객, 원자재, 작업자, 전 과정을 통제하는 시스템 등 많은 부분을 고려해아 한다. 크게 생산흐름, 블록설정, 기술, 시스템 크기 4가지로 분류할 수 있다.</p>
+<h3 id="21-the-flow-process">2.1 The Flow Process</h3>
+<p>생산시스템의 핵심은 자재와 정보로 이루어진 제조공정이다. 실제 자재는 눈에 보이지만, 정보의 흐름은 볼 수 없다. 과거에는 후자는 중요하지 않았지만, 정보기술의 출현으로 매우 중요한 요소가 되었다.</p>
+<figure>
+    <img src="/images/2021/pp_00.png"/> 
+</figure>
+
+<p>자재는 위의 그림과 같은 이동 과정을 갖는다. 자재가 꼭 동일한 경로로 공정을 지나갈 필요는 없다. 완제품이 되어 소비자에게 전달된다. 흐름공정에서 공급자와 소비자가 과정에 모두 포함된다.<br>
+정보흐름의 결과물은 생산시스템의 도처에서 단말기들을 통해 볼 수 있다.</p>
+<h3 id="22-building-blocks">2.2 Building Blocks</h3>
+<p>생산시스템의 목표는 제품을 만들어서 보내는 것이다. 경쟁력을 키우기 위해 3가지 특성을 동시에 만족시켜야한다. 이들은 서로 상호작용이 존재한다.<br>
+품질 : 제품은 반드시 경쟁자들보다 같거나 뛰어나야한다.
+원가 : 제품의 원가는 반드시 경쟁자들보다 낮아야 한다.
+시간 : 제품은 항상 정확한 시간에 소비자들에게 전달되어야 한다.</p>
+<h4 id="221-physical-arrangements">2.2.1 Physical Arrangements</h4>
+<p>생산량과 제품의 다양성이 배치 형태를 결정하는데, 이에따라 물리적으로 개별공정과 흐름공정 2개의 유형이 생긴다.</p>
+<p>Job shop(개별 공정)은 적은 양, 맞춤도가 높은 즉 다양한 제품들을 생산한다. 작업자들의 숙련도는 높고, 특정 범위 내에서 다른 작업이 가능하도록 범용목적의 설비가 사용된다. Jop shop의 예로 제조공정의 process layout(공정별 배치)이 있다. 유사한 기계들이 그룹화 되어 같은 영역에 배치되어있다.<br>
+반면, Flow shop(흐름 공정)은 표준화된 제품을 대량생산한다. 대표적으로 자동차 산업을 예로 들 수 있다. 자동차 모델 하나가 해당 공정에서 1년 동안 생산될 수 도 있다. 작업자들은 많은 기술이 필요하지 않고, 특수설비를 사용한다. 각 제품은 동일한 작업순서를 따르고, 이 순서에 따라서 기계들의 배치가 결정된다.<br>
+다른 공정으로는 위 2개의 공정을 결합한 Batch shop(일괄 공정), 제품이 하나만 생산되어야 하는 project shop, Flow shop을 확장 시킨 continuous shop, 그리고 통합생산시스템에 속하는 modern shop 등이 존재한다.</p>
+<h4 id="222-organizational-arrangements조직적-배정">2.2.2 Organizational Arrangements(조직적 배정)</h4>
+<p>복잡한 업무를 간단하게 나누기 위해 조직화를 한다. 어떻게 노동을 분할할 것인지, 구분된 업무를 잘 조화시킬 것인지 2가지에 대해 생각해 봐야한다. 조직구조의 형태는 기능(functional), 부서(divisional), 매트릭스(matrix) 3가지가 있다. 앞의 2개는 고전적인 구조이다. 기능은 투입물을 중심으로 구성된다. 반면, 부서별 구조는 산출물을 중심으로 만들어진다. 일반적으로 제품을 중심으로 구성되고, 서비스, 프로젝트, 프로그램, 고객, 위치를 중심으로 구성되는 경우도 존재한다. 앞의 구조들은 한가지에 초점을 맞춰 구성한 반면, 매트릭스 조직은 두개이상에 대해 중점을 두고 구성한다. 한 명의 사원에게 2명 이상의 팀장이 존재할 수 있다. 다만 관리가 어려워 보통 R&amp;D 조직에서 사용된다.</p>
+<h3 id="23-technology">2.3 Technology</h3>
+<p>Market-driven system과 함께 첨단 산업이라는 새로운 생산 형태가 나타났다. 이것은 기술의 진보가 연속적으로 증가하고 있음을 보여준다. 진보하는 정도가 제품, 공정, 관리 기술에서 근본적인 변화를 일으키고 있다. 첨단산업(high-tech)에 들어가기 위해서 기업은 다음 2가지 사실을 수용해야한다.</p>
+<ul>
+<li>이 진보는 주요하고, 자본 및 보완적인 기술의 변화를 이끈다.</li>
+<li>이 진보는 내재적으로 연속적인 변화를 이끈다.<br>
+첨단 산업은 우주항공산업, 전자, 통신, 컴퓨터, 약학, 광학, 신소재에 관련된 분야를 말한다(2000년). 또한 첨단산업에 해당되기 위해서는 3가지 기준이 존재한다.</li>
+<li>연구개발비용이 판매의 최소 몇 퍼센트 이상을 차지한다.</li>
+<li>전체 고용량 대비 과학, 기술 종사자 비율이 일정 수준 이상이어야 한다.</li>
+<li>제품은 기술적으로 복잡함을 갖는다.<br>
+이러한 첨단기술제품은 전체 생산환경에 영향을 주고, 일정한 변화를 필요로 하기때문에 생산시스템에 영향을 주게 된다. 그렇다고 기존의 기술(low-tech)이 쓸모가 없는 것은 아니다.  low-tech 산업들은 복잡하고 정교한 생산계획과 통제기술을 사용해 이익을 얻을 수 있다.</li>
+</ul>
+<h3 id="24-size-of-organization">2.4 Size of Organization</h3>
+<p>조직은 크기와 범위에 따라 차이가 나타난다.  첫재, 물리적 과정은 조직의 크기에 상관없이 유사하다. 다만 상대적으로 복잡한 정도가 다르다. 조직이 클 수록 생산량과 종류가 다양해서 자재를 수월하게 관리하기가 어려워진다. 둘째, 경영을 하는데 있어서, 크기에 따라 관리하는 과정이 다르다. 정보의 흐름과 의사결정과정에서 특히 차이가 발생한다. 큰 조직에서 의사결정은 주요한 내용은 중앙에서 집중되지만 사업단위는 탈중앙화된다. 반면, 작은 조직에서의 의사결정은 모두 중앙집중화된다. 셋째, 생산경영의사결정에 대해 크기와 규모가 다르기 때문에 클 수록 더 뛰어난 컴퓨터와 프로그램이 필요하다. 작은 조직과 큰 조직의 차이점은 물리적인 흐름이 아니라 정보흐름과 의사결정과정에 있다.</p>
+<h2 id="3-production-management-technologies">3. Production Management Technologies</h2>
+<p>생산관리기술은 행동, 처리기술, 품질, 생산계획 및 통제 (PPC) 기술 등 여러가지가 있다.</p>
+<h3 id="31-evolution">3.1 Evolution</h3>
+<p>Taylor는 작업을 기반으로 생산관리의 기초를 다졌다. Gantt는 간트차트를 만들어 일정 계획의 기법을 개발하였다.</p>
+<h3 id="32-production-planning-and-control">3.2 Production Planning and Control</h3>
+<p>생산 계획과 통제는 생산시스템을 관리하기 위해 물질적 흐름과 정보의 흐름을 결합한다. PPC는 몇 개의 구성요소를 갖는다. 물리적인 흐름 경로애 맞게 요소를 위치시키고, 정보시스템을 이용하여 자재흐름으로 통합한다. 또한 수요 예측과 자재 구매로 외부환경과의 상호작용을 하고, 이는 공급체인관리 (supply chain management)로 알려져있다.
+PPC의 구성요소중 생산현장 자체에 관련이 있는 요소는 장기능력계획, 생산계획, 재고관리 등이 있다. 장기능력계획은 총괄계획에 의해 지원된다. 생산계획은 능력과 자재의 전반적 가능성을 고려하는 대일정계획으로 수요예측을 변환시킨다. PPC는 조직에 맞도록 목표를 유지하면서 편차를 관리하는 것이다. 하나의 요소만 최적화하는게 아니라 시스템 최적화를 목적으로 한다.</p>
+<h3 id="33-product-life-cycle">3.3 Product Life Cycle</h3>
+<p>제품수명주기는 제품 계획, 도입기, 성장기, 성숙기, 쇠티기 총 5단계로 구성되어있다. 수명주기나 개별단계의 길이는 모든 제품에 따라서 다르고, 단계별로 관리기술이 다르다.</p>
+<h3 id="34-appropriate-technology">3.4 Appropriate Technology</h3>
+<p>생산시스템은 복잡하다. 흐름의 종류, 기술의 수준, 크기 등 다양한 요소를 고려해야한다. 따라서 앞서 소개된 기술을 적절하게 섞어서 사용하는 것이 우리가 직면한 문제이다. 이것은 예술의 영역이다. 제품 계획과 도입기에서는 프로젝트 관리기법이 적당하고, 장기 계획과 능력 계획이 수립되어야 한다. 성장기 동안은 동적 변화에 중점을 둔 MRP 2를 도입하는 것이 적절하고, 세부 생산계획과 재고관리를 수행해야 한다. 성숙기에는 좀 더 정적인 모델에 무게를 두고, 쇠퇴기로 다시 동적인 모델이 필요하게 된다. 적절한 융합은 조직의 형태, 기술적 복잡성 또한 고려되어야 한다. PPC 시스템은 단순한 해를 찾기 위해 많은 노력을 들여야한다. 대부분의 경우 단순한 해가, 복잡한 해보다 정확하다. 그렇다고 얻을 수 있는 이익보다 많은 비용을 사용해서 시스템을 도입는 것은 지양해야한다.</p>
+<h2 id="4-decisions-in-production-systems">4. Decisions in Production Systems</h2>
+<p>조직은 관리도구나 컴퓨터가 아니라 의사결정을 하는 사람에 의해 운영된다.</p>
+<h3 id="41-planning-horizon계획-기간">4.1 Planning Horizon(계획 기간)</h3>
+<p>생산시스템에서의 의사결정은 계획기간에 달려있다. 보통 장기, 중기, 단기 계획으로 나눈다. 장기 계획(long planning horizon)는 전략적 계획이라고 부르는 수년간에 대한 계획이다. 전략적 의사결정이라고도 부르며, 생산시스템의 방향에 장기간 영향을 주고, 일관적이어야 한다. 중기 계획(medium planning horizon)은 한 달에서 일 년의 기간에 수립하는 계획으로, 전술적 계획이라고 부른다. 생산시스템에 대한 연간 목표를 수립한다. 단기 계획(short planning horizon)은 작업 계획으로 알려져 있으며, 몇 일, 몇 주, 몇 달의 짧은 기간에 대한 계획이다. 모든 계획은 미래지향적이며 현재의 의사결정이 미래의 결과를 결정한다고 가정한다. 3개의 계획 유형은 서로 의존적이고 계층적 관련성이 존재한다.</p>
+<h3 id="42-types-of-decisions">4.2 Types of Decisions</h3>
+<p>산업조직에서는 매일 수백 개의 의사결정이 이뤄진다. 생산시스템은 이 의사결정과정의 부분으로 조직계층, 시간, 주제에 대해서 분류된다. 최고경영자에 의한 의사결정은 생산라인 관리자의 의사결정과는 본질적으로 다르다. 전략적 의사결정은 최고 경영자, 전술적 의사결정은 중간관리자, 작업의사결정은 작업관리자가 한다. 즉, 최고경영자의 의사결정은 장기 계획을 위한 것이고, 관리자의 결정은 단기 계획을 위한 것이다.</p>
+<h2 id="5-summary">5. Summary</h2>
+<h1 id="ch2-market-driven-systems시장-위주-시스템">CH2 Market-Driven Systems(시장 위주 시스템)</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>1장의 고전적 경영이론은 산업화를 이끌었다. 하지만 새로운 산업환경에 대처하는 속도는 다소 느렸다. 이에 대처하기 위한 변화가 미국과 일본에서 발생되었다. 일본의 접근 방식은 미국회사의 약점을 비췄다. 많은 미국의 전문가들이 일본의 시스템을 배우기 위해 일본을 방문하였다. kanban, jidoka, poka yoka, kazien 등의 생산용어가 일본어로 되어있다. 서양인들은 일본의 장인(Masters)를 찾아갔다. 그곳에서 일본이 더 나은 시설과 미래지향적인 경영개념을 가진 것을 보았다. 그리고 일본 산업은 기술혁신 보다는 모방을 잘한다는 판단을 하였다. 일본의 많은 성공은 미국 기술과 경영기법에 바탕을 두고 있었다.<br>
+미국에서는 경쟁력을 되찾기 위해 기술 개발에 중점을 두었을 뿐만 아니라, 전통적인 생산시스템에 일본의 접근법을 도입하였다. 그 결과는 다음과 같다.</p>
+<ul>
+<li>현존하는 고전적 경영이론은 현재와 미래환경의 많은 문제를 극복하는 데 부적합하다.</li>
+<li>어떤 개념은 미래이론의 일부로 존재할 것이다.</li>
+</ul>
+<h2 id="2-the-wheel-of-competitiveness">2. The Wheel of Competitiveness</h2>
+<figure>
+    <img src="/images/2021/pp_01.png"/> 
+</figure>
+
+<p>Wheel of Competitveness는 미국 산업을 다시 부흥시키는데 요구 되는 몇가지 개념을 보여준다. 바퀴의 중심(hub)는 모든 미래시스템의 중심인 고객이다. 공급 서클(delivery circle)은 고객에 무엇을 공급해야하는지 보여준다. 지원 서클 (support circle)은 생산시스템에 의해 공급되는 것을 지원하는 데 필요한 개념이다. 영향 서클(impact circle)은 전체 조직에 대한 개념의 결과를 보여준다.</p>
+<h2 id="3-the-hubs">3. The Hubs</h2>
+<p>고객이 새로운 산업의 중심이다. 고전적 경영이론에도 고객의 개념은 존재했다. 그러나 고객의 중요성, 역할, 범위와 위치는 매우 변화하고 있다. 조직은 고객의 만족을 달성하기 위해 노력해야 한다. 고객 만족(customer service)는 많은 요소로 구성되어 있다. 평균적인 고객 만족 보다는 개별적으로 고객을 만족시켜야 한다. 생산자는 고객의 기대를 충족할 뿐만 아니라 그것을 상회해야한다. 고객의 범위 또한 변화하고 있다. 기존의 고객은 제품의 최종 사용자로 한정되어있었으나 제조, 조립또한 &lsquo;내부&rsquo;고객으로서 강조되고 있다.</p>
+<h2 id="4-the-delivery-circle공급-서클">4. The Delivery Circle(공급 서클)</h2>
+<p>가능한 낮은 원가를 유지하면서 적절한 시기에 우수한 품질의 제품을 공급해야한다. 독립적으로 목적을 달성하는 것은 쉽지만 세 가지를 동시에 만족시키는 것은 어렵다. 우리는 품질, 시간, 원가를 원형의 흐름으로 바라봐야 한다.</p>
+<h3 id="41-quality">4.1 Quality</h3>
+<p>품질은 전통적인 개념이고, 최근에 범위가 확대되고, 강조되었다. 일반적 정의는 &lsquo;규격에 대한 적합성&rsquo;이다. 그러나 고객의 입장에서 품질은 가치의 개별적 인식, 성능, 판매 전후의 서비스, 보증 등을 포함하는 문제이다.<br>
+모든 측면을 인식하는 새로운 접근이 나타난다. 제품 측면에서 불량을 측정함으로서 품질을 측정한다. 과거에는 100개 중 3 개의 불량이 나타나도 좋은 품질이었으나, 첨단 산업에서는 100만분의 100도 허용하지 않는다. 제품품질 뿐만 아니라 생산, 지원(구매, 회계), 엔지니어링, 연구개발, 서비스활동 모두가 품질에 포함된다. 품질은 하나의 포용개념이고, 생산시스템의 각 요소들은 완벽을 위해 노력해야한다. 현대의 품질은 고객 위주로 작동한다. 품질 개선이 원가를 상승시킨다는 개념에 반해서 새로운 산업사회에서는 개선됨 품질이 원가를 내린다.</p>
+<h3 id="42-time">4.2 Time</h3>
+<p>시간은 복합적인 개념으로 작용된다. 길이 척도로서의 시간과 목표로서의 시간이 연관되어져있다. 공급, 리드타임은 제품 주문에서부터 고객이 제품을 받을때 까지 필요한 시간의 길이이다. 공급날짜는 공급을 약속한 목표 날짜이다. 시간을 단축하는 것이 공급-고객 체인의 모든 구성요소에 영향을 미치게 된다. 보통 원자재의 리드타임을 단축하거나 운영시간을 줄여서 시간을 단축한다. 새로운 산업세계가 되면서 시간 단축은 더욱 강조된다. 시간은 고객 만족에 중요한 요소기 때문이다. 그로인해 현재는 공급이 고객만족을 보장하기 위해 시스템을 통해 강제적으로 운영된다. 그만큼 시간 개념은 신뢰성과 일관성과 관련지을 수 있다. 일관적으로 시간 단축을 하여 고객의 기대를 지속적으로 상회할 수 있어야 한다.<br>
+시간은 생산시스템 뿐만 아니라 전체 경영에 영향을 미친다. time-to-market과 타이밍은 제품개발에 결정적이다. 미국 자동차회사의 신제품 시장출하기간은 5년인데 비해 일본은 3년이다.</p>
+<h3 id="43-cost">4.3 Cost</h3>
+<p>제품의 가격이 소비자에게는 원가가 된다 하더라도, 제품과 관련된 모든 비용의 총액을 말하는 것은 아니다. 제품 가격은 원가에 이익을 더한다. 즉, 원가와 가격은 별개이다. 원가는 자원 사용의 척도로 정의하고, 내부척도로서 조절 할 수 있다. 반면, 가격은 정책의 문제이고, 이윤폭, 시장경쟁 등에 영향을 받는다. 다만, 원가가 낮을수록 판매는 유연해지고, 경쟁력을 가질 수 있는 가격정책을 조정할 수 있다.<br>
+전통적인 원가는 회사의 지배적인 척도로 원가관리가 중요 업무였다. 그러나 이제는 원가절감이 더 중요하게 되었고, 원가는 원가절감을 추적하는 데 이용되는 척도이다.</p>
+<h3 id="44-conclusions">4.4 Conclusions</h3>
+<p>품질, 시간, 원가의 결합은 경쟁력을 위한 핵심 요소이다.</p>
+<h2 id="5-the-support-circle">5. The Support Circle</h2>
+<p>제조시스템의 목적(품질, 시간, 원가)을 달설하기 위해 여러가지 방법들이 제안되고 있다. 이 제안들, 제안들의 결합은 어떠한 개념을 나타내는데, 지원서클에서 볼 수 있다. 어떤 개념들은 오래된 것이고, 또 어떤 개념들은 새로운 것이다. 이들은 각각은 실행하기위해 도구와 기법들이 존재한다.</p>
+<h3 id="51-scope">5.1 Scope</h3>
+<p>기업의 범위는 포괄적으로 재정의 되고있다. 고객과 공급자까지 기업의 범위 안에 포함되고 있다. 고객은 단순소비자가 아니라 생산소비자가 되었고, 공급자는 경쟁관계에서 팀의 일원이 되었다.</p>
+<h3 id="52-integration">5.2 Integration</h3>
+<p>통합의 의미는, 각각의 요소에 대한 최적화가 아니라 시스템 전체에 대해 최적화를 추구하는 것을 의미한다. 통합을 함으로서 원가절감과 품질향상을 도모할 수 있다. 심지어 디자인 선정에 있어서도 디자이너의 견해만을 따르지 않는다. 유사한 제품을 생산하는 설비들을 통합하는 경우도 있고, 정보를 모든 이용자가 얻을 수 있도록 정보를 통합할 수도 있다.</p>
+<h3 id="53-flexibility">5.3 Flexibility</h3>
+<p>고객은 유연함을 원한다. 수요에서의 변동, 제품의 다양성, 신제품등을 원한다. 유연성은 생산시스템이 신제품을 빠르게 추리하고, 수요에 맞춰 제품의 수량이 적절하게 맞춰지도록 요구한다. 이러한 요구로 인해 대량생산은 더 이상 좋은 방법이 아니게 되었다. 유연성의 실행은 생산현장에서 많은 변화를 이끈다. 다른 제품으로 생산시설을 변경하는 시간을 시간 단위에서 분 단위로 내리고, 신제품의 시장출하시간은 년 단위에서 월 단위로 변화하고 있으며, 생산시설에서 동시에 여러 제품들을 제조하고 있다.</p>
+<h3 id="54-design">5.4 Design</h3>
+<p>생산원가와 품질의 대부분은 디자인 측면에서 결정된다. 디자인과 제품개발은 분리되어있지않고, 다른 요소의 전문가, 고객, 제조가 상호작용한다. 고객에게 다양한 제품을 빠르고, 낮은 원가로 공급하기 위해 디자인은 통합을 통해 개발된다.</p>
+<h3 id="55-simplicity">5.5 Simplicity</h3>
+<p>새로운 생산시스템에서 단순성은 중요하다.</p>
+<ul>
+<li>단순한 것은 보다 많은 사람들에 의해 이해된다.</li>
+<li>단순한 상황은 단순한 해법을 이용할 수 있게 한다.<br>
+새로운 생산환경은 그 자체가 복잡하다. 복잡한 기술을 사용하기 전에 문제를 단순화하여 덜 비싼 해법으로 수정할 수 있도록 해야한다.</li>
+</ul>
+<h3 id="56-variability">5.6 Variability</h3>
+<p>제품, 크기, 제조공정, 공급시간, 품질 수준 등 모든 것이 다르다. 분산을 통제하고 운영하기 위해 통계적 기법을 사용한다. 분산을 최소화 시켜서 최대한 단순화 시키려고 노력한다. 분산은 줄이면 상당한 혜택을 거둘 수 있으나 많은 노력이 필요하다.</p>
+<h3 id="57-pull청구식">5.7 Pull(청구식)</h3>
+<p>전통적으로 생산공정의 규칙은 추진식 생산(push production)이었다. 생산라인을 따라 어떤 사건이 일어나건 관계없이 계획대로 생산을 진행하였다. 기계고장, 지연 발생이 되더라도 생산은 유지되었고, 그 결과 혼잡과 장애가 나타났다. 생산시스템이 시장위주방식으로 바뀌면서 규칙은 청구식 생산(pull production)으로 바뀌었다. 하향 방식에서 요청될 때에만 상향 방식으로 생산하는 방식이다. 정보의 요청이 없다면 생산공정은 아무 것도 시작할 수 없다.</p>
+<h3 id="58-wastevalue">5.8 Waste/Value</h3>
+<p>고객은 낭비가 아닌 가치를 얻기 위해 기꺼이 돈을 지불한다. 제조 상황에서 낭비는 어떠한 자원을 고객이 평가하는데 필요한 양 이상으로 소비하는 것이다. 낭비를 줄이거나 제거하는 것은 샏샂시스템의 주요 목표와 직접적인 상관이 있다. 낭비는 시간, 돈, 노력의 세 가지 형태로 발생한다.<br>
+생산활동은 가치추가활동과 비용추가활동 2개의 범주로 분류된다.  가치-추가 활동(value-adding activity)은 원자재를 최종제품으로 바꾸는 변활 활동이다. 여기서 낭비는 과도한 자원의 이용이다. 비용-추가 활동(cost-adding activity)은 원활한 작업을 가능하게 하거나 생활을 용이하게 하는 것이다.</p>
+<h3 id="59-improvement">5.9 Improvement</h3>
+<p>경쟁적인 시장상황은 개선의 중요한 개념을 만들었다. 통합개선과 지속적인 개선 2가지 아이디어를 이용해 개선을 해야한다.</p>
+<ul>
+<li>통합 개선 : 개선과정은 복합적인 과정이다. 품질, 시간, 원가 세가지 측면이 모두 개선되어야 한다. 전체적인 접근법을 취해 개선을 해야한다.</li>
+<li>지속적인 개선 : 개선은 지속적인 과정으로 순환과정을 이루면서 또 다른 개선을 가져온다.<br>
+지속적은 개선 과정은 카이젠(Kaizen)이라 부르며, 진행중인 노력의 결과로 나타난 작은 개선을 의미한다. 반면, 기술 혁신은 현상태에서 극적인 개선을 포함한다. 개선은 지속적이어야한다. 자기만족으로 개선을 멈추면 안된다.</li>
+</ul>
+<h3 id="510-management-role">5.10 Management Role</h3>
+<p>인간요소는 가장 중요한 자원이다. 경영은 기존의 생산시스템을 변화하는 시스템에 맞게 바꿔야한다. 그 과정에서 사람들을 감독해야하고, 긍정적으로 변화를 촉진해야한다.</p>
+<ul>
+<li>언급 : 새로운 개념에 대해 가장 먼저 언급하여, 현 상태를 깨트린다.</li>
+<li>참여 : 경영은 과정의 일부가 되어야한다. 변화는 위에서 시작하고, 조직을 통하여 변화과정의 요소가 되어야 한다.</li>
+<li>목표 : 경영은 특별한 목표를 설정해야 한다. 그래야 최상의 결과를 얻을 수 있다.
+경영이 제조실적에 50 ~ 100%의 영향을 미치는 것으로 나타난 만큼, 경영의 역할은 중요하다.</li>
+</ul>
+<h3 id="511-employee-role">5.11 Employee Role</h3>
+<p>직원은 변환과정과 작업형태의 일부가 되어야 한다. 종업원은 문제 해결에 참여하여 좋은 아이디어를 생성할 수 있고, 본인의 기술을 상승시켜 새로운 기술을 활용할 수 있어야 한다.</p>
+<h2 id="6-the-impact-circle영향원">6. The Impact Circle(영향원)</h2>
+<p>영향원은 조직에서 중요한 문화변화에 의해 나타난다. 조직문화란 경영시스템의 기초로서 제공되는 우선적인 가치, 신념, 그리고 원칙을 뜻한다. 조직문화는 능률을 추구하는 것에서 보다 넓은 의미에서 효과를 추구하는 것으로 변화해야한다. 이러한 변화는 상당한 기간이 걸리고, 어려운 일이다. 갑작스런 조정은 실패하기 쉽다.</p>
+<h2 id="7-production-system-objective생산시스템-목적">7. Production System Objective(생산시스템 목적)</h2>
+<p>생산시스템의 주요 목적은 고객 만족을 지속적으로 증가하는 방향으로 최대기여를 하는 것이다. 이 목적에서 생산시스템의 운영 목적이 도출된다. 항상 최상의 품질과, 가장 낮은 가격의 제품을 항상 정해진 시간에 공급하는 것이 운영 목적이 된다. 단순하게 보이지만 동시에 달성하는 것은 매우 어렵다.</p>
+<h2 id="8-from-concept-to-implementation">8. From Concept to Implementation</h2>
+<p>생산시스템을 위한 개념들을 실제 어떻게 적용되는지 볼 것이다.  Wheels of Competiveness의 개념과 관련이 있음을 알 수 있다. 우리는 통합생산시스템의 세 가지 특수한 실행인 CMS, FMS, CIM을 제시한다.</p>
+<h3 id="81-overview-integrated-production-systems">8.1 Overview: Integrated Production Systems</h3>
+<p>무엇이 통합생산인가? 각 부분, 집단 사이의 통합이 필요하다. 경영자는 기업을 운영하기 위하여, 알고리즘과 의사결정도구를 사용하여 각각의 팀들이 조화를 이룰 수 있도록 한다. 기계활동을 통합하는 것이 아니라 전체 시스템을 통합하는 것이 통합생산이다.</p>
+<h3 id="82-aspects-of-integrated-production-systems">8.2 Aspects of Integrated Production Systems</h3>
+<h4 id="821-integration-niche통합적소">8.2.1 Integration Niche(통합적소)</h4>
+<p>통합이 상당한 이점을 가져올 수 있는 상황을 뜻한다. 통합적소의 적용으로 기대되는 개선은 유연성이 필요한 중간-다양성, 중간-수량 범위에 있다. 많은 이약과 함께 많은 종류의 부품을 생산하기 위한 것에 있다. JIT와 같은 새로운 기술과 경영기법이 이 범위에 스며들고 있다.</p>
+<h4 id="822-integration-essence통합요소">8.2.2 Integration Essence(통합요소)</h4>
+<p>시스템 수준에서 통합은 물리적 통합과 정보통합으로 나뉜다. 물리적 통합은 생산현장 (layout)에서 장비의 정확한 배치와 자재운반 장비가 적절하게 운용됨으로 달성된다. 정보통합은 개체의 거리에 상관없이 정보가 개체들 사이로 흐르는 것이다.  이러한 흐름은 통합목적을 위한 기초이다.</p>
+<h4 id="823-integration-strategy통합전략">8.2.3 Integration Strategy(통합전략)</h4>
+<p>통합은 하향식 또는 상향식 방법으로 테스트 할 수 있다. 전자는 완전한 시스템으로서 기업체계를 바라본다. 반면, 후자는 통합에서와 같이 구성요소와 대응을 본다. 현재 통합생산시스템에는 3가지 접근 방법이 존재하는데, 셀룰로제조시스템(CMS)은 상향식, 컴퓨터통합생산(CIM)은 하향식, 유연생산시스템(FMS)는 그 중간에 있다.</p>
+<h3 id="83-integrated-production-systems-design통합생산시스템-디자인">8.3 Integrated Production Systems Design(통합생산시스템 디자인)</h3>
+<h4 id="831-cellular-manufacturing-systems-cms">8.3.1 Cellular Manufacturing Systems (CMS)</h4>
+<p>CMS에서 생산은 제조나 조립셀을 조직하는 것이다. 셀은 유인셀과 무인셀이 있다. 유안셀은 다양한 종류의 기계를 운영할 수 있는 인력이 있고,  무인셀은 그들이 로봇에 의해 대체된다. CMS에서 기초는 부품들을 유사한 집단으로 분류하는 과정(Group Technology, GT)이다. 유인셀에서는 U-형의 배치로 조직되고, 무인셀에서는 U-형 또는 원형의 배치를 통하여 달성된다.</p>
+<h4 id="832-flexible-manufacturing-systems-fms">8.3.2 Flexible Manufacturing Systems (FMS)</h4>
+<p>FMS는 생산현장작업 및 통제를 위한 기술이다. 생산현장을 작업환경의 변경에 빠르고, 경제적으로 적응하게 하는 것이다. FMS는 기술의 발전 없이는 불가능하다. 이용하는한 기술에 의해 운영되지 않는다. 또한 정보흐름의 관점에서 FMS은의 성공은 리얼타임 상태의 데이터를 수집하고 반응하는 데에 있다. 관리시스템은 이 데이터에 근거하여 계획과는 다른 상황이 발생할 때 조절하여야 한다.</p>
+<h4 id="833-computer-integrated-manufacturing-cim">8.3.3 Computer Integrated Manufacturing (CIM)</h4>
+<p>CIM은 CMS나 FMS보다 넓은 범위 이다. 컴퓨터 통합 뿐만아니라 생산시스템 모둔 부분의 통합 정도를 의미한다. 생산의 모든 기능은 하나의 컴퓨터 데이터베이스에 저장되어있고, 데이터는 조직 내 여러 부서에 제공된다. 이론상 자재는 버튼하나로 들어가고 나온다. 책에서는 CIM를 다음과 같이 정의한다.<br>
+CIM은 제품개발, 디자인과 제조를 가진 경영기능을 조화하기 위해 컴퓨터, 통신, 정보기술을 이용하는 경영철학이다. 목적은 고수준의 품질, 정시공급과 저원가를 달성하기 위해 보다 나은 경쟁적 위치를 얻기 위한것이다.<br>
+FMS는 기본적으로 생산 현장, 부분적 통합을 다루고, CIM는 전체적 통합을 다룬다.</p>
+<h4 id="834-benefits-of-integrated-production-systems">8.3.4 Benefits of Integrated Production Systems</h4>
+<p>경잭력 바퀴의 요소에 요소인 혜택들이 생긴다. 리드타임은 단축되고, 공급시기를 맞추고, 유연성, 재공품 감소, 준비 시간 감소, 좋은 품질, 개선 등의 혜택이 생긴다. 통합생산시스템 중에서 자본투자 없이 제조공정을 통합할 수 있는 셀롤러제조가 가장 많이 사용된다.</p>
+<h3 id="84-integration-process">8.4 Integration Process</h3>
+<p>통합과정은 제품과 시스템의 디자인에 관한 것일 수도있고, 시스템 운영에 관한 것일 수도 있다.</p>
+<h4 id="841-teamwork">8.4.1 Teamwork</h4>
+<p>조직은 기계가 아닌 사람이 운영한다. 사람은 조직에서 가장 중요한 자원이다. 인간요소는 당연하게도 통합과정의 기초이다. 목적을 달성하기 위해 팀을 수립함으로써 사람들을 통합과정에 넣는다. 팀 미팅은 물리적 통합을 다른 팀들과의 정보 공유는 종보통합을 제공한다. 팀워크는 조직 내의 장애물을 제거하는 것으로, 폭넓은 접근과 경영과정의 부분이 통합되는 데 의의를 갖는다.</p>
+<h4 id="842-concurrent-engineering동시공학">8.4.2 Concurrent Engineering(동시공학)</h4>
+<p>Simultaneous engineering 또는 life cycle engineering으로 알려져있는 동시공학의 정의는 다음과 같다<br>
+동시공학은 제조와 지원을 포함한 제품의 통합, 동시개발과 그들에 관련된 공정에 대한 체계적 접근이다. 이 접근은 개발자로 하여금 착상에서 폐기까지 품질, 원가, 일정계획, 그리고 사용자 요구사항을 포함하여 제품수명주기의 모든 요소를 처음부터 고려하게 했다.<br>
+동시공학은 제품과 공정디자인의 순차적 과정을 병렬로 바꾸었다. 동시에 고려되는 것이 디자인과 제조사이의 기능적인 장애를 제거하게 만든다. 동시공학은 시장출하시간을 단축시켜 낮은 원가와 높은 품질을 가진 제품을 만들게된다.</p>
+<h4 id="843-total-quality-management-tqm">8.4.3 Total Quality MAnagement (TQM)</h4>
+<p>TQM은 전 조직을 품질에 집중한 문화이다. 조직활동의 모든 측면에 우수함을 달성하기 위한 활동이다. 모든 수준에서 작업에 모든 조직 구성원을 포함한다. TQM은 기법이라기 보다는 경영철학이다. TQM은 SQC(statistical quality control), TQC(total quality control), TQM(total quality management) 세가지 단계로 전개된다.</p>
+<h2 id="9-world-class-manufacturing-wcm">9. World Class Manufacturing (WCM)</h2>
+<p>월드클래스는 새로운 시장의 동적인 영향을 나타내고, 성공적인 산업에서 발생하는 주요한 변화의 본질과 폭을 나타내고 있다. 정의는 항상 논란의 여지가 있으나 Hayes의 정의는 다음과 같다.</p>
+<ul>
+<li>최고의 경쟁자가 되는 것 : 적어도 제조의 한 측면에서 다른 회사보다 뛰어나야한다.</li>
+<li>경쟁자보다 이익이 많을 것</li>
+<li>가장 좋은 사람을 고용하고 유지하기</li>
+<li>가장 상급의 기술을 개발할 것</li>
+<li>시장상황에 따라 빠르고, 반응할 수 있게 한다</li>
+<li>제품과 공정공학 접근을 채택하여 실적을 최대화한다</li>
+<li>꾸준한 개선</li>
+</ul>
+<p>월드클래스 제조 기업은 지속적으로 증가하는 고객만족이라는 목적을 구독하고, 운영 목적 - 품질, 시간, 원가결합(QTCC) 을 받아들인다; 보조개념을 받아들이고, 장기간 변화 과정이 조직에 영향 그 자체에 전념한다.</p>
+<h3 id="91-lean-production린-생산">9.1 Lean Production(린 생산)</h3>
+<p>린 생산은 MIT에서 나온 용어이다. 수공업과 대량생산의 장점만을 결합해서 전자의 높은 원가와 후자의 유연성을 배제하한 것이다. 조직의 모든 수준에서 상호학제전인 팀을 이용하는 것이 기초적인 개념이다. 린 생산은 앞에서 소개한 많은 개념과 과정을 활용한 것이다. 대량생산에 비해 인력이 적게 들고, 적은 제조공간과 새로운 제품을 개발하기 위한 공학시간의 단축을 위해 개발되었다. 그리고 실적에 목표를 두고, 무결점, 원가 절감, 유연성, 제품 다양성을 추구하는 점에서 대량생산의 목적과 다르다.</p>
+<h3 id="92-agile-manufacturing민첩-제조">9.2 Agile Manufacturing(민첩 제조)</h3>
+<p>민첩 제조는 &ldquo;21세기 제조 기업전략&quot;이라는 논문에서 나왔다. Wheels of Competiveness에서 많은 개념을 차용하고 있다. 민첩 제조의 개념은 아직 정해진 표준이 없고, 다 개발되지 않았지만 다음 세기에서 제조 기업의 주요한 방법으로 사용될 것으로 보인다.</p>
+<ul>
+<li>보다 많은 제품의 주문생산 - 그러나 비교적 낮은 원가</li>
+<li>시장에서 단기간의 기회를 이용하기위해 제휴, 가상기업 등의 방법을 통한 신제품의 빠른 출시</li>
+<li>분해, 재생, 재구성을 위해 디자인 된 업그레이드가 가능한 제품</li>
+<li>고객과의 상호작용</li>
+<li>갑작스러운 변화에 대응하기 위한 생산공정의 동적 재구성</li>
+<li>환경 친화적 제품</li>
+</ul>
+<h3 id="93-lean-versus-agile">9.3 Lean Versus Agile</h3>
+<p>린생산은 생산현장과 관련이 있는 반면, 민첩제조는 기업체계와 관련이 있다. 게다가 린생산은 대량생산을 증진시키기 위한 것으루 간주되는 측면도 있지만 민첩생산은 대량생산 아니라 재품 다양성에 목적이 있다. 두 방법의 차이점보다 중요한 것은 두 방법 모두 wheels of competiveness에 기초를 두고 있다는 점이다.</p>
+<h2 id="summary">Summary</h2>
+
+  
+    
+    <div class="post-toc">
+      <span class="title">Contents</span>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-global-production세계화-생산">1. GLOBAL PRODUCTION(세계화 생산)</a>
+      <ul>
+        <li><a href="#11-evolution-of-production-systems생산시스템의-발전">1.1 Evolution of Production Systems(생산시스템의 발전)</a></li>
+        <li><a href="#12-the-competitive-environment">1.2 The Competitive Environment</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-production-systems">2. Production Systems</a>
+      <ul>
+        <li><a href="#21-the-flow-process">2.1 The Flow Process</a></li>
+        <li><a href="#22-building-blocks">2.2 Building Blocks</a></li>
+        <li><a href="#23-technology">2.3 Technology</a></li>
+        <li><a href="#24-size-of-organization">2.4 Size of Organization</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-production-management-technologies">3. Production Management Technologies</a>
+      <ul>
+        <li><a href="#31-evolution">3.1 Evolution</a></li>
+        <li><a href="#32-production-planning-and-control">3.2 Production Planning and Control</a></li>
+        <li><a href="#33-product-life-cycle">3.3 Product Life Cycle</a></li>
+        <li><a href="#34-appropriate-technology">3.4 Appropriate Technology</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-decisions-in-production-systems">4. Decisions in Production Systems</a>
+      <ul>
+        <li><a href="#41-planning-horizon계획-기간">4.1 Planning Horizon(계획 기간)</a></li>
+        <li><a href="#42-types-of-decisions">4.2 Types of Decisions</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-summary">5. Summary</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-introduction">1. Introduction</a></li>
+    <li><a href="#2-the-wheel-of-competitiveness">2. The Wheel of Competitiveness</a></li>
+    <li><a href="#3-the-hubs">3. The Hubs</a></li>
+    <li><a href="#4-the-delivery-circle공급-서클">4. The Delivery Circle(공급 서클)</a>
+      <ul>
+        <li><a href="#41-quality">4.1 Quality</a></li>
+        <li><a href="#42-time">4.2 Time</a></li>
+        <li><a href="#43-cost">4.3 Cost</a></li>
+        <li><a href="#44-conclusions">4.4 Conclusions</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-the-support-circle">5. The Support Circle</a>
+      <ul>
+        <li><a href="#51-scope">5.1 Scope</a></li>
+        <li><a href="#52-integration">5.2 Integration</a></li>
+        <li><a href="#53-flexibility">5.3 Flexibility</a></li>
+        <li><a href="#54-design">5.4 Design</a></li>
+        <li><a href="#55-simplicity">5.5 Simplicity</a></li>
+        <li><a href="#56-variability">5.6 Variability</a></li>
+        <li><a href="#57-pull청구식">5.7 Pull(청구식)</a></li>
+        <li><a href="#58-wastevalue">5.8 Waste/Value</a></li>
+        <li><a href="#59-improvement">5.9 Improvement</a></li>
+        <li><a href="#510-management-role">5.10 Management Role</a></li>
+        <li><a href="#511-employee-role">5.11 Employee Role</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-the-impact-circle영향원">6. The Impact Circle(영향원)</a></li>
+    <li><a href="#7-production-system-objective생산시스템-목적">7. Production System Objective(생산시스템 목적)</a></li>
+    <li><a href="#8-from-concept-to-implementation">8. From Concept to Implementation</a>
+      <ul>
+        <li><a href="#81-overview-integrated-production-systems">8.1 Overview: Integrated Production Systems</a></li>
+        <li><a href="#82-aspects-of-integrated-production-systems">8.2 Aspects of Integrated Production Systems</a></li>
+        <li><a href="#83-integrated-production-systems-design통합생산시스템-디자인">8.3 Integrated Production Systems Design(통합생산시스템 디자인)</a></li>
+        <li><a href="#84-integration-process">8.4 Integration Process</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-world-class-manufacturing-wcm">9. World Class Manufacturing (WCM)</a>
+      <ul>
+        <li><a href="#91-lean-production린-생산">9.1 Lean Production(린 생산)</a></li>
+        <li><a href="#92-agile-manufacturing민첩-제조">9.2 Agile Manufacturing(민첩 제조)</a></li>
+        <li><a href="#93-lean-versus-agile">9.3 Lean Versus Agile</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+    <div style='padding:15px;'>
+    </div>
+    
+  </section>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:uqpuark@gmail.com">uqpuark</a>
+      
+      님이
+      <span class="highlight">2021년 04월 09일 14시 37분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div style="padding-left: 16px">
+    데이터 사이언티스트를 꿈꾸고 있습니다. 수학, 통계학에 대한 질문이나 의견을 나누고 싶습니다. 
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">[카테고리]</span>
+        
+        
+        <a href="https://uqpuark.github.io/categories/21%EB%85%84%EB%8F%84-1%ED%95%99%EA%B8%B0">#21년도 1학기</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">[태그]</span>
+        
+        
+        <a href="https://uqpuark.github.iotags/%EC%83%9D%EC%82%B0%EA%B3%84%ED%9A%8D">#생산계획</a>
+        
+        <a href="https://uqpuark.github.iotags/daniel-sipper">#Daniel Sipper</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://uqpuark.github.io/math/pma_ch2_exercise/" rel="prev">
+          <span>[해석학] CH2 문제</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="uqpuark/uqpuark.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  <div class="share">
+      <a href="https://github.com" title="Github" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+  </div>
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
+
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+</footer>
+</body>
+</html>

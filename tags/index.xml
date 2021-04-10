@@ -8,20 +8,20 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Wed, 24 Mar 2021 10:36:36 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Apr 2021 14:37:02 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>통계</title>
-      <link>https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84/</link>
-      <pubDate>Wed, 24 Mar 2021 10:36:36 +0900</pubDate>
+      <title>Daniel Sipper</title>
+      <link>https://uqpuark.github.io/tags/daniel-sipper/</link>
+      <pubDate>Fri, 09 Apr 2021 14:37:02 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>
-      <guid>https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84/</guid>
+      <guid>https://uqpuark.github.io/tags/daniel-sipper/</guid>
       <description></description>
     </item>
     
     <item>
       <title>생산계획</title>
       <link>https://uqpuark.github.io/tags/%EC%83%9D%EC%82%B0%EA%B3%84%ED%9A%8D/</link>
-      <pubDate>Thu, 18 Mar 2021 14:19:34 +0900</pubDate>
+      <pubDate>Fri, 09 Apr 2021 14:37:02 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/tags/%EC%83%9D%EC%82%B0%EA%B3%84%ED%9A%8D/</guid>
       <description></description>
@@ -30,9 +30,18 @@
     <item>
       <title>해석학</title>
       <link>https://uqpuark.github.io/tags/%ED%95%B4%EC%84%9D%ED%95%99/</link>
-      <pubDate>Wed, 17 Mar 2021 20:59:54 +0900</pubDate>
+      <pubDate>Fri, 02 Apr 2021 21:01:02 +0900</pubDate>
       <author>uqpuark@gmail.com (uqpuark)</author>
       <guid>https://uqpuark.github.io/tags/%ED%95%B4%EC%84%9D%ED%95%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>통계</title>
+      <link>https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84/</link>
+      <pubDate>Wed, 24 Mar 2021 10:36:36 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/tags/%ED%86%B5%EA%B3%84/</guid>
       <description></description>
     </item>
     

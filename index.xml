@@ -8,7 +8,25 @@
     <language>ko-KR</language>
     <managingEditor>uqpuark@gmail.com (uqpuark)</managingEditor>
     <webMaster>uqpuark@gmail.com (uqpuark)</webMaster>
-    <lastBuildDate>Wed, 24 Mar 2021 10:36:36 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Apr 2021 14:37:02 +0900</lastBuildDate><atom:link href="https://uqpuark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[생산계획] 1~3장 요약</title>
+      <link>https://uqpuark.github.io/2021_01/pp_summary/</link>
+      <pubDate>Fri, 09 Apr 2021 14:37:02 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/2021_01/pp_summary/</guid>
+      <description>CH1 THE PRODUCTION PARADIGM(생산 패러다임) 생산시스템은 현대사회에서 중요하다.</description>
+    </item>
+    
+    <item>
+      <title>[해석학] CH2 문제</title>
+      <link>https://uqpuark.github.io/math/pma_ch2_exercise/</link>
+      <pubDate>Fri, 02 Apr 2021 21:01:02 +0900</pubDate>
+      <author>uqpuark@gmail.com (uqpuark)</author>
+      <guid>https://uqpuark.github.io/math/pma_ch2_exercise/</guid>
+      <description>2018170865 산업경영공학부 박재현 Exercise 1. Prove that the empty set is a subset of every set.</description>
+    </item>
+    
     <item>
       <title>[범주형자료분석] CH02. Analyzing Contingency Tables </title>
       <link>https://uqpuark.github.io/2021_01/cda_ch02/</link>
