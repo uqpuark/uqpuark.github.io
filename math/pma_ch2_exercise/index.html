@@ -268,6 +268,114 @@ K의 limit points는 \( 0, 1, 1/2, 1/3, \cdots  \).<br>
 \( \forall n,\ \{K_n\} \supset \{K_{n+1}\} \)</p>
 <p>\( \forall x \in \bigcap_{n=1}^\infty K_n \rightarrow 0 &lt; x &lt; {1 \over n}  \).
 따라서 \( \bigcap_{n=1}^\infty K_n = \varnothing \).</p>
+<h3 id="16">16.</h3>
+<ol>
+<li>
+<p>\( \exist B(p, 1) \text{ such that } E \in B(p,1) \Rightarrow E \text{ is bounded }\)</p>
+</li>
+<li>
+<p>\(q\)를 limit point of E라 하자.<br>
+\(\sqrt{2} \le q \le \sqrt{3}\)에서, \(\mathbb{Q}\)는 dense이므로, \(\forall q,\ \exist r \in \mathbb{Q} \text{ such that } r \in B(q, \epsilon)\)<br>
+\( -\sqrt{3} \le q \le -\sqrt{2}\)에서도 마찬가지이다.
+따라서 \(E\) is closed.</p>
+</li>
+</ol>
+<blockquote>
+<p>\(\epsilon \in \R\)이면 입실론과 q사이에 항상 유리수가 존재하므로 limit point이다.</p>
+</blockquote>
+<ol start="3">
+<li>
+<p>\( G_\alpha = { p : 2+{1\over n+1} &lt; p &lt; 2+{1\over n} } \)로 잡자. \( {G_\alpha} \)은 E의 open cover인데, no finite subcover이다.<br>
+따라서 \(E\)는 not compact.</p>
+</li>
+<li>
+<p>\( \epsilon &lt; \min(\sqrt{|p^2-2|},\sqrt{|3-p^2|})\)로 잡으면,<br>
+\( \forall  q \in B(p,\epsilon)\)에 대해 \( q \in E \subset \mathbb{Q} \)이다.
+따라서 E는 open이다.</p>
+</li>
+</ol>
+<h3 id="17">17.</h3>
+<ol>
+<li>Countable?</li>
+</ol>
+<p>\( x_n \in [0,1]\) : \(x_n\)의 n번째 소수점이 4라고 하자. (\(x_{n,n}=4\))라고 하면<br>
+\( x_1 = 0.4xxxxx\cdots \)<br>
+\( x_2 = 0.x4xxxxx\cdots \)<br>
+\( x_3 = 0.xx4xxxx\cdots \)<br>
+\( x_4 = 0.xxx4xxx\cdots \)<br>
+\(\vdots\)<br>
+\( x_n \sim \mathbb{N} \)</p>
+<p>\(x = 0.77777\cdots \)은 \( {x_n} \)의 원소가 아니다. 따라서 E는 uncountable.</p>
+<ol start="2">
+<li>Dense?</li>
+</ol>
+<p>\( E \subset [0.4,0.8] \), \(0.1\) is not limit point of E nor point of E<br>
+따라서 E는 not dense.</p>
+<ol start="3">
+<li>Compact?</li>
+</ol>
+<p>\( [0,1] \subset \R^1 \), closed.
+Thm 2.35 : Closed subset of compact set are compact에 의해서 [0,1]은 compact.<br>
+같은 논리로 E가 closed임을 보이면 증명된다.</p>
+<p>\(x\)는 소수점에 4,7 외의 숫자가 포함되어있는 숫자라고 하자.<br>
+\(x\)의 k번째 소수점의 숫자가 4, 7이 아닌 숫자라고 가정한다면, \( \epsilon=10^{-k-2}, B(x, \epsilon) \)의 모든 점의 k번째 소수점은 x와 같다.
+따라서 \(x\)는 interior point of E이므로, \( E^c \)는 open.</p>
+<ol start="4">
+<li>Perfect?</li>
+</ol>
+<p>3번에 의해 E는 closed임으로 모든 점이 limit point임을 보이면 된다.<br>
+\( p \in E \)에 대해, \(10^{-k} &lt; \epsilon \)인 \( B(p, \epsilon) \)을 잡자.
+\(q = \begin{cases} p + 3\times 10^{-k-2} &amp; \text{ if p의 (k+2)th 소수점이 4 } \\\ p - 3\times 10^{-k-2}  &amp; \text{ if p의 (k+2)th 소수점이 7 } \end{cases} \)<br>
+\( \forall q, q \ne p,\ q \in E,\ q \in B(p,\epsilon)\)이므로 E는 perfect.</p>
+<h3 id="18">18.</h3>
+<p>\( E \)는 \( [-\pi,\pi] \)에서의 칸토어 셋이라고 하자.
+\( E_0 = [-\pi,\pi] \)</p>
+<p>\( E = \bigcap E_n \)이고, 칸토어 셋이므로 perfect이고, nonempty이다.</p>
+<p>이 때, interval end point는 모두 무리수이므로 조건을 만족하는 집합이 존재한다.</p>
+<h3 id="19">19.</h3>
+<p>(a)</p>
+<p>\( A = \bar{A} \), \( B = \bar{B} \). 즉, \( A \cap \bar{B} = \varnothing \), \( \bar{A} \cap B = \varnothing \).</p>
+<p>(b)</p>
+<p>\( A \cap \bar{B} \ne \varnothing \)라고 가정하자.<br>
+\( x \in A \cap \bar{B} \), x는 limit point of B.<br>
+\( x \in A \) A는 open이므로 B(x, r)의 모든 원소는 A의 원소여야한다.</p>
+<p>반면, 위 2개는 \( A\cap B\)라는 조건에 모순이다.<br>
+따라서 증명된다.</p>
+<p>(c)</p>
+<p>\( A \cap B = \varnothing \). A, B는 open. 따라서 (b)에 의해 증명된다.</p>
+<p>(d)</p>
+<p>\(E\)는 connected metric space with at least two points, p and q라고 하자.<br>
+\( s = d(p,q) &gt; 0\)로 놓으면<br>
+\( \forall \delta \in (0,s), \exist d(p,r)=\delta \text{ such that } r \in E \)<br>
+(If not, (c)처럼 2개의 집합으로 나눌 수 있고, E는 separated이다.)<br>
+\( E \)는 ono-to-one, onto \( (0,s) \). 따라서 uncountable.</p>
+<h3 id="20">20.</h3>
+<ol>
+<li>Closure</li>
+</ol>
+<p>\( E \)는 connected set, \( \bar{E} \)는 not connected set이라고 가정하자.<br>
+\( \bar{E} = A\cup B \), \( A \ne \varnothing \) \( B \ne \varnothing \)는 separated sets.<br>
+\( A^* = A \cap E \), \( B^* = B \cap E \)</p>
+<p>Closure인 connected sets은 항상 connected 이다.</p>
+<ol start="2">
+<li>Interior</li>
+</ol>
+<p>\( \R^2 \)에서 \( E=[-1,0]\times[-1,0] \cup [0,1]\times[0,1] \)이라 놓자.<br>
+\( a \in [-1,0]\times[-1,0] \), \( b \in [0,1]\times[0,1] \)인 interior point를 잡으면, 원점에서 \( B(0,r) \nsubset E \)이므로 connected가 아니다.</p>
+<p>connected set의 Interior은 항상 connected이 아니다.</p>
+<p>따라서 connected sets의 Closures이고 Interiors은 항상 connected가 아니다.</p>
+<h3 id="21">21.</h3>
+<h3 id="22">22.</h3>
+<p>\( \mathbb{Q} \)는 dense in \( \R \)이므로 \( \mathbb{Q}^k \)는 dense in \( \R^k \).<br>
+\( \mathbb{Q}^k \)는 countable sets의 곱짛방, countable이다. 따라서 \( \mathbb{R}^k \)은 separable</p>
+<h3 id="23">23.</h3>
+<p>\( X \)를 separable metric space이라 하자.<br>
+\( E \subset X \)를 countable dense라고 둘 수 있다. \( \forall p \in E,\ s \in E &gt; 0 \)에 대해서 \( B(p, s) \)를 생각하자.<br>
+\( {B(p,s)} \)는 countable collection of open subsets of X.</p>
+<p>\( G \)를 \( X \)의 open subset이라 하자. \( x \in G \)에 대해 \( G \)는 open이므로 \( B(x,r) \)의 모든 원소는 G의 원소이고,<br>
+\( B(p,{r \over 2}) \)를 잡으면, 그 안의 원소 \( y \in E \)를 하나 잡을 수 있다.<br>
+\( \forall r^* \in \mathbb{Q}, \text{ such that } d(x,y) &lt; q &lt; 2d(x,y) \)을 잡으면 \( x \in B(y,r^*) \subset G \).<br>
+따라서 \( {B(p,s)} \)은 \( X \)에 대해 countable base.</p>
 
   
     
@@ -292,6 +400,14 @@ K의 limit points는 \( 0, 1, 1/2, 1/3, \cdots  \).<br>
         <li><a href="#13-construct-a-compact-set-of-real-numbers-whose-limit-point-form-a-a-countable-set">13. Construct a compact set of real numbers whose limit point form a a countable set</a></li>
         <li><a href="#14">14.</a></li>
         <li><a href="#15">15.</a></li>
+        <li><a href="#16">16.</a></li>
+        <li><a href="#17">17.</a></li>
+        <li><a href="#18">18.</a></li>
+        <li><a href="#19">19.</a></li>
+        <li><a href="#20">20.</a></li>
+        <li><a href="#21">21.</a></li>
+        <li><a href="#22">22.</a></li>
+        <li><a href="#23">23.</a></li>
       </ul>
     </li>
   </ul>

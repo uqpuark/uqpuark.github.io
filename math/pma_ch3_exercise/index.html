@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[해석학] CH3 문제  | 데이터 사이언스 블로그</title>
+  <meta name="description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[해석학] CH3 문제'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[해석학] CH3 문제">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-04-17">
+  
+  <meta property="og:description" content="대충 넘어 갔던 개념을 자세하게 따져보는 블로그 '[해석학] CH3 문제'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://uqpuark.github.io/math/pma_ch3_exercise/">
+  <meta property="og:site_name" content="데이터 사이언스 블로그">
+  
+  <meta property="og:image" content="https://uqpuark.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="해석학">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://uqpuark.github.io/math/pma_ch3_exercise/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189694109-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-189694109-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="35px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><form id="search"
+    action='' method="get">
+    <label hidden for="search-input">Search site</label>
+    <input type="text" id="search-input" name="query"
+    placeholder="search or jump to...">
+    <input type="submit" value="search">
+</form>
+
+</li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>
+
+
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://uqpuark.github.io/math/pma_ch3_exercise/">
+      <div class="post-meta">
+        <time>2021년 04월 17일 12시 31분</time>
+        <h1>[해석학] CH3 문제</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <h1 id="2018170865-산업경영공학부-박재현">2018170865 산업경영공학부 박재현</h1>
+<h2 id="exercise">Exercise</h2>
+<h3 id="1">1.</h3>
+<p>\( {s_n} \)이 \( s \)로 수렴한다고 가정하자.<br>
+\( \epsilon&gt;0 \)에 대해, \( N \text{ such that } |s_n-s|&lt;\epsilon \)을 찾자.(\(N\)은 충분히 큰 수)</p>
+<p>\( ||s_n|-|s|| \le |s_n-s| &lt; \epsilon \). 따라서 증명된다.</p>
+<p>역은 성립하지않는다. 반례 : \( s_n=(-1)^n \)</p>
+<h3 id="2">2.</h3>
+<p>\( \begin{aligned} \lim_{n \to \infty} (\sqrt{n^2+n}-n) &amp;= \lim_{n \to \infty} (\sqrt{n^2+n}-n) {(\sqrt{n^2+n}+n) \over (\sqrt{n^2+n}+n)} \\\ &amp;= \lim_{n \to \infty} {n \over (\sqrt{n^2+n}+n)}} \\\ &amp;= \lim_{n \to \infty} {1 \over \sqrt{1+{1\over n}}+1} \\\ &amp;= {1 \over 2} \end{aligned} \)</p>
+<h3 id="3">3.</h3>
+<p>\( 0 &lt; s_1 &lt; 2 \)<br>
+만약 \( 0 &lt; s_n &lt; 2 \)이면 \( 0 &lt; s_{n+1} = \sqrt{2+\sqrt{s_n}} &lt; \sqrt{2+\sqrt{2}} &lt; 2 \)이므로 수학적 귀납법에 의하여 \( s_n &lt; 2 \).</p>
+<p>\( s_2 = \sqrt{2+\sqrt{2}} &gt; \sqrt{2} = s_1  \)<br>
+만약 \( s_n &gt; s_{n-1} \)이라고 하면 \( s_{n+1} = \sqrt{2+\sqrt{s_n}} &gt; \sqrt{2+\sqrt{s_{n-1}}} = s_n \)이므로 수학적 귀납법에 의하여 \( {s_n} \)은 증가한다.</p>
+<p>\( { s_n} \)는 bounded, increasing. 따라서 \( {s_n} \)은 수렴한다.</p>
+<h3 id="4">4.</h3>
+<p>\( {s_n} \) : \( 0,\ {1 \over 2},\ {1 \over 2},\ {1 \over 4},\ {3 \over 4},\ {3 \over 8},\ {7 \over 8},\ {7 \over 16},\ {15 \over 16} \)</p>
+<p>홀수항 : \( s_n = {2^{n-1}-1 \over 2^n} \)<br>
+\( \lim_{n \to \infty} \inf s_n = \lim_{n \to \infty} ({1 \over 2} - {1 \over 2^n}) = {1 \over 2} \)</p>
+<p>짝수항 : \( s_n = {2^n-1 \over 2^n} \)<br>
+\( \lim_{n \to \infty} \sup s_n = \lim_{n \to \infty} (1 - {1 \over 2^n}) = 1 \)</p>
+<h3 id="5">5.</h3>
+<p>\( c_n = a_n + b_n  \)를 놓고,<br>
+\( \alpha = \lim_{n \to \infty} \sup a_n \), \( \beta = \lim_{n \to \infty} \sup b_n \), \( \gamma = \lim_{n \to \infty} \sup c_n \)라 하자.</p>
+<ol>
+<li>\( \alpha=\infty \) or \( \beta=\infty \)</li>
+</ol>
+<p>\( \gamma &lt; \alpha + \beta \).</p>
+<ol start="2">
+<li>\( \alpha,\ \beta \)가 finite</li>
+</ol>
+<p>\( { n_k } \subset \mathbb{N} \text{ such that } \lim_{k \to \infty} (a_{n_k}+b_{n_k})=\lim_{n \to \infty} (a_n+b_n)  \)라 하자.<br>
+\(  { n_{k}} \)의 subsequence \( { n_{k_m}} \text{ such that }  \lim_{m \to \infty} a_{n_{k_m}}=\lim_{k \to \infty} \sup a_{n_k} \) 를 선택하면<br>
+subsequence \( { a_{n_{k_m}} + b_{n_{k_m}} } \)은 \( \lim_{n \to \infty} (a_n + b_n) &lt; \infty \)에 수렴한다.<br>
+따라서, \( \lim_{n \to \infty} \sup a_{n_k} &lt; \lim_{n \to \infty} \sup a_n &lt; \infty \)이므로<br>
+\( \begin{aligned} \lim_{m \to \infty} b_{n_{k_m}} &amp;= \lim_{m \to \infty} [(a_{n_{k_m}} + b_{n_{k_m}}) - a_{n_{k_m}}] \\\ &amp;= \lim_{m \to \infty} (a_{n_{k_m}} + b_{n_{k_m}}) - \lim_{m \to \infty} (a_{n_{k_m}} \end{aligned} \)</p>
+<p>\( \begin{aligned} \lim_{n \to \infty} (a_n + b_n) &amp;= \lim_{m \to \infty} (a_{n_{k_m}} + b_{n_{k_m}}) \\\ &amp;= \lim_{m \to \infty} a_{n_{k_m}} + \lim_{m \to \infty} b_{n_{k_m}} \\\ &amp;\le \lim_{n \to \infty} \sup a_n +\lim_{n \to \infty} \sup b_n \end{aligned} \)<br>
+따라서 증명된다.</p>
+<h3 id="6">6.</h3>
+<p>(a) \( a_n = \sqrt{n+1} - \sqrt{n} \)</p>
+<p>\( s_n = \sqrt{n+1}-\sqrt{n} \rightarrow  \infty  \)로 발산한다.</p>
+<p>(b) \( a_n = {\sqrt{n+1} - \sqrt{n} \over n} \)</p>
+<p>\( a_n = {1 \over n\sqrt{n+1}+n\sqrt{n}} \)<br>
+\( \Rightarrow a_n \le {1 \over 2n^{3/2}} &lt; {1 \over n^{3/2}}  \)<br>
+\( \Rightarrow \sigma {1 \over 2n^{3/2}} \)는 수렴 (by p-test)</p>
+<p>(c) \( a_n = (\sqrt[n]{n}-1)^n \)</p>
+<p>\( \lim_{n \to \infty} \sqrt[n]{a_n} = \lim_{n \to \infty} (\sqrt[n]{n}-1)=1-1=0 \)<br>
+따라서 root test에 의해 급수는 수렴한다.</p>
+<p>(d) \( a_n = {1 \over 1+z^n} \)</p>
+<p>\( |{1 \over 1+z^n} \le {1 \over ||z|^n-1|} \) \( \because |z^n+1|=|z^n-(-1)| \ge ||z^n|-|-1||=||z|^n-1| \)</p>
+<p>\( |z| &gt; 1 \)일때, 충분히 큰 수 N에 대해<br>
+\( n \ge N \)에 대해 \( {1 \over |z|^n-1} \le {2 \over |z}^n \).<br>
+\( n \ge N \)에 대해 \( |{1 \over 1+z^n}| \le {2 \over |z|^n} \).<br>
+비교테스트에 의해 \( \sigma {2 \over |z|^n} \)가 수렴하므로 \( \sigma a_n \)은 수렴한다.</p>
+<p>\( |z| \le 1 \)일때, \( a_n \nrigtharrow 0 \), 따라서 \( \sigma a_n \)는 발산</p>
+<h3 id="7">7.</h3>
+<p>\( (\sqrt{a_n}-{1 \over n})^2 \ge 0 \)이므로, \( {\sqrt{a_n} \over n} \le {1 \over 2} (a_n + {1 \over n^2}}) \)<br>
+따라서 \( \begin{aligned} \sigma {\sqrt{a_n} \over n} \le \sigma {1 \over 2} (a_n + {1 \over n^2}}) \\\ &amp;= {1 \over 2} (\sigma a_n + \sigma {1 \over n^2}) \end{aligned} \)</p>
+<p>따라서 가정에 의해 수렴한다(by 비교판정법).</p>
+
+  
+    
+    <div class="post-toc">
+      <span class="title">Contents</span>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#exercise">Exercise</a>
+      <ul>
+        <li><a href="#1">1.</a></li>
+        <li><a href="#2">2.</a></li>
+        <li><a href="#3">3.</a></li>
+        <li><a href="#4">4.</a></li>
+        <li><a href="#5">5.</a></li>
+        <li><a href="#6">6.</a></li>
+        <li><a href="#7">7.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    <div style='padding:15px;'>
+    </div>
+    
+  </section>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:uqpuark@gmail.com">uqpuark</a>
+      
+      님이
+      <span class="highlight">2021년 04월 17일 12시 31분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div style="padding-left: 16px">
+    데이터 사이언티스트를 꿈꾸고 있습니다. 수학, 통계학에 대한 질문이나 의견을 나누고 싶습니다. 
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">[카테고리]</span>
+        
+        
+        <a href="https://uqpuark.github.io/categories/%EC%88%98%ED%95%99">#수학</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">[태그]</span>
+        
+        
+        <a href="https://uqpuark.github.iotags/%ED%95%B4%EC%84%9D%ED%95%99">#해석학</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://uqpuark.github.io/2021_01/pp_summary/" rel="prev">
+          <span>[생산계획] 1~3장 요약</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="uqpuark/uqpuark.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  <div class="share">
+      <a href="https://github.com" title="Github" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+  </div>
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+<script>
+window.store = {
+    
+    
+}
+</script>
+
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+</footer>
+</body>
+</html>
